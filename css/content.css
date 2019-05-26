@@ -62,15 +62,18 @@
 	padding: 5px;
 	background-color: #E0792B;
 	color: #fff !important;
-	margin-bottom: 5px;
+	margin-bottom: 15px;
 	margin-right: 5px;
+	line-height: 45px;
 }
 .lesson-button.active{
 	background-color: #20262e;
 }
 .lesson:nth-child(even){
 	background-color: #eee;
-	
+}
+def{
+	font-weight: 600;
 }
 @media only screen and (max-width: 600px) {
 .lesson-theory

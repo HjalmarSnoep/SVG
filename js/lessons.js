@@ -16,7 +16,7 @@
 			var item=document.createElement("a");
 			var nr=('0' + (i+1)).slice(-2);
 			item.href="lesson"+nr+".html";
-			item.innerHTML="Les "+nr;
+			item.innerHTML=" Les&nbsp;"+nr+" ";
 			item.className="lesson-button";
 			if(nr==active)
 			{
