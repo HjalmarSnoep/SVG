@@ -7,7 +7,7 @@ Ik heb deze repo gemaakt met twee redenen:
  - Oh, en ik werk nu even bij het Roc van Flevoland, alwaar de google Classroom hierop aansluit.
 
 ## Preview lesmateriaal ROCvF
-Ik heb het allemaal op github Pages gezet, dus je kunt ook https://hjalmarsnoep.github.io/SVG/ bezoeken.
+Ik heb het allemaal op github Pages gezet, dus je kunt ook
 
 ## Lesmarteriaal bij de SVG les voor google Classroom.
 In google Classroom zie je een video voor ieder voorbeeld.
