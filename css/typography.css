@@ -1,0 +1,44 @@
+/* typography */
+body{
+	font-size: 1.3em;
+	line-height: 1.5em;
+}
+#page, #page td{
+	color: #42393B;
+	font-family: 'PT Serif';
+	font-weight: 500;
+}
+section{
+	text-align: left;
+}
+#page h1,#page h2,#page h3,#page h4,#page h5 {
+	color: #3185c5;
+	font-family: 'Fjalla One';
+	font-weight: 500;
+	margin-top:0;
+	margin-bottom:5px;
+}
+#page p {
+	color: #42393B;
+	font-family: 'PT Serif';
+	font-weight: 500;
+	
+	margin: 0 auto 0.2em;
+}
+#page li {
+	color: #42393B;
+	font-family: 'PT Serif';
+	font-size: 1.3em;
+	font-weight: 500;
+	line-height: 1.5em;
+	margin: 0 auto 0em;
+	max-width: 700px;
+}
+#page a  {
+	font-family: 'PT Serif';
+	color: #E0792B;	
+	text-align: center;
+}
+#page a:hover {
+	color: #42393B;
+}

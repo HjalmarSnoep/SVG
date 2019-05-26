@@ -1,0 +1,12 @@
+#page {
+  display: block;
+}
+
+#nav {
+	position: relative;
+}
+
+#content {
+	padding: 15px;
+}
+

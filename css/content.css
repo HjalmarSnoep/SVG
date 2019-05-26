@@ -1,0 +1,111 @@
+/* --------- content ---------*/
+#page{
+}
+#page section{
+	background-color: rgba(255,250,240,0.9);
+	padding: 15px;
+	margin-bottom: 15px;
+	border-bottom: 5px solid #E0792B;
+	background-position: center bottom; 
+	background-repeat: repeat-x;
+	text-align: left;
+}
+.align-right{
+/*	background-color: rgba(0,0,0,0.1);*/
+	width: 100%;
+	padding: 15px  0 15px 15px;
+	text-align: right;
+}
+.popup
+{
+	position: fixed;
+	width: 500px;
+	height: 400px;
+	top: 50%;
+	left: 50%;
+	margin-top: -200px; /* Negative half of height. */
+	margin-left: -250px; /* Negative half of width. */
+	border:5px solid #E0792B;
+	background-color: #fff !important;
+	z-index: 5;
+}
+.lesson-image
+{
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+}
+.lesson-theory
+{
+	padding: 15px;
+	display: inline-block;
+	width: calc(100% - 220px);
+	height: 100px;
+	overflow: hidden;
+	background-color: #fff;
+}
+.lesson-excercise
+{
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+	background-color: #fff;
+}
+.lesson{
+	padding: 5px 0px 0px 5px;
+	background-color: #ddd;
+	margin-bottom: 5px;
+}
+.lesson-button{
+	padding: 5px;
+	background-color: #E0792B;
+	color: #fff !important;
+	margin-bottom: 5px;
+	margin-right: 5px;
+}
+.lesson-button.active{
+	background-color: #20262e;
+}
+.lesson:nth-child(even){
+	background-color: #eee;
+	
+}
+@media only screen and (max-width: 600px) {
+.lesson-theory
+{
+	width: calc(100% - 110px);
+}
+  .lesson-excercise {
+   width: calc(100% - 5px);
+  }
+}
+.demo
+{
+	width: 100%;
+	height: calc(100vh - 550px);
+}
+.examples
+{
+	 list-style-type: none;
+  margin: 0;
+  padding: 0;
+	width: 100%;
+	overflow-y: scroll;
+	height: 200px;
+}
+.examples li {
+	 display: inline-block;
+	 margin-bottom: 4px !important;
+}
+.examples li a {
+  display: block;
+  width: 200px;
+  background-color: #e0792b;
+  font-size: 15px;
+  color: #fff !important;
+}.examples li a:hover {
+  background-color: #d35a19;
+  font-size: 17px;
+}
