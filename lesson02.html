@@ -23,23 +23,30 @@
 			 <h1>Les 2</h1>
 			 <h3>SVG, HTML en interactiviteit</h3>
 		
-			<p>We gaan animeren met HTML en SVG
+			<p>Ik ga je laten zien dat werken met SVG erg lijkt op werken met HTML.
 			</p>
 			 </section>
 
 			 <section>
-			 <h1>Aan het werk</h1>
+			 <h1>Laten we beginnen..</h1>
 
 				<iframe width="100%" height="300" src="//jsfiddle.net/2re513dt/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 				HTML en SVG lijken op elkaar. Klik op HTML en kijk hoe dit in elkaar zit.
 				<ul>
-				<li>Ik heb een svg gemaakt, die erg lijkt op de div. Anders dan bij HTML, zit de styling IN de svg.</li>
+				<li>Ik heb een svg gemaakt, die erg lijkt op de div. </li>
+				<li>Anders dan bij HTML, zit de styling IN de svg.</li>
+				<li>Ik beschrijf van ALLE elementen waar ze staan en hoe groot ze zijn.</li>
 				</ul>
-				SVG en HTML zijn dus allebei manieren om content (vormpjes/text) etc op het scherm van je browser te toveren.
+				<def title="Scalable Vector Graphics">SVG</def> en <def title="HyperTextMarkupLanguage">HTML</def> zijn dus allebei manieren om 
+				<def title="vormpjes/text">content</def>  etc. op het scherm van je <def title="(Chrome, Firefox enz..)">browser</def> te toveren.<br>
 Alleen SVG heeft het uitgangspunt van een plaatje en HTML het uitgangspunt van een pagina.
-Het zijn allebei Markup-languagues gebaseerd op XML.
+Het zijn allebei <a href="https://nl.wikipedia.org/wiki/Opmaaktaal">Markup-languagues</a> gebaseerd op <def title="">XML</def>.
 Dat is goed nieuws, want je kunt het dus al lezen.
-Bij SVG geef je alleen van elementen coordinaten op, bij HTML valt het standaard in de ´pageflow´ en weet je dus niet precies waar een element terecht komt. Dat hangt af van de elementen eromheen (dit is niet altijd waar, maar goed, wat wel.)
+Bij SVG geef je alleen van elementen coordinaten op, bij HTML valt het standaard in de 
+<def title="Het effect dat blokken achter elkaar geplaatst worden en via CSS kunnen worden geplaatst op een plek die je van te voren niet precies weet!">"pageflow"</def> en
+weet je dus niet precies waar een element terecht komt. Dat hangt af van de elementen eromheen.<BR><BR>
+In HTML kun je met position: fixed en position: absolute het gedrag van een SVG een beetje nabootsen.
+Je kunt in SVG geen pageflow hebben!
 
 				
 			 </section>
@@ -68,11 +75,26 @@ Bij SVG geef je alleen van elementen coordinaten op, bij HTML valt het standaard
 				OK, ik wilde het niet te moeilijk maken, maar je kunt dus ook zoiets (ik leg straks uit HOE):
 				<iframe width="100%" height="300" src="//jsfiddle.net/2re513dt/3/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 				</p>
-				
-				<h2>OPDRACHT</h2>
-				Experimenteer met de vorm (<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes">met deze informatie</a>), maak een circle ipv een ellips. De tekst past niet meer, dat is niet erg.<br>
+				Kortom, je kunt elementen makkelijk stapelen, en je bent HEEL vrij in de vormen die je maakt.<br>
+				<def title="ook wel een image-formaat genoemd :)">SVG is een taal om mee te tekenen</def>.<br>
+	
+				Ook heb je in SVG een heel stel mogelijkheden voor filters, die je in HTML echt niet hebt, maar ook daar komen we later op.<br>
+
+				Het punt is voornamelijk: het werkt zoals je gewend bent, je kunt elementen een ID of een CLASS geven en je kunt ze in javascript selecteren met getElementByID, getElementsByClassName of getElementsByTagName, wat dat betreft gedragen SVG elementen en HTML elementen zich hetzelfde.<br>
+			 </section>
+
+			 <section>
+				<h2>OPDRACHT 1</h2>
+				Experimenteer met de vorm waarop geklikt moet worden (<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes">met deze informatie</a>), maak een circle ipv een ellips. De tekst past niet meer, dat is niet erg.<br>
 				Als je moedig bent, mag je ook een polygon proberen. Path ga ik nog uitleggen :)<br>
 				Laat de HTML code aan een leerkracht zien. Vergeet niet je doctype en een mooie titel.
+			 </section>
+			 <section>
+				<h2>OPDRACHT 2</h2>
+				Ga uit van <a href="https://jsfiddle.net/2re513dt/2/">https://jsfiddle.net/2re513dt/2/</a><br>
+				Maak de SVG-height ook ¨100%¨, dit vult niet direct de hele pagina, waarom niet?<br>
+				Tip1: denk aan je HTML/CSS lessen..<br>
+				Tip2: gebruik een reset-stylesheet.<br>
 			 </section>
 			 <section data=2 class="show_lessons">
 			</section>

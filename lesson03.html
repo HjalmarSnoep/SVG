@@ -14,67 +14,62 @@
 		  <nav id="nav" data-active="lessen"></nav>
 		  <div id="content">
 		  
-  			 <section data=2 class="show_lessons">
+  			 <section data=3 class="show_lessons">
 			</section>
 
 			 <section>
  			 <iframe width="560" height="315" src="https://www.youtube.com/embed/tkfBK3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-			 <h1>Les 2</h1>
-			 <h3>SVG, HTML en interactiviteit</h3>
+			 <h1>Les 3</h1>
+			 <h3>Animeren in Javascript.</h3>
 		
-			<p>We gaan animeren met HTML en SVG
+			<p>We weten natuurlijk allemaal, hoe je DIVs en andere html elementen animeert: met <a href="https://developer.mozilla.org/nl/docs/Web/API/Window/requestAnimationFrame">window.requestAnimationFrame()</a>. Wist je dat niet en snap je de volgende voorbeelden NIET, dan kun je de link volgen.<br><br>
+			<small>Wil je een discussie hebben over het verschil tussen setInterval en window.requestAnimationFrame? Dan kun je <a href="https://stackoverflow.com/questions/38709923/why-is-requestanimationframe-better-than-setinterval-or-settimeout">op stackoverflow</a> terecht.<br>
+			Ik raad je window.requestAnimationFrame aan, omdat het op mobieltjes beter werkt en ik heb gemerkt dat het met games zich WEL gedraagt zoals je zou verwachten. Maar wees gerust eigenwijs, als je weet wat je doet.<br>
+			Het voornaamste nadeel vind ik, dat window.requestAnimationFrame ALTIJD op 60fps loopt. Wellicht veranderd dat ooit nog. &lt;sigh&gt;</small>
 			</p>
 			 </section>
 
+
 			 <section>
 			 <h1>Aan het werk</h1>
+				<iframe width="100%" height="300" src="//jsfiddle.net/2re513dt/4/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
-				<iframe width="100%" height="300" src="//jsfiddle.net/2re513dt/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-				HTML en SVG lijken op elkaar. Klik op HTML en kijk hoe dit in elkaar zit.
 				<ul>
-				<li>Ik heb een svg gemaakt, die erg lijkt op de div. Anders dan bij HTML, zit de styling IN de svg.</li>
+				<li>animatie toegevoegd, backgroundColor property wordt random veranderd met javascript.</li>
 				</ul>
-				SVG en HTML zijn dus allebei manieren om content (vormpjes/text) etc op het scherm van je browser te toveren.
-Alleen SVG heeft het uitgangspunt van een plaatje en HTML het uitgangspunt van een pagina.
-Het zijn allebei Markup-languagues gebaseerd op XML.
-Dat is goed nieuws, want je kunt het dus al lezen.
-Bij SVG geef je alleen van elementen coordinaten op, bij HTML valt het standaard in de ´pageflow´ en weet je dus niet precies waar een element terecht komt. Dat hangt af van de elementen eromheen (dit is niet altijd waar, maar goed, wat wel.)
-
-				
+				Met window.requestAnimationFrame() roep je een functie aan over 1/60ste van een seconde<br>
+				De functie <def title="zie voorbeeld hierboven, klik op javascript :)">animate()</def> in dit geval, verandert de achtergrond kleur van de div 
+				en roept zichzelf aan via window.requestAnimationFrame.<br>
+				Zodra ik deze functie aanroep, gaat hij een loop in, die duurt, totdat ik de pagina of tab sluit.<br>
+				Met <em>window.requestAnimationFrame()</em> kun je dus animatie op je pagina maken.
 			 </section>
 
 			 <section>
-				Interactief maken gaat dan ook op dezelfde manier:</br>
-				<iframe width="100%" height="300" src="//jsfiddle.net/2re513dt/1/embedded/js,result,html/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-				Als je op Result klikt, zie je dat je nu op allebei de groene boxen kan klikken om ze rood te maken.
-				Het enige echte verschil is, dat je niet backgroundColor maar fill gebruikt.
-				<ul>
-				<li>SVG nu klikbaar.</li>
-				</ul>
+				Dit gaan we nu OOK met SVG doen:</br>
+				<iframe width="100%" height="300" src="//jsfiddle.net/2re513dt/5/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+				<ul>				<li>Ik verander de fill 60x per seconde met poly.style.fill</li>				</ul>
+				Je kunt hier zien, dat je de style van een SVG element op dezelfde manier kunt beinvloeden als dat van een HTML-element alleen gebruik ik <em>fill</em> ipv <e	m>backgroundColor</em>.
 			 </section>
-
 			 <section>
-				 <h1>Maar wat heb ik er dan aan?</h1>
-				 <p>HTML is een taal, die is gebaseerd op doosjes (boxjes), rechthoekige dingen. SVG is gebaseerd op curves.
-				Je kunt dus veel vrijere vormen maken dan in HTML.
-				Ik kan bijvoorbeeld een ellips maken met een heel kleine aanpassing in de code: </p>
-
-				<iframe width="100%" height="300" src="//jsfiddle.net/2re513dt/2/embedded/html,js,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-				<ul>
-					<li>De rectangle in de div is vervangen door een ellips</li>
-				</ul>
-				<p>(Big deal, dat kun je ook met border-radius, toch?)<br>
-				OK, ik wilde het niet te moeilijk maken, maar je kunt dus ook zoiets (ik leg straks uit HOE):
-				<iframe width="100%" height="300" src="//jsfiddle.net/2re513dt/3/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-				</p>
-				
+				Met SVG kan je ook de vorm veranderen:</br>
+				<iframe width="100%" height="300" src="//jsfiddle.net/2re513dt/6/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+				<ul>				<li>Ik verander het attribuut points van polygon 60x per seconde met setAttribute</li>				</ul>
+				Ook setAttribute is hopelijk nog bekend van gewone HTML-elementen in javascript?
+			 </section>
+			 <section>
+				Of met een beetje wiskunde in iets wat een bepaalde betekenis heeft, zoals een ster, die draait en vervormt:</br>
+				<iframe width="100%" height="300" src="//jsfiddle.net/2re513dt/7/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+				Door een frame counter bij te houden en aan het begin van de functie op te hogen, kunnen we verschillende dingen tekenen, die veranderen, maar toch een betekenis hebben. Ook krijgen we controle over wat er wanneer getekend wordt.<br>
+				<small><em>Snel even uitleg over de wiskunde: Ik bereken 10 punten, deze liggen op twee cirkels. Alle oneven punten liggen op de ene cirkel en alle even punten op de andere. Dan verander ik de straal (a) van de cirkels met middelpunt (150,150) waarop deze punten liggen.</em></small>
+			 </section>
+			 <section>
 				<h2>OPDRACHT</h2>
-				Experimenteer met de vorm (<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes">met deze informatie</a>), maak een circle ipv een ellips. De tekst past niet meer, dat is niet erg.<br>
-				Als je moedig bent, mag je ook een polygon proberen. Path ga ik nog uitleggen :)<br>
-				Laat de HTML code aan een leerkracht zien. Vergeet niet je doctype en een mooie titel.
+				Zorg dat de ster OOK van kleur veranderd! (Dus combineer bovenstaande voorbeelden :)<br><br>
+				<p><small><em>Wil je me helemaal blij maken, laat hem langzaam in regenboogkleuren veranderen. Dus gebruik niet fill="rgb(r,g,b)" fill="hsl(296, 100%, 50%)" en verander de eerste <def title="ding dat je aan een functie meegeeft, in C, javascript enzo tussen ()">parameter</def> voor een mooi regenboog effect.<br>
+				<a href="https://www.w3schools.com/colors/colors_hsl.asp">NOG meer informatie over HSL kleuren</a></em></small></p>
 			 </section>
-			 <section data=2 class="show_lessons">
+			 <section data=3 class="show_lessons">
 			</section>
 			<script src="js/lessons.js" type="text/javascript"></script>
 		  
