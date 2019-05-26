@@ -1,0 +1,150 @@
+
+SVG animatie met JS
+javascript
+03 Animatie
+
+Hjalmar Snoep
+22 mei
+Animeren in Javascript.
+We weten natuurlijk allemaal, hoe je DIVs en andere html elementen animeert:
+https://jsfiddle.net/2re513dt/4/
+Met window.requestAnimationFrame() roep je een functie aan over 1/60ste van een
+Sidenote: waarom niet setTimeout? Dat kan OOK, maar aangeraden word window,requestAnimationFrame te
+gebruiken omdat deze STOPT op het moment, dat het window geen focus meer heeft. Dit is handig voor mobiele
+devices met weinig power, of als je bijvoorbeeld geluid maakt in je animatie loop.
+De functie in dit geval, veranderd de achtergrond kleur van de div en roept zichzelf aan via window.requestAnimationFrame.
+Zodra ik deze functie aanroep, gaat hij een loop in, die duurt, totdat ik de pagina of tab sluit.
+
+Met deze functie kun je animatie op je pagina maken.
+Dit kan natuurlijk OOK met SVG:
+https://jsfiddle.net/2re513dt/5/
+Alleen kan je met SVG ook de vorm veranderen:
+https://jsfiddle.net/2re513dt/6/
+Of met een beetje wiskunde in iets wat een bepaalde betekenis heeft, zoals een ster, die draait en vervormt:
+https://jsfiddle.net/2re513dt/7/
+
+Uitleg:
+Door een frame counter bij te houden en aan het begin van de functie op te hogen, kunnen we verschillende dingen tekenen, die veranderen, maar toch een betekenis hebben. Ook krijgen we controle over wat er wanneer getekend wordt.
+
+OEFENING:
+Zorg dat de ster OOK van kleur veranderd, maar gebruik niet fill="rgb(r,g,b)"
+fill="hsl(296, 100%, 50%)" en verander de eerste parameter voor een mooi regenboog effect.
+Lesgroepreacties
+Er zijn nog geen lesgroepreacties.
+Waarom begin jij het gesprek niet?
+03 Animatie
+Uitnodigen…
+
+SVG animatie met JS
+javascript
+05 Toepassingen + voorbeelden
+
+Hjalmar Snoep
+22 mei
+Zoek en bekijk voorbeelden van de volgende toepassingen van SVG:
+-in plaats van Font-Awesome voor icoontjes
+-loading animation
+-animated button icoontjes
+-animated logo
+-als (of animatie) plaatje dat kan scalen.
+-responsive design, zonder vast te zitten aan een grid
+-Spelletje
+-Spriting
+(Wat is een SVG
+Lesgroepreacties
+Er zijn nog geen lesgroepreacties.
+Waarom begin jij het gesprek niet?
+05 Toepassingen + voorbeelden
+Uitnodigen…
+
+SVG animatie met JS
+javascript
+05 Toepassingen + voorbeelden
+
+Hjalmar Snoep
+22 mei
+Zoek en bekijk voorbeelden van de volgende toepassingen van SVG:
+-in plaats van Font-Awesome voor icoontjes
+-loading animation
+-animated button icoontjes
+-animated logo
+-als (of animatie) plaatje dat kan scalen.
+-responsive design, zonder vast te zitten aan een grid
+-Spelletje
+-Spriting
+(Wat is een SVG
+Lesgroepreacties
+Er zijn nog geen lesgroepreacties.
+Waarom begin jij het gesprek niet?
+05 Toepassingen + voorbeelden
+Uitnodigen…
+
+SVG animatie met JS
+javascript
+04 bewerken met INKSCAPE
+
+Hjalmar Snoep
+22 mei
+Download InkScape en open een simpele SVG.
+Bijvoorbeeld:
+<svg>
+
+</svg>
+Verander hem (kijk eventueel een tutorial)
+en save hem als optimized SVG.
+Bekijk hem voor en na in een teksteditor.
+Lesgroepreacties
+Er zijn nog geen lesgroepreacties.
+Waarom begin jij het gesprek niet?
+04 bewerken met INKSCAPE
+Uitnodigen…
+
+SVG animatie met JS
+javascript
+06 Filter, Stroking and other secret sauce..
+
+Hjalmar Snoep
+22 mei
+Lesgroepreacties
+Er zijn nog geen lesgroepreacties.
+Waarom begin jij het gesprek niet?
+06 Filter, Stroking and other secret sauce..
+Uitnodigen…
+
+SVG animatie met JS
+javascript
+07 Groeperen & elementen
+
+Hjalmar Snoep
+22 mei
+Lesgroepreacties
+Er zijn nog geen lesgroepreacties.
+Waarom begin jij het gesprek niet?
+07 Groeperen & elementen
+Uitnodigen…
+
+SVG animatie met JS
+javascript
+08 GreenSock
+
+Hjalmar Snoep
+22 mei
+Lesgroepreacties
+Er zijn nog geen lesgroepreacties.
+Waarom begin jij het gesprek niet?
+08 GreenSock
+Uitnodigen…
+
+SVG animatie met JS
+javascript
+09-PRO TIPS: Optimalisatie, Viewboxing, Use, Externe sources, Spriting, IcoMoon
+
+Hjalmar Snoep
+22 mei
+Lesgroepreacties
+Er zijn nog geen lesgroepreacties.
+Waarom begin jij het gesprek niet?
+09-PRO TIPS: Optimalisatie, Viewboxing, Use, Externe sources, Spriting, IcoMoon
+Uitnodigen…
+
+https://hjalmarsnoep.github.io/SVG/
