@@ -48,24 +48,66 @@
 			 </section>
 			 
 			 <section>
-			<h1>Fills</h1>
-				<iframe width="100%" height="300" src="//jsfiddle.net/uwo8tdLc/1/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-  			<p>
-    			  In SVG maak je een shape, met een fill (de kleur) of een stroke (een outline).
-    			De cirkels zitten in een <strong>&lt;g>&lt;/g></strong> of group-tag. We zetten de fill op none voor de hele groep.
-    			Vervolgens kunnen we ons concentreren op de strokes. Per cirkel zet ik steeds andere properties, zoals:
+			<h1>Fills &amp; Gradients, Bitmap-fill Defs</h1>
+  				<iframe width="100%" height="300" src="//jsfiddle.net/uwo8tdLc/5/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+    			<p>
+    			  Behalve vlakke kleuren kun je ook gradients en een bitmap-fill maken.
+    			  Hiervoor moet je eerst een gradient definieren, dit doe je in een <strong>&lt;defs>&lt;/defs></strong> tag.
+    			  Wat er in de defs tag staat wordt niet getoond, tenzij je het toepast in een van de andere elementen.
   			</p>
-    			<ul>
-    			  <li>stroke, <small>de kleur van de lijn (default: zwart)</small></li>
-    			  <li>stroke-width, <small>de breedte van de lijn (default: 1, mag van 0 tot oneindig, hoeft geen geheel getal te zijn)</small></li>
-    			  <li>stroke-opacity, <small>de (on)doorzichtigheid van de lijn (default: 1, NIET doorzichtig, 0 is doorzichtig))</small></li>
-    			  <li>stroke-dasharray, <small>de stippels in de lijn, de cijfers betekenen [lijn-lengte gat-lengte lijn-lengte gat-lengte ... enz]</small></li>
-    			  <li>de kleur van de lijn <small>kun je opgeven in <a href="https://www.w3schools.com/cssref/css_colors_legal.asp">CSS Legal Color Values</a> (rgb, rgba, hexadecimaal, kleurlabels en hsv, hsva)</small></li>
-    			</ul>
+  			<iframe width="100%" height="300" src="//jsfiddle.net/uwo8tdLc/8/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+    			<p>
+    			  Behalve vlakke kleuren kun je ook gradients en een pattern maken.
+    			  Hiervoor moet je eerst een gradient of pattern definieren, dit doe je in een <strong>&lt;defs>&lt;/defs></strong> tag.
+    			  Wat er in de defs tag staat wordt niet getoond, tenzij je het toepast in een van de andere elementen.<br>
+    			  Met <code>fill="url(#grad1)"</code> geef ik aan, dat ik een interne definitie wil gebruiken, die id "grad1" heeft.
+    			  Je ziet misschien dat dit dezelfde manier van selecteren is als in <strong>CSS</strong> "#grad1" betekent een element met id "grad1"
+  			</p>
+  			<p>
+  			   <br> Een <strong>gradient</strong> heeft color-stops, die aangeven op welk percentage van de fill een kleur wordt weergegeven, de color-stops kunnen weer alle CSS Legal Color Values hebben. Een stop kan ook een opacity hebben. Laat je deze weg, dan is het standaard 1 of niet doorzichtig.
+  			</p>
+  			   <pre><code>
+&lt;linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+  &lt;stop offset="0%" style="stop-color:red;stop-opacity:1" />
+  &lt;stop offset="100%" style="stop-color:green;stop-opacity:1" />
+&lt;/linearGradient>
+  			   </code></pre>
+  			<p><br>
+  			    Een <strong>pattern</strong> is feitelijk een mini-svg, die je herhaalt met de fill. Je kunt een pattern dus ook gebruiken om te vullen met een image, door een image te plaatsen in het pattern.
+  		   			       			</p>
+  			      			   <pre><code>
+
+&lt;pattern id="star" viewBox="0,0,10,10" width="10%" height="10%">
+  &lt;rect x="0" y="0" width="10" height="10" fill="blue"/>
+  &lt;circle r="4" cx="5" cy="5" fill="white"/>
+&lt;/pattern>
+  			   </code></pre>
+  			<p><br>
+  			    Maakt een patroon met id "star" en een tile-grootte-van 10 bij 10. Met width="10%" of met width="0.1" geef je aan dat het patroon 10x in de breedte van het figuur moet worden herhaald.
+  			    Binnen het patroon zet ik een blauwe rechthoek op de achtergrond en een witte stip daarboven op.
+  		   			       			</p>
+  		   			       			<p>
+  		   			       			  Width en Height van een patroon kunnen zich 'vreemd' gedragen, als de verhouding van het tekenobject niet hetzelfde is als de verhouding tussen width en height van de viewbox van de patroon-tegel.<br>
+  		   			       			  Ter illustratie:<br>
+  		   			       			</p>
+  			      
+  			    			<iframe width="100%" height="300" src="//jsfiddle.net/uwo8tdLc/9/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+
 			 </section>
 
 			 <section>
-				<h2>OPDRACHT</h2>
+				<h2>OPDRACHT 1</h2>
+				Maak SVG met een patroon en een gradient. Maak een vorm en vul de stroke met de gradient en de fill met het patroon.<br>
+				Opslaan als "patroonhouder.svg";<br>
+				<h2>OPDRACHT 2</h2>
+				Tot nog toe hebben we gebruik gemaakt van interne links in de SVG, maar je kunt ook gebruik maken van externe links.
+				
+				Maak nu een HTML-file, genaamd "patroongebruiker.html" en maak hierin een inline-svg (dus zoals we het tot nog toe gedaan hebben)
+				en gebruik het patroon en de gradient uit de eerste SVG met
+				<code>fill="url(patroonhouder.svg#gradient)"</code><br>
+				<code>stroke="url(patroonhouder.svg#pattern)"</code><br>
+				Zet de svg patroongebruiker.svg en de HTML in dezelfde map en laat de HTML aan je leerkracht zien.
+				
 			 </section>
 			 <section class="show_lessons">
 			</section>

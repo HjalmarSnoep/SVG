@@ -20,15 +20,38 @@
 			 <section>
  			 <iframe width="560" height="315" src="https://www.youtube.com/embed/tkfBK3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-			 <h1>Les ?</h1>
-			 <h3>eeehm?</h3>
-		
-			<p>Hier ben ik nog mee bezig
-			</p>
+			 <h1>Les 5</h1>
+			 <h3>Animatie oorlogen</h3>
+					 </section>
+
+			 <section>
+			<h1>SMIL, Web-Animation, CSS-Animation, javascript</h1>
+			<p>Tot nog toe hebben we dingen geanimeerd met javascript. Dit is ook handig als er interactie in je SVG is.</p>
+			<p>Voor animaties, zijn er echter een aantal alternatieve systemen, SMIL door applie, Web-Animation door Chrome en
+			CSS-Animation dat nooit bedoeld was om SVG mee te animeren, maar SVG is nu eenmaal te stylen met CSS en daar hoort dus ook CSS-animation bij.</p>
+			<p>Het grote probleem met deze standaarden, is dat niemand het over eens lijkt te kunnen worden. Chrome had SMIL op deprecated staan, maar heeft dat weer ingetrokken na veel druk uit de community die SMIL voorstaat. Web-Animation API wordt niet ondersteund door Edge etc etc.
+			Het is een elllende. <br>
+			Ook zijn niet alle eigenschappen te animeren.</p>
+			<br>
+			<p>Daarom ga ik in deze tutorial uit van Javascript. Dit heeft een aantal voordelen.</p>
+			<ul>
+			  <li>Javascript is zowel voor interactie als animatie geschikt</li>
+			  <li>Er zijn goede libraries als greensock en D3 beschikbaar om je te helpen met moeilijke dingen</li>
+			  <li>Je hebt geen last van dit soort browser-strijd. Dit omdat Ecmascript (de makers van Javascript) als uitgangspunt hebben: "Don't break the web".
+			  Oude versies van javascript blijven het gewoon doen, ook al komt er functionaliteit bij.</li>
+			  </ul>
+			  Het enige nadeel is, dat Javascript bij echt simpele animaties wat groter uitpakt (meer Kb). Bij de meeste complexere animaties wint javascript weer.
 			 </section>
 
 			 <section>
-				<h2>OPDRACHT</h2>
+  Dezelfde animatie met SMIL, WEB-Animation, CSS-Animation EN Javascript.
+	<iframe width="100%" height="300" src="//jsfiddle.net/uwo8tdLc/11/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+			 </section>
+
+			 <section>
+				<h2>OPDRACHT 1</h2>
+			<iframe width="100%" height="300" src="//jsfiddle.net/uwo8tdLc/12/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+				Maak de bovenstaande animatie, maar nu met javascript, ZONDER de web-animation API, zodat het OOK werkt in EDGE!
 			 </section>
 			 <section class="show_lessons">
 			</section>
