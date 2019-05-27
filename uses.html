@@ -15,19 +15,71 @@
 		  <div id="content">
 			 <section id="demo">
 				<h1>DEMO</h1>
-				<iframe width="100%" height="300" src="//jsfiddle.net/2re513dt/7/embedded/result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-				<button>Show Code</button>
+				<iframe id="demoframe" width="100%" height="300" src="" allowfullscreen="allowfullscreen" frameborder="0" allowtransparency="true"></iframe>
+				<button id="show_code">Show Code</button>
 			 </section>
 			 <section>
 				<h4>Voorbeelden</h4>
-				<ul class="examples">
-				<li><a href="">Bewegende ster</a></li>
+				<ul class="examples" id="examples">
 				</ul>
 			 </section>
 			 
 		  
 		  </div>
 	  </div>
+	    <script>
+	        document.getElementById("show_code").addEventListener("click",showCode);
+
+	        var examples_dom=document.getElementById("examples");
+	        var url_voor_code="";
+	        var example=[];
+	        example.push({label:"bewegende ster",url:"2re513dt/7",type:"jsfiddle"});
+	        example.push({label:"diagonale strepen op achtergrond",url:"qdGEwE",type:"codepen",author:"dudleystorey"});
+	        example.push({label:"Game Assets",url:"tkfszrj0",type:"jsfiddle"});
+
+	        for(var i=0;i<example.length;i++)
+	        {
+	           var e=example[i];
+	           var li=document.createElement("li");
+	           var b=document.createElement("button");
+	           b.setAttribute("data-url",e.url);
+	           b.setAttribute("data-type",e.type);
+	           if(typeof(e.author)!="undefined")
+	              b.setAttribute("data-author",e.author);
+	           b.addEventListener("click",showExample);
+	           b.innerHTML=e.label;
+	           li.appendChild(b);
+	           examples_dom.appendChild(li);
+	        }
+	        function showCode()
+	        {
+	           window.open(url_voor_code,"_fiddler");
+
+	        }
+	        function showExample(ev)
+	        {
+	          var iframe=document.getElementById("demoframe");
+	          var element_url=ev.currentTarget.getAttribute("data-url");
+	          var type=ev.currentTarget.getAttribute("data-type");
+	          var url="";
+	          switch(type)
+	          {
+	            case "jsfiddle":
+    	          url="//jsfiddle.net/"+element_url+"/embedded/result,html,js,css/dark/";
+    	          document.getElementById("show_code").innerHTML="showCode op jsFiddle";
+    	          url_voor_code="https://jsfiddle.net/"+element_url;
+	              break;
+	            case "codepen":
+	              var owner=ev.currentTarget.getAttribute("data-author");
+    	          url="//codepen.io/"+owner+"/embed/"+element_url+"/?height=265&theme-id=0&default-tab=js,result";
+    	          document.getElementById("show_code").innerHTML="showCode op CodePen";
+    	          url_voor_code="https://codepen.io/"+owner+"/pen/"+element_url;
+	              break;
+	          }
+	          console.log(url);
+	          iframe.src=url;
+	        }
+	    </script>
       <script src="js/navigation.js" type="text/javascript"></script>
    </body>
 </html>
