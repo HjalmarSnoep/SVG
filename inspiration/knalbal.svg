@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <audio id="sfx_shoot" xmlns="http://www.w3.org/1999/xhtml">
+      <source src="shoot.mp3" type="audio/mpeg" />
+    </audio>
+  </defs>
+  
+  <g id="background">
+     <rect x="0" y="0" width="1920" height="1080" fill="#eee"></rect>
+    <path d="M0 20 Q 960 0 1920 20 V 920 Q 960 1190 0 920 Z" fill="#000"/>
+  </g>
+  <g id="shooter" transform="translate(90,90)">
+    <polygon points="0 0 50 100 -50 100"
+        fill="#aaa" />
+ </g>
+ <text id="score" x="30" y="110" fill="#fff" style="font: bold 80px sans-serif;">Score: </text>
+  <g id="balls">
+    <g id="ball">
+      <circle cx="0" cy="0" r="60" fill="#aaa"/>
+      <text text-anchor="middle" x="0" y="10" fill="#fff" style="font: bold 40px sans-serif;">1</text>
+    </g>
+ </g>
+  <g id="knal" style="display: none">
+      <circle cx="0" cy="0" r="150" stroke-width="55" stroke="#fff" fill="none"></circle>
+     <text text-anchor="middle" x="0" y="20" fill="#fff" style="font: bold 80px sans-serif;">Knal!</text>
+  </g>
+  <g id="bullets">
+      <g id="b0"><rect x="-5" y="-25" width="10" height="50" fill="#f00"/></g>
+      <g id="b1"><rect x="-5" y="-25" width="10" height="50" fill="#f00"/></g>
+      <g id="b2"><rect x="-5" y="-25" width="10" height="50" fill="#f00"/></g>
+      <g id="b3"><rect x="-5" y="-25" width="10" height="50" fill="#f00"/></g>
+      <g id="b4"><rect x="-5" y="-25" width="10" height="50" fill="#f00"/></g>
+  </g>
+ <g id="intro">
+     <rect x="0" y="0" width="1920" height="1080" fill="#eee"></rect>
+     <text text-anchor="middle" x="960" y="400" style="font: bold 180px sans-serif;">Knalbal</text>
+     <text text-anchor="middle" x="960" y="520" fill="#aaa" style="font: bold 50px sans-serif;">(My first ever game in standalone SVG)</text>
+     <text text-anchor="middle" x="960" y="600" style="font: bold 80px sans-serif;">Klik om te beginnen</text>
+ </g>
+ <g id="gameOver" style="display: none">
+     <rect x="0" y="0" width="1920" height="1080" fill="rgba(255,0,0,0.5)"></rect>
+     <text text-anchor="middle" x="960" y="400" style="font: bold 180px sans-serif;">Knalbal</text>
+     <text text-anchor="middle" x="960" y="520" fill="#aaa" style="font: bold 50px sans-serif;">GAME OVER</text>
+     <text text-anchor="middle" x="960" y="600" style="font: bold 80px sans-serif;">Klik om opnieuw te proberen</text>
+ </g>
+<script>
+
+  var intro=document.getElementById("intro");
+  intro.addEventListener("click",start);
+  var gameOver=document.getElementById("gameOver");
+  gameOver.addEventListener("click",restart);
+  var w=1920,h=1070,score=0, gameover=false;
+  var sfx={shoot: document.getElementById("sfx_shoot")};
+  var shooter={x:w/4,y:h-100,dom: document.getElementById("shooter"),shootTimeout:0,speed:0};
+  var ball={x:w/2,y:-100,dom: document.getElementById("ball"),dx:0,dy:0,r:60,points:1};
+  var knal={x:w/2,y:h/2,dom: document.getElementById("knal"),visible:false,r:0,max:0};
+  ball.text=ball.dom.getElementsByTagName("text")[0];
+  var bullets=[];
+  for(var i=4;i>=0;i--)
+  {
+    bullets.push( {visible:false,dom: document.getElementById("b"+i)});
+  }
+  bullet_nr=0;
+  var keys=[];
+  document.addEventListener("keydown",handleKeys);
+  document.addEventListener("keyup",handleKeys);
+
+  function start()
+  {
+    intro.style="display: none";
+    // we need to play the shoot sound on first click, to be able to play sound in the game.
+//    sfx["shoot"].volume=0;
+    sfx["shoot"].play();
+    // start the game..
+      gameLoop();
+  }
+  function restart()
+  {
+    gameOver.style.display="none";
+    gameover=false;
+    ball.x=w/2;
+    ball.y=-100;
+    ball.dx=0;
+    ball.dy=0;
+    ball.points=1;
+    ball.text.innerHTML=ball.points;
+    shooter.x=w/2;
+    shooter.y=h-100;
+    shooter.speed=0;
+  }
+  function gameLoop()
+  {
+    moveShooter();
+    moveKnal();
+    moveBullets();
+    moveBall(ball);
+    window.requestAnimationFrame(gameLoop);
+  }
+  function createBullet()
+  {
+    var b=bullets[bullet_nr];
+    bullet_nr=(bullet_nr+1)%5;
+    b.x=shooter.x;
+    b.y=shooter.y;
+    b.visible=true;
+    var rad=shooter.hoek/180*Math.PI;
+    b.dx=Math.sin(rad)*20;
+    b.dy=-Math.cos(rad)*20;
+    b.hoek=shooter.hoek;
+  }
+  function moveKnal()
+  {
+    if(knal.visible==true)
+    {
+      knal.s++;
+      knal.dom.setAttribute("transform","translate("+knal.x+","+knal.y+") scale("+knal.s/100+","+knal.s/100+") rotate("+knal.r+")");
+      knal.dom.setAttribute("stroke-opacity",1-knal.s/100);
+      knal.dom.style.display="";
+      if(knal.s/100>1)
+      {
+        knal.visible=false;
+      }
+    }else
+    {
+      knal.dom.style.display="none";
+    }
+  }
+  function createKnal(x,y,max)
+  {
+    knal.x=x;
+    knal.y=y;
+    knal.r=-25+Math.random()*50;
+    knal.s=20;
+    knal.visible=true;
+    knal.max=max;
+  }
+  function moveBullets()
+  {
+    for(var i=bullets.length-1;i>=0;i--)
+    {
+     var b=bullets[i];
+     b.y+=b.dy;
+     b.x+=b.dx;
+     if(b.y>0)
+     {
+       
+     }else
+     {
+        b.visible=false
+     }
+     if(b.visible)
+     {
+        b.dom.setAttribute("transform","translate("+b.x+","+b.y+") rotate("+b.hoek+")");
+        b.dom.style.display="";
+       // check hit ball
+       var dx=b.x-ball.x;
+       var dy=b.y-ball.y;
+       var len=Math.sqrt(dx*dx*2+dy*dy);
+       if(len>100)
+       {}else{
+         createKnal((b.x+ball.x)/2,(b.y+ball.y)/2,2);
+         b.visible=false;
+         ball.points++;
+         if(ball.points>score)
+         {
+           score=ball.points;
+           document.getElementById("score").innerHTML="Score:"+score;
+         }
+         ball.text.innerHTML=ball.points;
+         ball.dx-=15*dx/len;
+         ball.dy-=30*dy/len;
+       }
+     }else
+     {
+        b.dom.style.display="none";
+     }
+    }
+  }
+  function moveBall(b)
+  {
+    b.x+=b.dx;
+    var hoek=(960-b.x)/960;
+    var ground=1000-138*hoek*hoek;
+    b.y+=b.dy;
+    if(b.x>1850)
+    {
+      b.x=1850;
+      b.dx=-Math.abs(b.dx);
+    }
+    if(b.x>50)
+    {}else{
+      b.x=50;
+      b.dx=Math.abs(b.dx);
+    }
+    if(b.y>50)
+    {
+    }else{
+     b.y=50;
+     b.dy=Math.abs(b.dy);
+    }
+    if(b.y>ground)
+    {
+      b.y=ground;
+      ball.points=0;
+      ball.text.innerHTML=ball.points;
+
+      b.dy=-Math.abs(b.dy);
+      if(b.dy>-12){b.dy=-12;}
+      b.dx+=(960-b.x)/100;
+    }
+    b.dy+=0.5;
+    b.dx*=0.99;
+    b.dy*=0.99;
+    b.dom.setAttribute("transform","translate("+b.x+","+b.y+")");
+    // test if we hit the shooter
+    var dx=b.x-shooter.x;
+    var dy=b.y-shooter.y;
+    var len=Math.sqrt(dx*dx+dy*dy);
+    if(len>80){}else{
+      if(gameover==false)
+       createKnal(shooter.x,shooter.y,2);
+
+      document.getElementById("gameOver").style.display="";// show gameOver..
+      gameover=true;
+    }
+  }
+  function moveShooter()
+  {
+    if(gameover!=true)
+    {
+      if(keys[37]==true) shooter.speed-=2;
+      if(keys[39]==true) shooter.speed+=2;
+      shooter.speed*=0.95;
+      if(shooter.x>960) shooter.speed-=0.1;
+      else shooter.speed+=0.1;
+      shooter.x+=shooter.speed;
+  
+      if(shooter.x>75){
+      }else
+      {
+        shooter.x=75;
+        shooter.speed=Math.abs(shooter.speed)*0.5;
+      }
+      if(shooter.x>1845){
+        shooter.x=1845;
+        shooter.speed=-Math.abs(shooter.speed)*0.5;
+      }
+      if(shooter.shootTimeout>0) shooter.shootTimeout--;
+  
+      if(shooter.shootTimeout==0)
+      {
+        if(keys[32]==true)
+        {
+          sfx["shoot"].play();
+          // shoot.
+          createBullet();
+          shooter.shootTimeout=10;
+        }
+      }
+      var hoek=(960-shooter.x)/960;
+      shooter.hoek=hoek*18;
+      shooter.y=955-138*hoek*hoek;
+      shooter.dom.setAttribute("transform","translate("+shooter.x+","+shooter.y+") rotate("+shooter.hoek+")");
+      shooter.dom.style.display="";
+    }else
+    {
+        shooter.dom.style.display="none";// game over, so NO shooter anymore..
+
+    }
+  }
+  function handleKeys(ev)
+  {
+    var key = ev.keyCode || ev.which;
+    if(ev.type=="keydown")
+    {
+      keys[key]=true;
+    }else
+    {
+      keys[key]=false;
+    }
+  }
+  
+</script>
+</svg>
