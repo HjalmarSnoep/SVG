@@ -22,7 +22,29 @@
 			 </section>
 			 			 <section id="wat is">
 				<h2>WAT IS SVG?</h2>
-				<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Bitmap_VS_SVG.svg/300px-Bitmap_VS_SVG.svg.png"></p>
+				<div style="text-align: center;" id="scale-this">
+				<p><img id="grow1" src="img/svg-32x32.svg" style="max-width: 33%"><img id="this-height" style="max-width: 33%" src="img/svg-exposed.png"><img id="grow2" style="image-rendering: pixelated;max-width: 33%;" src="img/png-32x32.png">
+				<script>
+				var min=32,max=386-min,frame=0,totalscale=1;
+				var container=document.getElementById("scale-this");
+				var bounds=container.getBoundingClientRect();
+				animate();
+				function animate()
+				{
+					frame++;
+					var size=min+max*(1+Math.cos(frame/200))/2;
+					document.getElementById("grow1").style.width=size+"px";
+					document.getElementById("grow2").style.width=size+"px";
+					if(Math.floor(frame/200)%2)
+					document.getElementById("grow2").style.imageRendering="pixelated";
+					else
+					document.getElementById("grow2").style.imageRendering="";
+					
+					window.requestAnimationFrame(animate);
+				}
+				</script>
+				</div>
+				</p>
 				<p>S.V.G. staat voor Scaleable Vector Graphics. Vector, omdat deze tegenover Raster plaatjes (of graphics of bitmaps, JPG,PNG, GIF)) staan.</p>
 				<p>Op het web van vandaag is SVG steeds belangrijker, om de volgende redenen:</p>
 				<p><ul>
@@ -64,7 +86,7 @@
 				<li>SVG en CSS</li>
 				<li>Vergroten van HTML text mogelijkheden</li>
 				<li>SVG animaties (CSS, javascript en webanimation)</li>
-				<li><a href="security.html">Games</a></li>
+				<li><a href="security.html	">Games</a></li>
 				</ul>
 				</p>
 			 </section>
