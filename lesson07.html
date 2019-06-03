@@ -20,16 +20,85 @@
 			 <section>
  			 <iframe width="560" height="315" src="https://www.youtube.com/embed/tkfBK3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-			 <h1>Les ?</h1>
-			 <h3>eeehm?</h3>
-		
-			<p>Hier ben ik nog mee bezig
-			</p>
-			 </section>
+			 <h1>Les 7</h1>
+			 <h3>SVG Plaatsen in HTML, preserveAspectRatio</h3>
+			</section>
 
 			 <section>
-				<h2>OPDRACHT</h2>
+			<h1>Plaatsen in HTML</h1>
+			<p>We hebben al een hoop manieren gezien om SVG te plaatsen.</p>
+			<p>Inspecteer de volgende SVG's</p>
+			<style>
+				.blokje{
+					display: inline-block;
+					overflow: hidden;
+					width: 150px;
+					height: 200px;
+				}
+			</style>
+			<div class="blokje">
+				<h5>Inline:</h5>
+				<svg width="150" height="150" viewBox="0 0 256 230">
+					<path d="M5.888,166.405103 L90.88,20.9 C101.676138,27.2558621 156.115862,57.3844138 164.908138,63.1135172 L79.9161379,208.627448 C70.6206897,220.906621 -5.888,185.040138 5.888,166.396276 L5.888,166.405103 Z" fill="#FBBC04"></path>
+					<path d="M250.084224,166.401789 L165.092224,20.9055131 C153.210293,1.13172 127.619121,-6.05393517 106.600638,5.62496138 C85.582155,17.3038579 79.182155,42.4624786 91.0640861,63.1190303 L176.056086,208.632961 C187.938017,228.397927 213.52919,235.583582 234.547672,223.904686 C254.648086,212.225789 261.966155,186.175582 250.084224,166.419444 L250.084224,166.401789 Z" fill="#4285F4"></path>
+					<ellipse fill="#34A853" cx="42.6637241" cy="187.924414" rx="42.6637241" ry="41.6044138"></ellipse>
+				</svg>
+			</div>
+			<div class="blokje">
+				<h5>Als "img" tag:</h5>
+				<img src="inspiration/firefox.svg" width="150" height="150">
+			</div>
+			<div class="blokje">
+				<h5>Als background image</h5>
+				<div style="width: 150px; height: 150px; background-image: url(inspiration/Vanishing-Stripes.svg)"></div>
+			</div>
+			<div class="blokje">
+				<h5>Als extern object</h5>
+				<object type="image/svg+xml" data="inspiration/dojo-icon.svg" class="logo">
+					Kennelijk support je browser geen SVG, wat heb jij voor een koelkast? Affijn, een aardige developer stopt hier een plaatje in PNG ofzo.
+				</object>
+			</div>
+			<div class="blokje">
+				<h5>Gebruik xlink in SVG</h5>
+				<svg width="150" height="150" viewBox="0 0 256 255"> <use xlink:href="inspiration/duckduckgo.svg#the_actual_icon" /></svg>
+			</div>
+			
+			<p>Al deze manieren hebben zo hun voordelen en nadelen. Zo kun je met een object en inline WEL de SVG stylen met css, maar heb je minder controle over bijvoorbeeld de grootte bij het object.
+			Ook is een inline SVG wat verkwistend omdat je geen gebruik kan maken van caching over meerdere pagina's.
+			Zo heb je bij een img of een background img weer de beschikking over allerlei CSS styling, die moeilijker zijn bij standaard SVG, omdat deze zich standaard meer gedraagd als een img met object-fit eigenschappen.
+			Ook met oudere browsers heb je issues met de support van deze verschillende manieren, maar nieuwe browsers ondersteunen ze allemaal erg goed.
+			</p>
+			<p>Meer weten?</p>
+			<p><a href="https://css-tricks.com/using-svg/">https://css-tricks.com/using-svg/</a></p>
+			</section>
+			 <section>
+				<h2>preserveAspectRatio</h2>
+				<p>Een van de slechts begrepen features van een SVG is de alignment property van preserveAspectRatio</p>
+				<iframe width="100%" height="150" src="//jsfiddle.net/79jfbque/4/embedded/result,html/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+				<p>Ik plaats hier vijf keer dezelfde SVG, zoals je ziet, probeert SVG standaard de ruimte te vullen met de viewBox.</p>
+			</section>
+			<section>
+				<h2>preserveAspectRatio</h2>
+				<p>Je hebt controle over de manier waarop SVG dit doet met het attribute <strong>preserveAspectRatio</strong></p>
+				<p><code>&lt;svg  preserveAspectRatio="xMidYMid meet">&lt;/svg></p>
+				<iframe width="100%" height="230" src="//jsfiddle.net/79jfbque/3/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+			</section>
+			 <section>
+				<h2>OPDRACHT 1</h2>
+				Ga naar <a href="https://icomoon.io/app">Icon-moon app</a>, selecteer wat icons en genereer een SVG.
+				Nu kun je ze gebruiken met:
+				<textarea style="width: 100%"><svg class="icon icon-location"><use xlink:href="inspiration/symbol-defs.svg#icon-location"></use></svg></textarea>
+				<style>.icon{width: 32px; height: 32px; padding: 1px; transition: fill,width,height, 0.5s;}.icon:hover{padding: 0px; width: 34px; height: 34px; fill: #f00;}</style>
+				<svg class="icon"><use xlink:href="inspiration/symbol-defs.svg#icon-forward"></use></svg>
+				<svg class="icon"><use xlink:href="inspiration/symbol-defs.svg#icon-key"></use></svg>
+				<svg class="icon"><use xlink:href="inspiration/symbol-defs.svg#icon-trophy"></use></svg>
+				<svg class="icon"><use xlink:href="inspiration/symbol-defs.svg#icon-user"></use></svg>
+				<svg class="icon"><use xlink:href="inspiration/symbol-defs.svg#icon-location"></use></svg>
+				<svg class="icon"><use xlink:href="inspiration/symbol-defs.svg#icon-inbox"></use></svg>
+				
+				
 			 </section>
+
 			 <section class="show_lessons">
 			</section>
 			<script src="js/lessons.js" type="text/javascript"></script>

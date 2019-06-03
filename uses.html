@@ -15,7 +15,7 @@
 		  <div id="content">
 			 <section id="demo">
 				<h1>DEMO</h1>
-				<iframe id="demoframe" width="100%" height="300" src="" allowfullscreen="allowfullscreen" frameborder="0" allowtransparency="true"></iframe>
+				<iframe id="demoframe" width="100%" height="500" src="" allowfullscreen="allowfullscreen" frameborder="0" allowtransparency="true"></iframe>
 				<button id="show_code">Show Code</button>
 			 </section>
 			 <section>
@@ -33,10 +33,13 @@
 	        var examples_dom=document.getElementById("examples");
 	        var url_voor_code="";
 	        var example=[];
-	        example.push({label:"bewegende ster",url:"2re513dt/7",type:"jsfiddle"});
-	        example.push({label:"diagonale strepen op achtergrond",url:"qdGEwE",type:"codepen",author:"dudleystorey"});
-	        example.push({label:"Game Assets",url:"tkfszrj0",type:"jsfiddle"});
-
+	        example.push({label:"bewegende ster",url:"2re513dt/7",type:"jsfiddle",icon:"bewegende_ster.png"});
+	        example.push({label:"diagonale strepen op achtergrond",url:"qdGEwE",type:"codepen",author:"dudleystorey",icon:"diagonal_stripes.png"});
+	        example.push({label:"Game Assets",url:"tkfszrj0",type:"jsfiddle",icon:"icon-gamecharacter.png"});
+	        example.push({label:"LavaLamp",url:"tfb95nLh/1",type:"jsfiddle",icon:"icon-lavalamp.png"});
+	        example.push({label:"SearchLight",url:"0nu5q3pd/1",type:"jsfiddle",icon:"icon-searchlight.png"});
+	        example.push({label:"Social Select",url:"vmgLdpau/3",type:"jsfiddle",icon:"icon-social-select.png"});
+	        example.push({label:"animated-world",url:"RmvBJP",type:"codepen",author:"SnoepGames",icon:"icon-animated-world.png"});
 	        for(var i=0;i<example.length;i++)
 	        {
 	           var e=example[i];
@@ -48,6 +51,13 @@
 	              b.setAttribute("data-author",e.author);
 	           b.addEventListener("click",showExample);
 	           b.innerHTML=e.label;
+			   if(typeof(e.icon)!="undefined")
+			   {
+				var img=document.createElement("img")
+				img.src="img/"+e.icon;
+				img.style="margin-left: 5px; vertical-align: middle;";
+				b.appendChild(img);
+			   }
 	           li.appendChild(b);
 	           examples_dom.appendChild(li);
 	        }
