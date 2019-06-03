@@ -1,0 +1,46 @@
+<!doctype HTML>
+<html>
+   <head>
+      <link href="https://fonts.googleapis.com/css?family=PT+Serif:400" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet" type="text/css">
+      <link href="css/reset.css" rel="stylesheet" type="text/css">
+      <link href="css/scafolding.css" rel="stylesheet" type="text/css">
+      <link href="css/typography.css" rel="stylesheet" type="text/css">
+      <link href="css/content.css" rel="stylesheet" type="text/css">
+      <link href="css/navigation.css" rel="stylesheet" type="text/css">
+   </head>
+   <body>
+      <div id="page">
+		  <nav id="nav" data-active="voorbeelden"></nav>
+		  <div id="content">
+			 <section id="demo">
+				<h1>Knalbal</h1>
+				<iframe id="" width="100%" height="500" src="inspiration/knalbal.svg"  allowfullscreen="allowfullscreen" frameborder="0" allowtransparency="true"></iframe>
+			 </section>
+			 <section>
+				<h4>Mogelijk Security Probleem</h4>
+				Hierboven zie je een iframe, met ALLEEN een SVG erin.<br>
+				Toch zit er geluid bij de game en interactie in de vorm van Javascript.<br><br>
+				<p>Dit kan een beveilingsprobleem zijn, als je niet oplet en bijvoorbeeld gewoon een onbekende SVG op je pagina plaatst als object of inline.<br>
+Doordat je in SVG javascript kan insluiten, kun je dan een XSS attack via SVG verwachten!<br>
+</p>
+			 </section>
+			 <section>
+				<h4>Voorkomen van Security Probleem 1</h4>
+				<p>Plaats geen onbekende SVG's als svg (dus inline, met een use tag of als object), maar alleen als img.</p>
+				<img src="inspiration/knalbal.svg" width="400"><br>
+				Zoals deze
+			 </section>
+			  <section>
+				<h4>Voorkomen van Security Probleem 2</h4>
+				<p>Mocht je toch een SVG die wordt geupload in de database moeten plaatsen, dan is het handig deze erg grondig te cleanen.
+				Omdat het XML is, kan dat met strip_tags in PHP:<BR>
+<code>
+strip_tags($svg,'&lt;a>&lt;circle>&lt;clipPath>&lt;color-profile>&lt;defs>&lt;desc>&lt;discard>&lt;ellipse>&lt;feBlend>&lt;feColorMatrix>&lt;feComponentTransfer>&lt;feComposite>&lt;feConvolveMatrix>&lt;feDiffuseLighting>&lt;feDisplacementMap>&lt;feDistantLight>&lt;feDropShadow>&lt;feFlood>&lt;feFuncA>&lt;feFuncB>&lt;feFuncG>&lt;feFuncR>&lt;feGaussianBlur>&lt;feImage>&lt;feMerge>&lt;feMergeNode>&lt;feMorphology>&lt;feOffset>&lt;fePointLight>&lt;feSpecularLighting>&lt;feSpotLight>&lt;feTile>&lt;feTurbulence>&lt;filter>&lt;g>&lt;hatch>&lt;hatchpath>&lt;image>&lt;line>&lt;linearGradient>&lt;marker>&lt;mask>&lt;mesh>&lt;meshgradient>&lt;meshpatch>&lt;meshrow>&lt;metadata>&lt;mpath>&lt;path>&lt;pattern>&lt;polygon>&lt;polyline>&lt;radialGradient>&lt;rect>&lt;set>&lt;solidcolor>&lt;stop>&lt;svg>&lt;switch>&lt;symbol>&lt;text>&lt;textPath>&lt;title>&lt;tspan>&lt;style>&lt;use>&lt;view>');
+</code></p>
+<p>Ook is het verstandig om te kijken naar: use en xlink:href en of je daar nog meer wilt toestaan. Deze kun je ook strippen door bij bovenstaande toegestane tags <code>&lt;use></code> weg te laten. Ook zou je kunnen overwegen image en style eruit te halen, omdat ook deze een link naar een andere document zouden kunnen bevatten.</p>
+			 </section>
+			 
+      <script src="js/navigation.js" type="text/javascript"></script>
+   </body>
+</html>
