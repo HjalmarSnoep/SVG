@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
   <defs>
     <audio id="sfx_explo" xmlns="http://www.w3.org/1999/xhtml">
@@ -192,10 +191,7 @@
 			</g>
 			</g>
 		</g>
-	  
-	  
-	  
-      <text text-anchor="middle" x="0" y="10" fill="#000" fill-opacity="0.5" style="font: bold 40px sans-serif;">1</text>
+	       <text text-anchor="middle" x="0" y="10" fill="#000" fill-opacity="0.5" style="font: bold 40px sans-serif;">1</text>
     </g>
  </g>
   <g id="knal" style="display: none">
@@ -212,7 +208,7 @@
  <g id="intro" >
      <rect x="0" y="0" width="1920" height="1080" fill="#eee" filter="url(#grain)"></rect>
      <text text-anchor="middle" x="960" y="400" fill="#eee" style="font: bold 180px sans-serif;" filter="url(#dropshadow)">Knalbal</text>
-     <text text-anchor="middle" x="960" y="450" fill-opacity="0.5" fill="#444" style="font: bold 50px sans-serif;">(Mijn allereerste game in standalone SVG)</text>
+     <text text-anchor="middle" x="960" y="450" fill-opacity="0.5" fill="#444" style="font: bold 20px sans-serif;">(Mijn allereerste game, opnieuw gemaakt in standalone SVG, exposing security threats, 86Kb, door Hjalmar Snoep)</text>
      <text text-anchor="middle" x="960" y="600" fill="#eee" style="font: bold 80px sans-serif;" filter="url(#dropshadow)">Klik om te beginnen</text>
      <text text-anchor="middle" x="960" y="700" fill-opacity="0.5" fill="#444" style="font: bold 50px sans-serif;">Beweeg met pijljes toetsen, spatie is schieten</text>
      <text text-anchor="middle" x="960" y="850" fill="#eee" style="font: bold 150px sans-serif;" filter="url(#dropshadow)">← →</text>
@@ -266,6 +262,7 @@
     // we need to play the shoot sound on first click, to be able to play sound in the game.
     playSfx("hit_wall");
     // start the game..
+	document.getElementById("score").innerHTML="Score:"+score;
       gameLoop();
   }
   function restart()
@@ -282,6 +279,7 @@
     shooter.y=h-100;
     shooter.speed=0;
 	score=0;
+	document.getElementById("score").innerHTML="Score:"+score;
   }
   function gameLoop()
   {
