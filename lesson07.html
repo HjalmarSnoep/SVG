@@ -63,7 +63,21 @@
 				<svg width="150" height="150" viewBox="0 0 256 255"> <use xlink:href="inspiration/duckduckgo.svg#the_actual_icon" /></svg>
 			</div>
 			
-			<p>Al deze manieren hebben zo hun voordelen en nadelen. Zo kun je met een object en inline WEL de SVG stylen met css, maar heb je minder controle over bijvoorbeeld de grootte bij het object.
+			<p>Al deze manieren hebben zo hun voordelen en nadelen.
+		  <table border="1">
+		    <thead>
+		      		    <tr><th>Manier</th><th>Stylen met CSS</th><th>Gebruik externe SVG voor caching</th><th>SVG Viewport Control</th><th>Fallback voor oude browsers</th></tr>
+		    </thead>
+		    <tbody>
+		      		    <tr><td>Inline</td><td>&#x2714;</td><td>&#x274C;</td><td>&#x2714;</td><td>&#x2714;</td></tr>
+		      		    <tr><td>img</td><td>&#x274C;</td><td>&#x2714;</td><td>&#x274C;</td><td>&#x2714; (alt)</td></tr>
+		      		    <tr><td>background-image</td><td>&#x274C;</td><td>&#x2714;</td><td>&#x274C;</td><td>&#x274C; (alleen met <a href="https://css-tricks.com/a-complete-guide-to-svg-fallbacks/">js</a>)</td></tr>
+		      		    <tr><td>extern-object</td><td>&#x274C;</td><td>&#x2714;</td><td>&#x274C;</td><td>&#x2714; </td></tr>
+		      		    <tr><td>xlink</td><td>&#x2714;</td><td>&#x2714;</td><td>&#x2714;</td><td>&#x274C; (alleen <a href="https://css-tricks.com/a-complete-guide-to-svg-fallbacks/">background-image</a>)</td></tr>
+
+		    </tbody>
+		  </table>
+			Zo kun je met een object en inline WEL de SVG stylen met css, maar heb je minder controle over bijvoorbeeld de grootte bij het object.
 			Ook is een inline SVG wat verkwistend omdat je geen gebruik kan maken van caching over meerdere pagina's.
 			Zo heb je bij een img of een background img weer de beschikking over allerlei CSS styling, die moeilijker zijn bij standaard SVG, omdat deze zich standaard meer gedraagd als een img met object-fit eigenschappen.
 			Ook met oudere browsers heb je issues met de support van deze verschillende manieren, maar nieuwe browsers ondersteunen ze allemaal erg goed.

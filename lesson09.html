@@ -20,15 +20,65 @@
 			 <section>
  			 <iframe width="560" height="315" src="https://www.youtube.com/embed/tkfBK3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-			 <h1>Les ?</h1>
-			 <h3>eeehm?</h3>
+			 <h1>Les 9</h1>
+			 <h3>SVG Filters</h3>
 		
-			<p>Hier ben ik nog mee bezig
+			<p>Je kunt met SVG erg krachtige filters gebruiken.
+			    De filters zijn een aantal bewerkingen op PIXEL niveau.<br>
+			    <strong>PAS OP!</strong>, gebruik je een filter, dan gaat deze uit van de grootte in pixels van je SVG.
+			    Als je deze numeriek aangeeft en toch de SVG uitvergroot, kan een en ander de toch blokkerig worden.
 			</p>
+			<p>
+			  Filters worden net als gradients en patterns gedefinieerd in de defs-tag.<br>
+			  Ze renderen met hardware ondersteuning erg snel, maar bij complexe filters en een grote SVG, kan het je
+			  performance bij updaten van de SVG (dus bij animatie) wel erg vetragen.<br>
+			  <br>
+  			Hieronder zie je een paar voorbeelden van Filters.
+			</p>
+      <h3>Filter Gallery</h3>
+      <style> svg
+      .gallery>div {
+        display: inline-block;
+      }
+      .gallery>div>svg {
+        display: inline-block;
+       border: 1px solid #888;
+       vertical-align: top;
+      }
+      .gallery>div>div {
+        display: inline-block;
+       width: 200px;
+       height: 100px;
+       background: #eee;
+      }
+      </style>
+      <div class="gallery">
+            <div><svg width="100" height="100"></svg><div>Beschrijving</div></div>
+            <div><svg width="100" height="100"></svg><div>Beschrijving</div></div>
+            <div><svg width="100" height="100"></svg><div>Beschrijving</div></div>
+            <div><svg width="100" height="100"></svg><div>Beschrijving</div></div>
+            <div><svg width="100" height="100"></svg><div>Beschrijving</div></div>
+      </div>
 			 </section>
-
+			 <section>
+        <h3>Toepassen op element</h3>
+        Voeg gewoon een filter="url(naam-van-de-filter)" toe als attribute.
+        Dus:
+        <pre>
+        <code>
+          <circle cx="5" cy="5" r="0" fill="black" filter="url(naam-van-de-filter)"></circle>
+        </code>
+        </pre>
+        <h3>Toepassen op CSS</h3>
+        Je kunt SVG filters OOK toepassen op
+  			 </section>
 			 <section>
 				<h2>OPDRACHT</h2>
+				<p>Maak de volgende symbool na als path.</p>
+        <p>
+          	Hint: Je kunt het grid gebruiken om de control points af te lezen.
+				
+				</p>
 			 </section>
 			 <section class="show_lessons">
 			</section>
