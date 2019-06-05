@@ -74,10 +74,26 @@
   			 </section>
 			 <section>
 				<h2>OPDRACHT</h2>
-				<p>Maak de volgende symbool na als path.</p>
+				<p>Maak een eigen filter en voeg hier in (voeg ook een image toe):
+				</p>
+				<pre>
+				<code>
+&lt;svg width="600" height="450" viewBox="0 0 600 450"&gt;
+ &lt;filter id="myFilter"&gt;
+ &lt;!-- filter operations go here --&gt;
+ &lt;/filter&gt;
+ &lt;image xlink:href="..."
+ width="100%" height="100%" x="0" y="0"
+ filter="url(#myFilter)"&gt;&lt;/image&gt;
+&lt;/svg&gt;
+				</code></pre>
+				<p>Gebruik <a href="https://webplatform.github.io/docs/svg/tutorials/smarter_svg_filters/">Deze resource</a> om je filter OOK in CSS toe te passen op een normaal HTML-element.</p>
         <p>
-          	Hint: Je kunt het grid gebruiken om de control points af te lezen.
-				
+          	<a href="https://yoksel.github.io/svg-filters/#/">Yoksel</a>
+          	<a href="https://codepen.io/collection/ArxmyO/">Codepen collection</a>
+          	<a href="https://codepen.io/mullany/pens/popular/">Codepen voorbeelden Mullany</a>
+          	<a href="https://www.sarasoueidan.com/blog/svg-filters/">Crash Course</a>
+          	<a href="https://kazzkiq.github.io/svg-color-filter/">Color filter playground</a>
 				</p>
 			 </section>
 			 <section class="show_lessons">
