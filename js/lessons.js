@@ -5,10 +5,10 @@
 {
 	
 	var lessons=document.getElementsByClassName("show_lessons");
+	
 	var nr_of_lessons=15;
 	var active=location.href.split("lesson")[1];
 	active=active.split(".")[0];
-	console.log(active);
 	for(var l=0;l<lessons.length;l++)
 	{
 		for(var i=0;i<nr_of_lessons;i++)

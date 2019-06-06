@@ -1,22 +1,62 @@
 /* --------- content ---------*/
-#page{
-}
-#page section{
-	background-color: rgba(255,250,240,0.9);
-	padding: 15px;
+
+#content section{
+	background-color: #fff;
+	padding: 0px;
 	margin-bottom: 15px;
-	border-bottom: 5px solid #E0792B;
+	border-bottom: 7px solid #bc5100;
 	background-position: center bottom; 
 	background-repeat: repeat-x;
+	border-radius: 25px 25px 7px 7px;
+	overflow: hidden;
 	text-align: left;
 }
-.align-right{
+#content section 
+{
+	min-height: 400px;
+}
+#content section.small
+{
+	min-height: 0px;
+}
+#content section .double 
+{
+	min-height: 800px;
+}
+#content section .triple 
+{
+	min-height: 1200px;
+}
+#content section .quadruple 
+{
+	min-height: 1600px;
+}
+#content section.heading 
+{
+	text-align: center;
+	min-height: 400px;
+	background-color: #fbc02d;
+	color:#bc5100;
+	border-bottom: 7px solid #ffa726;
+}
+#content section.opdracht 
+{
+	min-height: 400px;
+	background-color: #fbc02d;
+	color:#fff;
+}
+#content section.opdracht p
+{
+	color: #bc5100;
+}
+
+#content .align-right{
 /*	background-color: rgba(0,0,0,0.1);*/
 	width: 100%;
 	padding: 15px  0 15px 15px;
 	text-align: right;
 }
-.popup
+#content .popup
 {
 	position: fixed;
 	width: 500px;
@@ -29,14 +69,14 @@
 	background-color: #fff !important;
 	z-index: 5;
 }
-.lesson-image
+#content .lesson-image
 {
 	display: inline-block;
 	width: 100px;
 	height: 100px;
 	overflow: hidden;
 }
-.lesson-theory
+#content .lesson-theory
 {
 	padding: 15px;
 	display: inline-block;
@@ -45,7 +85,7 @@
 	overflow: hidden;
 	background-color: #fff;
 }
-.lesson-excercise
+#content .lesson-excercise
 {
 	display: inline-block;
 	width: 100px;
@@ -53,43 +93,86 @@
 	overflow: hidden;
 	background-color: #fff;
 }
-.lesson{
+#content .lesson{
 	padding: 5px 0px 0px 5px;
 	background-color: #ddd;
 	margin-bottom: 5px;
 }
-.lesson-button{
-	padding: 5px;
-	background-color: #E0792B;
+#content .lesson-button{
+	display: inline-block;
+	width: 100px;
+	overflow: hidden;
+	height: 60px;
+	margin: 0 0 1px 1px;
+	line-height: 60px;
+	background-color: #ffb04c;
 	color: #fff !important;
-	margin-bottom: 15px;
-	margin-right: 5px;
-	line-height: 45px;
 }
-.lesson-button.active{
-	background-color: #20262e;
+#content .lesson-button.active{
+	background-color: #bc5100 !important;
 }
-.lesson:nth-child(even){
+
+#content .lesson:nth-child(even){
 	background-color: #eee;
 }
-def{
+#content def{
 	font-weight: 600;
 }
 @media only screen and (max-width: 600px) {
-.lesson-theory
+#content .lesson-theory
 {
 	width: calc(100% - 110px);
 }
-  .lesson-excercise {
+  #content .lesson-excercise {
    width: calc(100% - 5px);
   }
 }
-.demo
+#content .demo
 {
 	width: 100%;
 	height: calc(100vh - 550px);
 }
-.examples
+#content table {
+	width: calc( 100% - 30px);
+	margin: 15px;
+  background-color: #e6ffff;
+  text-align: left;
+  border-collapse: collapse;
+  border: 0;
+}
+#content table td, #content table th {
+  padding: 7px 5px;
+    border: 0;
+}
+#content table tr {
+}
+#content tr th:nth-child(even),#content tr td:nth-child(even){
+  background: rgba(129, 212, 250,0.25);
+
+}
+#content table td {
+  text-align: center;
+    border: 0;
+}
+#content table tbody td {
+  font-size: 13px;
+}
+#content table tr:nth-child(even) {
+  background: #b3e5fc;
+}
+#content table thead {
+	background: #82b3c9;
+}
+#content table thead th {
+	font-family: montserrat;
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+
+
+#content .examples
 {
 	 list-style-type: none;
   margin: 0;
@@ -98,17 +181,19 @@ def{
 	overflow-y: scroll;
 	height: 200px;
 }
-.examples li {
+#content .examples li {
 	 display: inline-block;
 	 margin-bottom: 4px !important;
 }
-.examples li a {
+#content .examples li a {
   display: block;
   width: 200px;
   background-color: #e0792b;
   font-size: 15px;
   color: #fff !important;
-}.examples li a:hover {
+}
+#content .examples li a:hover {
   background-color: #d35a19;
   font-size: 17px;
+  font-family: 'Montserrat', sans-serif;
 }
