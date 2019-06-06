@@ -50,6 +50,9 @@ window.onload=function()
 	  total_text_width+=items[i].text_w;
 	  
 	  items[i].over= createNSNode('rect', { cx: 0, cy: 0, width:100, height:70,fill:"fff", fillOpacity:"0" });
+	  var title=createNSNode("title");
+	  title.innerHTML="<title>"+ items[i].help+"</title>"
+	  items[i].over.appendChild(title);
 	  textgroup.appendChild(items[i].over);
 	  
 	}
@@ -173,10 +176,14 @@ window.onload=function()
 			if(blobgroups[i].y>60){
 				blobgroups[i].y=60;
 				blobgroups[i].dy=-Math.abs(blobgroups[i].dy)*0.2;
+				blobgroups[i].r*=0.5;
+				blobgroups[i].dr*=0.5;
 			}
 			if(blobgroups[i].y<0){
 				blobgroups[i].y=0;
 				blobgroups[i].dy=Math.abs(blobgroups[i].dy)*0.2;
+				blobgroups[i].r*=0.5;
+				blobgroups[i].dr*=0.5;
 			}
 			var y=blobgroups[i].y;
 			blobgroups[i].group.setAttribute("transform", "translate("+x+","+y+")");

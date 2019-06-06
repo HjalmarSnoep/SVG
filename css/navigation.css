@@ -14,8 +14,11 @@
     height: 70px;
   border: 1px solid #f00;
 }
-.menu text{
-	transition: transition: fill .4s ease;
+text{
+ 	-webkit-transition: fill 3.5s ease;
+ 	-moz-transition: fill 3.5s ease;
+ 	-o-transition: fill 3.5s ease;
+ 	transition: fill 3.5s ease;	 
 }
 
 
