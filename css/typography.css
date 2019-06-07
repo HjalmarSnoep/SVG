@@ -54,6 +54,35 @@ background-size: cover;
 	column-count: 3;
 	column-rule: 1px solid #e3f2fd;
 	column-gap: 40px;
+	hyphens: auto;
+}
+#content .full-column
+{
+	margin: 1em;
+}
+pre {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	overflow: auto;
+	overflow-y: hidden;
+	font-size: 10px;
+	line-height: 20px;
+	padding: 10px;
+	border: 1px solid #000;
+	color: #aaa;
+	background: #2c333c;
+}
+pre>code {
+	padding: 10px;
+	background: #2c333c;
+	color: #aaa;
+	
+}
+code{
+	background: #2c333c;
+	padding: 5px;
+	color: #aaa;
 }
 #content iframe
 {
@@ -79,7 +108,7 @@ background-size: cover;
 #content ul{
 	margin-bottom: 55px;
 	column-span: all;
-  list-style: none;
+
 }	
 
 #content li {

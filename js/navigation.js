@@ -5,7 +5,7 @@ window.onload=function()
 {
 	     var nav = document.getElementById("nav");
 	var active = nav.getAttribute("data-active");
-	console.log("active menu item: " + active);
+	//console.log("active menu item: " + active);
 
 	var items = [];
 	items.push({ label: "SVG", url: "index.html", help: "Over SVG - inhoud" });
@@ -213,10 +213,18 @@ window.onload=function()
 	var list=document.createElement("ul");
 	section.appendChild(list);
 	var h2=document.getElementById("content").getElementsByTagName("h2");
+	
+		var li=document.createElement("li");
+		var a=document.createElement("a");
+		li.appendChild(a);
+		a.innerHTML="Top/Menu/Begin";
+		a.href="#nav";
+		list.appendChild(li);
+	
 	var elements_found=0;
 	for(var i=0;i<h2.length;i++)
 	{
-		console.log("h2: "+ h2[i].parentNode);
+//		console.log("h2: "+ h2[i].parentNode);
 		if(h2[i].parentNode.className=="heading") continue; // skip heading titles..
 		if(h2[i].className=="not-toc") continue; // skip heading titles..
 		
@@ -237,13 +245,14 @@ window.onload=function()
 		// display..
 	}
 	document.addEventListener("scroll",updateTOC);
+	updateTOC();
 	function updateTOC()
 	{
 		// first make it sticky.
 		var html = document.documentElement || document.body; 
-		console.log("scroll"+html.scrollTop);
+		//console.log("scroll"+html.scrollTop);
 		var shift=html.scrollTop-50;
-		if(shift<15)shift=15;
+		if(shift<0)shift=0;
 		section.style.marginTop=shift+"px";
 	}
 	

@@ -34,40 +34,55 @@
 
 
 			 <section>
-			 <h1>Aan het werk</h1>
+			 <h2>Knipperende DIV</h2>
 				<iframe width="100%" height="300" src="//jsfiddle.net/2re513dt/4/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
 				<ul>
 				<li>animatie toegevoegd, backgroundColor property wordt random veranderd met javascript.</li>
 				</ul>
-				Met window.requestAnimationFrame() roep je een functie aan over 1/60ste van een seconde<br>
+				<p>Met window.requestAnimationFrame() roep je een functie aan over 1/60ste van een seconde<br>
 				De functie <def title="zie voorbeeld hierboven, klik op javascript :)">animate()</def> in dit geval, verandert de achtergrond kleur van de div 
 				en roept zichzelf aan via window.requestAnimationFrame.<br>
 				Zodra ik deze functie aanroep, gaat hij een loop in, die duurt, totdat ik de pagina of tab sluit.<br>
-				Met <em>window.requestAnimationFrame()</em> kun je dus animatie op je pagina maken.
+				Met <em>window.requestAnimationFrame()</em> kun je dus animatie op je pagina maken.</p>
 			 </section>
 
 			 <section>
-				Dit gaan we nu OOK met SVG doen:</br>
+				<h2>Knipperende SVG</h2>
+				<div class="full-column">Dit gaan we nu OOK met SVG doen:</div>
 				<iframe width="100%" height="300" src="//jsfiddle.net/2re513dt/5/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 				<ul>				<li>Ik verander de fill 60x per seconde met poly.style.fill</li>				</ul>
-				Je kunt hier zien, dat je de style van een SVG element op dezelfde manier kunt beinvloeden als dat van een HTML-element alleen gebruik ik <em>fill</em> ipv <e	m>backgroundColor</em>.
+				<p>Je kunt hier zien, dat je de style van een SVG element op dezelfde manier kunt beinvloeden als dat van een HTML-element alleen gebruik ik <em>fill</em> ipv <e	m>backgroundColor</em>.</p>
 			 </section>
 			 <section>
-				Met SVG kan je ook de vorm veranderen:</br>
+				<h2>Andere attributen</h2>
+				<p class="full-column">Met SVG kan je ook de vorm veranderen, polygon heeft een attribuut points, in points zitten x en y coordinaten de polygon wordt getrokken van de eerste twee getallen 1(x) 2(y), naar getal 3(x) en 4(y) etc, etc.</p>
 				<iframe width="100%" height="300" src="//jsfiddle.net/2re513dt/6/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-				<ul>				<li>Ik verander het attribuut points van polygon 60x per seconde met setAttribute</li>				</ul>
-				Ook setAttribute is hopelijk nog bekend van gewone HTML-elementen in javascript?
+				<ul>				
+					<li>Ik verander het attribuut points van polygon 60x per seconde met setAttribute en zet er 10 coordinaten (of vijf willekeurige punten) in.</li>				
+					<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute">setAttribute</a> is hopelijk nog bekend van gewone HTML-elementen in javascript?<br>
+					<pre>
+				<code>
+				var b = document.querySelector("button"); 
+				b.setAttribute("disabled", "");
+				</code>
+				</pre> Weet je nog?
+				</li>
+				</ul>
+				
 			 </section>
 			 <section>
-				Of met een beetje wiskunde in iets wat een bepaalde betekenis heeft, zoals een ster, die draait en vervormt:</br>
+				<h2>Betekenis</h2>
+				<div class="full-column">Natuurlijk ziet dit er niet uit, het heeft geen betekenis, maar met een beetje wiskunde verander je dit makkelijk in iets wat een bepaalde betekenis heeft, zoals een ster, die draait en vervormt:</div>
 				<iframe width="100%" height="300" src="//jsfiddle.net/2re513dt/7/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-				Door een frame counter bij te houden en aan het begin van de functie op te hogen, kunnen we verschillende dingen tekenen, die veranderen, maar toch een betekenis hebben. Ook krijgen we controle over wat er wanneer getekend wordt.<br>
-				<small><em>Snel even uitleg over de wiskunde: Ik bereken 10 punten, deze liggen op twee cirkels. Alle oneven punten liggen op de ene cirkel en alle even punten op de andere. Dan verander ik de straal (a) van de cirkels met middelpunt (150,150) waarop deze punten liggen.</em></small>
+				<p>Door een frame counter <code>var frame=0;</code> en 
+				<pre><code>function animate()<br>  {<br> &nbsp; frame++;<br> &nbsp; ...</code></pre>
+				bij te houden en aan het begin van de functie op te hogen, kunnen we verschillende dingen tekenen, die veranderen, maar toch een betekenis hebben. Ook krijgen we controle over wat er wanneer getekend wordt.<br>
+				<small><em>Snel even uitleg over de wiskunde voor de ge&iuml;nteresseerden (dit HOEF je niet te snappen): Ik bereken 10 punten <code>for(var i=0;i<10;i++)</code>, deze liggen op twee cirkels, rad gaat van 0 tot 2&pi; (360 graden) in 10 stappen.  Alle even punten <code>if(i%2==0)</code> liggen op de ene cirkel en alle oneven punten op de andere. Dan verander ik de straal (a) van een van de cirkels met middelpunt (150,150) waarop deze punten liggen. Deze cirkels draaien, omdat ik een deel van de frame-counter optel bij de radialen. <code>rad=rad+frame/100;</code> Maak je het getal 100 hoger, dan draaien ze langzamer.</em></small></p>
 			 </section>
-			 <section>
+			 <section class="opdracht">
 				<h2>OPDRACHT</h2>
-				Zorg dat de ster OOK van kleur veranderd! (Dus combineer bovenstaande voorbeelden :)<br><br>
+				<div class="full-column">Zorg dat de ster OOK van kleur veranderd! (Dus combineer bovenstaande voorbeelden :)</div><br>
 				<p><small><em>Wil je me helemaal blij maken, laat hem langzaam in regenboogkleuren veranderen. Dus gebruik niet fill="rgb(r,g,b)" fill="hsl(296, 100%, 50%)" en verander de eerste <def title="ding dat je aan een functie meegeeft, in C, javascript enzo tussen ()">parameter</def> voor een mooi regenboog effect.<br>
 				<a href="https://www.w3schools.com/colors/colors_hsl.asp">NOG meer informatie over HSL kleuren</a></em></small></p>
 			 </section>

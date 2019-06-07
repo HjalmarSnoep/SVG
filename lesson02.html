@@ -25,36 +25,41 @@
 			 <h1>Les 2</h1>
 			 <h3>SVG, HTML en interactiviteit</h3>
 		
-			<p>Ik ga je laten zien dat werken met SVG erg lijkt op werken met HTML.
-			</p>
+			<div class="full-column">In deze les wil ik je laten zien dat werken met SVG, css en javascript erg lijkt op werken met HTML, css en javascript.
+			</div>
 			 </section>
 
 			 <section>
-			 <h1>Laten we beginnen..</h1>
+			 <h2>SVG doet HTML na</h2>
 
 				<iframe width="100%" height="300" src="//jsfiddle.net/2re513dt/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-				HTML en SVG lijken op elkaar. Klik op HTML en kijk hoe dit in elkaar zit.
+				<p>HTML en SVG lijken op elkaar. Ik heb eenzelfde 'div' gemaakt in SVG, de SVG staat inline geplaatst in HTML. Je ziet, dat het er vrijwel hetzelfde uitziet. Het is alleen iets anders opgebouwd. Klik op HTML en kijk hoe dit in elkaar zit.</p>
 				<ul>
-				<li>Ik heb een svg gemaakt, die erg lijkt op de div. </li>
-				<li>Anders dan bij HTML, zit de styling IN de svg.</li>
-				<li>Ik beschrijf van ALLE elementen waar ze staan en hoe groot ze zijn.</li>
+					<li>Ik heb een svg gemaakt, die erg lijkt op de div. </li>
+					<li>Anders dan bij HTML, zit de styling IN de svg.</li>
+					<li>Ik beschrijf van ALLE elementen waar ze staan en hoe groot ze zijn.</li>
 				</ul>
+				<p>
 				<def title="Scalable Vector Graphics">SVG</def> en <def title="HyperTextMarkupLanguage">HTML</def> zijn dus allebei manieren om 
 				<def title="vormpjes/text">content</def>  etc. op het scherm van je <def title="(Chrome, Firefox enz..)">browser</def> te toveren.<br>
-Alleen SVG heeft het uitgangspunt van een plaatje en HTML het uitgangspunt van een pagina.
-Het zijn allebei <a href="https://nl.wikipedia.org/wiki/Opmaaktaal">Markup-languagues</a> gebaseerd op <def title="">XML</def>.
-Dat is goed nieuws, want je kunt het dus al lezen.
-Bij SVG geef je alleen van elementen coordinaten op, bij HTML valt het standaard in de 
-<def title="Het effect dat blokken achter elkaar geplaatst worden en via CSS kunnen worden geplaatst op een plek die je van te voren niet precies weet!">"pageflow"</def> en
-weet je dus niet precies waar een element terecht komt. Dat hangt af van de elementen eromheen.<BR><BR>
-In HTML kun je met position: fixed en position: absolute het gedrag van een SVG een beetje nabootsen.
-Je kunt in SVG geen pageflow hebben!
+				<br>
+				<h2>SVG is een plaatje, geen pagina..</h2>
+				Alleen SVG heeft het uitgangspunt van een plaatje en HTML het uitgangspunt van een pagina.
+				Het zijn allebei <a href="https://nl.wikipedia.org/wiki/Opmaaktaal">Markup-languagues</a> gebaseerd op <def title="">XML</def>.
+				Dat is goed nieuws, want je kunt het dus al lezen.<br>
+				Bij SVG geef je al&shy;leen van ele&shy;menten coor&shy;dinaten op, bij HTML valt het standaard in de 
+				<def title="Het effect dat blokken achter elkaar geplaatst worden en via CSS kunnen worden geplaatst op een plek die je van te voren niet precies weet!">"pageflow"</def> en
+				weet je dus niet precies waar een element terecht komt. Dat hangt af van de e&shy;le&shy;men&shy;ten eromheen.<BR><BR>
+				In HTML kun je met position: fixed en position: absolute het gedrag van een SVG een beetje nabootsen.
+				Je kunt in SVG geen page&shy;flow hebben!
+				</p>
 
 				
 			 </section>
 
 			 <section>
-				Interactief maken gaat dan ook op dezelfde manier:</br>
+				<h2>Interactief maken..</h2>
+				<div class="full-column">Interactief maken gaat dan ook op dezelfde manier:</div>
 				<iframe width="100%" height="300" src="//jsfiddle.net/2re513dt/1/embedded/js,result,html/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 				Als je op Result klikt, zie je dat je nu op allebei de groene boxen kan klikken om ze rood te maken.
 				Het enige echte verschil is, dat je niet backgroundColor maar fill gebruikt.
@@ -64,7 +69,7 @@ Je kunt in SVG geen pageflow hebben!
 			 </section>
 
 			 <section>
-				 <h1>Maar wat heb ik er dan aan?</h1>
+				 <h2>Maar wat heb ik er dan aan?</h2>
 				 <p>HTML is een taal, die is gebaseerd op doosjes (boxjes), rechthoekige dingen. SVG is gebaseerd op curves.
 				Je kunt dus veel vrijere vormen maken dan in HTML.
 				Ik kan bijvoorbeeld een ellips maken met een heel kleine aanpassing in de code: </p>
@@ -73,30 +78,37 @@ Je kunt in SVG geen pageflow hebben!
 				<ul>
 					<li>De rectangle in de div is vervangen door een ellips</li>
 				</ul>
-				<p>(Big deal, dat kun je ook met border-radius, toch?)<br>
-				OK, ik wilde het niet te moeilijk maken, maar je kunt dus ook zoiets (ik leg straks uit HOE):
+				<div class="full-column"><em>(Big deal, dat kun je ook met border-radius, toch?)</em><br>
+				OK, ik wilde het niet te moeilijk maken, maar je kunt dus ook zoiets (ik leg straks uit HOE):</div>
+				<h2>SVG is een tekentaal en kan daarin meer dan HTML</h2>
+
 				<iframe width="100%" height="300" src="//jsfiddle.net/2re513dt/3/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-				</p>
-				Kortom, je kunt elementen makkelijk stapelen, en je bent HEEL vrij in de vormen die je maakt.<br>
+				<p>Kortom, je kunt elementen makkelijk stapelen, en je bent HEEL vrij in de vormen die je maakt.<br>
 				<def title="ook wel een image-formaat genoemd :)">SVG is een taal om mee te tekenen</def>.<br>
-	
+				<br>
 				Ook heb je in SVG een heel stel mogelijkheden voor filters, die je in HTML echt niet hebt, maar ook daar komen we later op.<br>
-
+				<br>
 				Het punt is voornamelijk: het werkt zoals je gewend bent, je kunt elementen een ID of een CLASS geven en je kunt ze in javascript selecteren met getElementByID, getElementsByClassName of getElementsByTagName, wat dat betreft gedragen SVG elementen en HTML elementen zich hetzelfde.<br>
+				</p>
 			 </section>
+			 
 
-			 <section>
+			 <section class="opdracht">
 				<h2>OPDRACHT 1</h2>
-				Experimenteer met de vorm waarop geklikt moet worden (<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes">met deze informatie</a>), maak een circle ipv een ellips. De tekst past niet meer, dat is niet erg.<br>
+				<p>Experimenteer met de vorm waarop geklikt moet worden (<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes">met deze informatie</a>), maak een circle ipv een ellips. De tekst past niet meer, dat is niet erg.<br>
 				Als je moedig bent, mag je ook een polygon proberen. Path ga ik nog uitleggen :)<br>
-				Laat de HTML code aan een leerkracht zien. Vergeet niet je doctype en een mooie titel.
+				Laat de HTML code aan een leerkracht zien. Vergeet niet je doctype en een mooie titel.</p>
 			 </section>
-			 <section>
+			 <section class="opdracht">
 				<h2>OPDRACHT 2</h2>
-				Ga uit van <a href="https://jsfiddle.net/2re513dt/2/">https://jsfiddle.net/2re513dt/2/</a><br>
+				<p>Ga uit van <a href="https://jsfiddle.net/2re513dt/2/">https://jsfiddle.net/2re513dt/2/</a><br>
 				Maak de SVG-height ook "100%", dit vult niet direct de hele pagina, waarom niet?<br>
+				</p>
+				<div class="full-column">
 				Tip1: denk aan je HTML/CSS lessen..<br>
 				Tip2: gebruik een reset-stylesheet.<br>
+				Tip3: Snap je het niet? In het filmpje laat ik zien wat ik bedoel, je zult even moeten vogelen.<br>
+				</div>
 			 </section>
 			 <section data=2 class="show_lessons">
 			</section>
