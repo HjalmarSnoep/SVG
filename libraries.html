@@ -118,6 +118,95 @@
 				Sommige libraries geven je echt gemak, zoals <strong>raphael.js</strong>, <strong>D3</strong> of <strong>GreenSock</strong>. Maar alleen als je precies DAT wilt doen waar de library voor bedoeld is.<br>
 				Andere libraries geven je een heel specifieke set functies en kunnen dus niet zo heel veel, zoals Highcharts. Daar moet je vaak ook nog voor betalen.</p>
 			</section>
+			<section>
+				<h2>TRUE</h2>
+				Bij alle code die je toevoegt, dus ook bij Libraries (en frameworks), moet je kijken hoe TRUE deze is.
+				<ul>
+					<li><strong>T</strong>ransparant code</li> 
+					<li><strong>R</strong>easonable code</li> 
+					<li><strong>U</strong>sefull code</li> 
+					<li><strong>E</strong>xemplary code</li> 
+				</ul>
+				of hoe WRUL hij is.
+				<ul>
+					<li><strong>W</strong>aranty of code</li> 
+					<li><strong>R</strong>easonable code</li> 
+					<li><strong>U</strong>sefull code</li> 
+					<li><strong>L</strong>iftime of code</li> 
+				</ul>
+				<p>Zoals met alles als het gaat over goed of slecht zijn er
+				veel meningen. (En ik heb er ook een, maar probeer die uit deze tekst te houden.)
+				Programmeurs proberen hun argumenten kracht bij te zetten
+				met dit soort ACRONYMEN, zoals men in de middeleeuwen dacht dat als
+				iets rijmde, dat het waar was. Het enige dat dit toont, is dat iemand
+				lang heeft zitten nadenken over een acronym (of kort, zoals bij WRUL)</p>
+				<h3>Maar hoe moet ik dan kiezen, wijze Hjalmar?</h3>
+				<p class="full-columnn">Dat moet je helemaal zelf uitmaken, maar je ziet wel dat sommige termen terugkomen.
+				</p>
+				<ul>
+					<li>Reasonable<br>
+						<p>Een library is reasonable, als de tijd om het te leren, je daadwerkelijk
+						de tijd bespaart, die je nodig zou hebben om het anders te leren doen.
+						</p>
+					<p>Sommige libraries zijn overbearing. Ze dwingen je in een patroon of workflow.
+					Je kunt het met het patroon eens zijn of niet, maar als je niet KAN switchen
+					is het nooit een goed idee op de lange termijn.</p>
+					</li>
+					<li>Useful<br>
+						<p>Een library is useful als hij iets doet, dat je niet op andere
+							manier doet.
+						</p>
+					</li>
+					<li>Secure<br>
+						<p>Does NOT represent an extra vector for hackers.
+						Is open about vulnerabilities and updates regularly to prevent them.
+						</p>
+					</li>
+					<li>Adoptable<br>
+						<p>You don´t have to learn the whole thing, before you get a result (JQuery, Vue).
+						</p>
+					</li>
+					<li>Scalable<br>
+						<p>Plays nice with other techniques, is adaptable and future ready..
+						</p>
+					</li>
+					<li>Lifetime<br>
+					<p>Een library gaat een keer dood, of de functionaliteit wordt opgenomen in de officiele definities,
+						of browsers gaan zich een keer gedragen, zoals het hoort, zodat een polyfill library niet meer nodig is.
+						</p>
+					</li>
+					<li>Waranty<br>
+						Waar kun je klagen, als je code niet (meer) werkt? Is er een community, die hem onderhoudt?
+					</li>
+					<li>Exemplary<br>
+						Dit slaat op de demo´s. Sommige libraries hebben flashy demo´s, waardoor je niet
+						echt ziet wat de library doet. Dat is dus NIET exemplary. 
+Het is geen goed voorbeeld van wat de library kan. Ik heb geprobeerd de demo´s in deze tutorial te scheiden in
+						inspirerend (dus flashy)
+						en goed voorbeeld van een techniek.
+					<li>Transparant<br>
+						Kun je bij de source code? hoe is de license?
+					</li>
+					</li>
+				</ul>
+				Mijn acroniem is dus: STRUWEL of zoiets!
+				Kijk gewoon goed uit je doppen en bedenk wat voor jou belangrijk is. 
+			</section>
+			<section>
+				<h2>Wat voor soorten libraries heb je eigenlijk in javascript</h2>
+				<ul>
+					<li>Polyfills does something to fix code that works in several browsers, but not in one or two</li>
+					<li>Abstraction (Layer), creates it´s own syntax to do something all browsers do, but not with the same syntax</li>
+					<li>Task essential, implements the most efficient algorithm/method, you wouldn´t quickly be able to do this yourself, like a maths extension or D3, Raphael, Parsley (Form validation)</li>
+					<li>Workflow essential, Like QUnit (testing)</li>
+					<li>Plug-in an extra bit  made on top of a bigger library, allowing you to choose which bits you need for your app</li>
+					<li>Seperated concern (Path.js, does routing), which is the job of a controller in MVC the presenter in MVP etc..</li>
+					<li>Framework, Implements idea for workflow, like Angular, or React MVC, </li>
+					<li>Template Engine Single use, single workflow (like a game engine)</li>
+					<li>Smallificator, a library that does the same as normal functionality, but shorter.
+					jQuery, Underscore</li>
+				</ul>
+			</section>
 		  
 		  </div>
 	  </div>
