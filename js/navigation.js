@@ -5,6 +5,14 @@ window.onload=function()
 {
 	 var nav = document.getElementById("nav");
 	var active = nav.getAttribute("data-active");
+	var color = nav.getAttribute("data-color");
+	console.log("data-color "+color);
+	if(color==null) color="#f57f17" ;
+	console.log("data-color "+color);
+	var highcolor = nav.getAttribute("data-highlight");
+	console.log("data-highlight "+highcolor);
+	if(highcolor==null) highcolor="#ffb04c" ;
+	console.log("data-highlight "+highcolor);
 	//console.log("active menu item: " + active);
 
 	var items = [];
@@ -32,7 +40,7 @@ window.onload=function()
 	defs.innerHTML = '<filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur><feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo"></feColorMatrix><feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite></filter>';
 	menu.appendChild(defs);
 	var textgroup = createNSNode('g');
-	var activegroup = createNSNode('g', {filter: "url(#goo)", fill:"#f57f17" });
+	var activegroup = createNSNode('g', {filter: "url(#goo)", fill: color});
 	menu.appendChild(activegroup);
 	var rect = createNSNode('rect', { x: 0, y: 70, width: "100%", height: "100" });
 	activegroup.appendChild(rect);
@@ -42,7 +50,7 @@ window.onload=function()
 	if(w<700) textSize=12;
 	for (var i = 0; i < items.length; i++)
 	{
-	  items[i].text= createNSNode('text', { x: 0, y: 40, fontSize: textSize,fontFamily: "Montserrat, sans-serif" , fill: "#f57f17"});
+	  items[i].text= createNSNode('text', { x: 0, y: 40, fontSize: textSize,fontFamily: "Montserrat, sans-serif" , fill: color});
 	  items[i].text.innerHTML = items[i].label;
 	  textgroup.appendChild(items[i].text);
 	  var bbox = items[i].text.getBBox();
@@ -135,7 +143,7 @@ window.onload=function()
 
 		if (items[nr].label.toLowerCase() != active.toLowerCase())
 		{
-			items[nr].text.style.fill="#ffb04c";
+			items[nr].text.style.fill=highcolor;
 			blobgroups[nr].dy=-2.5;
 			blobgroups[nr].dr=3*(Math.random()-0.5);
 			blobgroups[nr].dy*=0.9;
@@ -148,7 +156,7 @@ window.onload=function()
 		var nr=parseInt(ev.currentTarget.id.split("-")[1]);
 		if (items[nr].label.toLowerCase() != active.toLowerCase())
 		{
-			items[nr].text.style.fill="#f57f17";
+			items[nr].text.style.fill=color;
 			blobgroups[nr].dy=0;
 			blobgroups[nr].dr*=0.9;
 		}
