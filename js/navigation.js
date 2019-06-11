@@ -3,7 +3,7 @@
 */
 window.onload=function()
 {
-	     var nav = document.getElementById("nav");
+	 var nav = document.getElementById("nav");
 	var active = nav.getAttribute("data-active");
 	//console.log("active menu item: " + active);
 
@@ -211,17 +211,24 @@ window.onload=function()
 	section.innerHTML="<h2>Table of contents</h2>";
 	toc.appendChild(section);
 	var list=document.createElement("ul");
+	list.className="TOC-List";
 	section.appendChild(list);
+	var indicator=document.createElement("div");
+	indicator.className="TOC-indicator";
+	section.appendChild(indicator);
 	var h2=document.getElementById("content").getElementsByTagName("h2");
 	
 		var li=document.createElement("li");
 		var a=document.createElement("a");
 		li.appendChild(a);
-		a.innerHTML="Top/Menu/Begin";
+		a.innerHTML="&uarr;&uarr; Top / Menu / Begin &uarr;&uarr;";
 		a.href="#nav";
+		a.style.color="#bc5100";
+		a.style.cursor="pointer";
 		list.appendChild(li);
 	
 	var elements_found=0;
+	var toc_content=[];
 	for(var i=0;i<h2.length;i++)
 	{
 //		console.log("h2: "+ h2[i].parentNode);
@@ -229,11 +236,20 @@ window.onload=function()
 		if(h2[i].className=="not-toc") continue; // skip heading titles..
 		
 		var li=document.createElement("li");
-		var a=document.createElement("a");
+		var a=document.createElement("div");
 		li.appendChild(a);
 		a.innerHTML=h2[i].innerHTML;
+		a.className="TOC-button";
 		h2[i].id="h2"+i;
-		a.href="#h2"+i;
+		//a.href="#h2"+i;
+		// we could use this, or smoothScroll To the right place :)
+		a.setAttribute("data-ref","h2"+i);
+		a.addEventListener("click",TOCClickScroll)
+		var o={};
+		o.link=a;
+		o.element=h2[i];
+		toc_content.push(o);
+		
 		list.appendChild(li);
 		elements_found++;
 	}
@@ -245,6 +261,14 @@ window.onload=function()
 		// display..
 	}
 	document.addEventListener("scroll",updateTOC);
+	function TOCClickScroll(ev)
+	{
+		var id=ev.currentTarget.getAttribute("data-ref");
+		var element =document.getElementById(id);
+		 element.scrollIntoView({ block: 'start',  behavior: 'smooth' });
+		
+		console.log();
+	}
 	updateTOC();
 	function updateTOC()
 	{
@@ -254,6 +278,27 @@ window.onload=function()
 		var shift=html.scrollTop-50;
 		if(shift<0)shift=0;
 		section.style.marginTop=shift+"px";
+		// set the TOC indicator to the right element.
+		// find the current element..
+		var first_in_viewport=-1;
+		for(var i=0;i<toc_content.length;i++)
+		{
+			var bounds=toc_content[i].element.getBoundingClientRect();
+			if(bounds.y>=-1 && bounds.y<=window.innerHeight-5)
+			{
+				first_in_viewport=i;
+				//console.log(toc_content[i].link.innerHTML+" "+bounds.y);
+				break;
+			}
+		}
+		if(first_in_viewport!=-1)
+		{
+			var toc_bounds=section.getBoundingClientRect();
+			var toc_link_bounds=toc_content[i].link.getBoundingClientRect();
+			var y=toc_link_bounds.y-toc_bounds.y+10;
+			indicator.style.top=y+"px";
+			indicator.style.height=toc_link_bounds.height+"px";
+		}
 	}
 	
 }

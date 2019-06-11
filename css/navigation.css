@@ -12,7 +12,7 @@
 .menu {
     width: 100%;
     height: 70px;
-  border: 1px solid #f00;
+
 }
 text{
  	-webkit-transition: fill 3.5s ease;
@@ -20,5 +20,6 @@ text{
  	-o-transition: fill 3.5s ease;
  	transition: fill 3.5s ease;	 
 }
+
 
 
