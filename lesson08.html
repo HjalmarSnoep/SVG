@@ -10,6 +10,8 @@
       <link href="css/footer.css" rel="stylesheet" type="text/css">
       <link href="css/navigation.css" rel="stylesheet" type="text/css">
 	  	  <title>SVG - Les 8</title>
+		      <script src="js/third-party/highlight.min.js"></script>
+    <script src="js/code-example.js"></script>
    </head>
 
    <body>
@@ -21,7 +23,8 @@
 			</section>
 
 			 <section>
- 			 <iframe width="560" height="315" src="https://www.youtube.com/embed/tkfBK3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ 			 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/FeieYrW52Eg" frameborder="0" allow="accelerometer; autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
 
 			 <h1>Les 8</h1>
 			 <h3>Paths</h1>
@@ -33,9 +36,16 @@
 			 Je beschrijft een vorm met een reeks letters en cijfers (de 'data', d="..."). Iedere letter is een commando, ieder cijfer is een coordinaat.<br>
 		
 			Het is het makkelijkste om te denken aan een pen, die je over het canvas beweegt.</p>
-				<iframe width="100%" height="300" src="//jsfiddle.net/mohvxeL5/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+				
+			<div class="example" data-open="SVG" id="folow-path-example">
+			<svg width="100%" height"100">
+			<path d="M 5 5 L 400 100" stroke="black"/>
+			</svg>
+			</div>
+				
+				
 			<div class="full-column">De pen wordt met M (move) op 5,5 gezet, daarna</div>
-			<div class="full-column">trekken we een L (line) naar 40,30.</div>
+			<div class="full-column">trekken we een L (line) naar 400,100.</div>
 			<p>Dit is het makkelijkste voorbeeld. Het feit dat de letters HOOFDLETTERS zijn, betekent, dat de coordinaten (x en y) absoluut zijn.
 			Gebruik je een kleine letter, dan is het relatief ten opzichte van het vorige coordinaat. Goed gebruik hiervan geeft een kleinere string, maar
 			ik zou je aanraden om te beginnen met absoluut, dus hoofdletters, anders is het makkelijk om in de war te raken.
@@ -76,7 +86,9 @@ Daarom heeft deze vorm van de curve maar 1 controlpoint.</p>
 			 <section class="opdracht">
 				<h2>OPDRACHT</h2>
 				<div class="full-column">Maak de volgende symbool na als path.<br>
-          	Hint: Je kunt het grid gebruiken om de control points af te lezen.
+				<img src="img/symbol.png"><br>
+				Hint: Je kunt het grid gebruiken om de control points af te lezen. De grotere hokken zijn in 8x8 kleinere hokjes verdeelt.
+				25,7 zijn de coordinaten van het punt rechts boven.
 				</div>
 			 </section>
 			 <section class="show_lessons">

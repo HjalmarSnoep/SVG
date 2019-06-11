@@ -21,22 +21,56 @@
 			</section>
 
 			 <section>
- 			 <iframe width="560" height="315" src="https://www.youtube.com/embed/uDqjIdI4bF4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/FeieYrW52Eg" frameborder="0" allow="accelerometer; autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
 
 			 <h1>Les 13</h1>
 			 <h3>Text</h3>
-			 <p>SVG heeft vele mogelijkheden voor tekst, die je niet zou verwachten.</p>
+			 <div class="full-column">SVG heeft vele mogelijkheden voor tekst, die je niet zou verwachten.</div>
 			 </section>
 			 <section>
 			 <h2>textpath</h2>
- 				<iframe width="100%" height="300" src="//jsfiddle.net/wout/7wL1uv8n/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-				<p>Je hebt de mogelijkheden om text op een pad te zetten, zelfs als dat pad animeert!</p>
+ 				<iframe width="100%" height="300" src="//jsfiddle.net/wout/7wL1uv8n/embedded/result,html,js,css/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+				<div class="full-column">Je hebt de mogelijkheden om text op een pad te zetten, zelfs als dat pad animeert!
+				<br>Dit is in bovenstaand voorbeeld niet heel duidelijk, omdat het gebruik maakt van SVG.js, maar...
+				<svg width="250" height="250" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- to hide the path, it is usually wrapped in a <defs> element -->
+  <!-- <defs> -->
+  <path id="MyPath" fill="none" stroke="red"
+        d="M10,90 Q90,90 90,45 Q90,10 50,10 Q10,10 10,40 Q10,70 45,70 Q70,70 75,50" />
+  <!-- </defs> -->
+
+  <text letter-spacing="5">
+    <textPath href="#MyPath" >
+      SVG IS FANTASTISCH!
+    </textPath>
+  </text>
+
+</svg>
+<strong>&lt;textpath&gt;</strong> is een standaard SVG attribute, dat je kunt nesten in de <strong>&lt;text&gt;</strong> tag.<br>
+				<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/textPath">https://developer.mozilla.org/en-US/docs/Web/SVG/Element/textPath</a>
+				</div>
+				
 			 <h2>tspan</h2>
-				<p>Je kunt gebieden in text style, zoals je gewent bent in CSS met tspan. Zo kun je woorden binnen een  text bold, italic maken en verkleuren enzo.</p>
+				<div class="full-column">Je kunt gebieden in text style, zoals je gewent bent in CSS met tspan. Zo kun je woorden binnen een  text bold, italic maken en verkleuren enzo.</div>
+				<svg height="80" width="480" viewBox="0 0 240 40" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    text  { font: italic 12px serif; }
+    tspan { font: bold 10px sans-serif; fill: red; }
+  </style>
+
+  <text x="10" y="30" class="small">
+    You are
+    <tspan>not</tspan>
+    a <a href="https://en.wikipedia.org/wiki/Banana">banana</a>!
+  </text>
+</svg>
 			 <h2>textarea</h2>
  				<iframe width="100%" height="200" src="//jsfiddle.net/prewiseDevelopers/0sjgj32r/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 				<p>Je kunt een tekst area voor meerdere regels tekst en automatisch omloop, zoals je van HTML gewend bent. Als je bang bent dat het niet wordt gesupport (want het is vrij nieuw). Met  <code>&lt;g requiredFeatures=""></code> kun je aangeven welke nieuwe features je gebruikt, zodat je browser een nette melding kan geven als het nog niet wordt ondersteund. In deze tutorial ga ik alleen uit van wat NU goed ondersteund wordt. Dit is dus een uitzondering :)</p>
 			 <h2>Andere attributen</h2>
+				<div class="full-column">Dit zijn attributen die moeilijk uit te leggen zijn, zonder beelden. Klik daarom op de onderstaande voorbeelden.</div>
 				<ul>
 					<li><a href="http://jsfiddle.net/nilloc/y2P2g/">Dominant-baseline & text-anchor</a></li>
 					<li><a href="https://jsfiddle.net/3bunvyjr/">letter-spacing</a></li>
@@ -46,6 +80,13 @@
 					<li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/word-spacing">word-spacing</a></li>
 				</ul>
 
+			 </section>
+			 <section class="opdracht">
+			 <h2>Opdracht</h2>
+			 <div class="full-column">Gebruik TSPAN om een text op meerdere regels te zetten.<BR>
+			 Dit gaat niet automatisch, zoals het bij HTML zou gaan. :)<br>
+			 HINT: Kijk goed naar de <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/tspan">definitie van TSPAN </a>
+			 </div>
 			 </section>
 			 <section class="show_lessons">
 			</section>

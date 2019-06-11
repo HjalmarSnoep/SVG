@@ -21,7 +21,7 @@
 			</section>
 
 			 <section>
- 			 <iframe width="560" height="315" src="https://www.youtube.com/embed/tkfBK3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  			 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/FeieYrW52Eg" frameborder="0" allow="accelerometer; autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
 			 <h1>Les 6</h1>
 			 <h3>Viewbox verplaatsen</h3>
@@ -60,21 +60,21 @@
 </svg>, het logo wordt slechts deels afgebeeld.</div>
 			 </section>
 			 <section>
-<p>Een oplossing hiervoor is de viewBox aan te geven. Maar dat is vreemd, toch? SVG is scaleable!</p>
+<div class="full-column">Een oplossing hiervoor is de viewBox aan te geven. Maar dat is vreemd, toch? SVG is <strong>scaleable</strong>!</div>
 	<pre><code>
 &lt;svg width="150" height="150" viewBox="0 0 256 230">
 ...
 &lt;/svg>
 				</code></pre><br/>
 				<div class="full-column">
-				bovenstaande code geeft wat we willen:
+				Bovenstaande code geeft wat we willen:
 <svg width="150" height="150" viewBox="0 0 256 230">
 	<path d="M5.888,166.405103 L90.88,20.9 C101.676138,27.2558621 156.115862,57.3844138 164.908138,63.1135172 L79.9161379,208.627448 C70.6206897,220.906621 -5.888,185.040138 5.888,166.396276 L5.888,166.405103 Z" fill="#FBBC04"></path>
 	<path d="M250.084224,166.401789 L165.092224,20.9055131 C153.210293,1.13172 127.619121,-6.05393517 106.600638,5.62496138 C85.582155,17.3038579 79.182155,42.4624786 91.0640861,63.1190303 L176.056086,208.632961 C187.938017,228.397927 213.52919,235.583582 234.547672,223.904686 C254.648086,212.225789 261.966155,186.175582 250.084224,166.419444 L250.084224,166.401789 Z" fill="#4285F4"></path>
 	<ellipse fill="#34A853" cx="42.6637241" cy="187.924414" rx="42.6637241" ry="41.6044138"></ellipse>
-</svg>, het logo wordt kleiner maar geheel afgebeeld.</div>
-			<p>"ViewBox" slaat dus op de grootte van het stuk wat wordt getoond, ongeacht, hoe groot het wordt getoond. Ook bepaald het het <def title="verhouding tussen breedte en hoogte">aspect-ratio</def>
-			De eerste cijfers zijn een x en y, de tweede cijfers is de breedte en hoogte, gescheiden door spaties. Dus<br><code>viewBox="<strong>x</strong> <strong>y</strong> <strong>width</strong> <strong>height</strong>"</code></p>
+</svg> Het logo wordt kleiner maar geheel afgebeeld.</div>
+			<p>"ViewBox" slaat dus op de grootte van het stuk van de SVG dat wordt getoond, ongeacht, hoe groot de SVG zelf wordt getoond. Ook bepaalt het de <def title="verhouding tussen breedte en hoogte">aspect-ratio</def>
+			De eerste twee cijfers zijn een x en y, de 3e en 4e cijfers zijn de breedte en hoogte, gescheiden door spaties. Dus<br><code>viewBox="<strong>x</strong> <strong>y</strong> <strong>width</strong> <strong>height</strong>"</code></p>
 			 </section>
 
 			 <section>

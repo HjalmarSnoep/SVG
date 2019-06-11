@@ -21,18 +21,18 @@
 			</section>
 
 			 <section>
- 			 <iframe width="560" height="315" src="https://www.youtube.com/embed/tkfBK3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  			 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/FeieYrW52Eg" frameborder="0" allow="accelerometer; autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
 			 <h1>Les 5</h1>
 			 <h3>Animatie oorlogen</h3>
 					 </section>
 
 			 <section>
-			<h2>SMIL, Web-Animation, CSS-Animation, javascript</h2>
-			<p>Tot nog toe hebben we dingen geanimeerd met javascript. Dit is ook handig als er interactie in je SVG is.</p>
-			<p>Voor animaties, zijn er echter een aantal alternatieve systemen, <a href="">SMIL</a> door applle, <a href="">Web-Animations Api</a> door Chrome en
-			<a href="">CSS-Animation</a> dat nooit bedoeld was om SVG mee te animeren en daarom niet alle attributes kan animeren, maar SVG is nu eenmaal te stylen met CSS en daar hoort dus ook CSS-animation bij.</p>
-			<p>Het grote probleem met al deze standaarden, is dat niemand het er (nog) over eens lijkt te kunnen worden.
+			<h2>SMIL, Web-Animations API, CSS-Animation, javascript</h2>
+			<p>Tot nog toe hebben we dingen geanimeerd met javascript. Dit is ook handig als er interactie in je SVG is.<BR>
+			<br>Voor animaties, zijn er echter een aantal alternatieve systemen, <a href="">SMIL</a> door applle, <a href="">Web-Animations Api</a> door Chrome en
+			<a href="">CSS-Animation</a> dat nooit bedoeld was om SVG mee te animeren en daarom niet alle attributes kan animeren, maar SVG is nu eenmaal te stylen met CSS en daar hoort dus ook CSS-animation bij.<br><BR>
+			<BR>Het grote probleem met al deze standaarden, is dat niemand het er (nog) over eens lijkt te kunnen worden.
 			  Chrome had SMIL op deprecated staan, maar heeft dat weer ingetrokken na veel druk uit de community die SMIL voorstaat.
 			  <a href="">Web-Animations API</a> lijkt de standaard die het meest overeenkomt met het principe van "seperation of concerns", wordt (nog) niet ondersteund door Edge etc etc.<br>
 			Het is doffe elllende. <br></p>
@@ -52,7 +52,12 @@
 
 			 <section>
 			   <h2>Hoe ziet animatie er in de praktijk uit?</h2>
-  <div class="full-column">Dezelfde animatie met SMIL, WEB-Animation, CSS-Animation EN Javascript.</div>
+  <div class="full-column">Dezelfde animatie met SMIL, WEB-Animations API, CSS-Animation EN Javascript.</div>
+	<iframe width="100%" height="300" src="//jsfiddle.net/uwo8tdLc/11/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+			 </section>
+			 <section>
+			   <h2>Transform..</h2>
+  <div class="full-column">Ieder element van SVG kun je animeren met het transform attribuut.</div>
 	<iframe width="100%" height="300" src="//jsfiddle.net/uwo8tdLc/11/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 			 </section>
 
@@ -62,6 +67,15 @@
 			  <div class="full-column">
 				  Maak de bovenstaande animatie, maar nu met javascript, ZONDER de web-animation API, zodat het OOK werkt in EDGE!
 				  Je houdt dus een eigen "time" of "framecounter" bij. Je maakt zelf een functie om deze time om te zetten in beweging.
+				  <br><br>
+				  Hiervoor heb je het attribuut "transform" nodig.<br>
+				  <pre><code>var gear1=document.getElementById("gear1");
+					gear1.setAttribute("transform","scale(2)")
+				</code></pre>
+				Als je deze code in bovenstaand voorbeeld inklopt, zie je dat de eerste gear 2x zo groot is geworden.
+				Met <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform">transform</a> heb je de beschikking over <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform#Translate">translate</a> (verplaatsen), <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform#Rotate">rotate</a> (roteren) en <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform#Scale">scale</a> (schalen), maar ook over <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform#SkewX">skew</a> (schuintrekken) en als laatste <a href="https://developer.mozilla.org/nl/docs/Web/SVG/Tutorial/Basis_Transformaties#Complexe_transformaties_met_matrix()">Matrix</a> (iedere combinatie van al deze tranformaties)<br>
+				<br>
+				<strong>LET OP:</strong> Je kunt ook transformaties na elkaar doen: <code>transform="scale(2) rotate(10)"</code>, betekent EERST 2x zo groot maken, dan 10 graden draaien.
 				</div>
 			 </section>
 			 <section class="show_lessons">

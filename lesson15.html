@@ -20,18 +20,57 @@
 			</section>
 
 			 <section>
- 			 <iframe width="560" height="315" src="https://www.youtube.com/embed/tkfBK3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+ 			 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/FeieYrW52Eg" frameborder="0" allow="accelerometer; autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 			 <h1>Les 15</h1>
 			 <h3>Namespace</h3>
-		
-			<p>Als je SVG in javascript wilt creeren vanaf scratch, dan zul je zien dat dit niet (in alle browsers) zomaar werkt.
-			
-			</p>
-			 </section>
+			</section>
 
 			 <section>
+		<h2>Het maken van nieuwe SVG (elementen) met javascript</h2>
+			<div class="full-column">Als je SVG in javascript wilt creeren vanaf scratch, dan zul je zien dat dit niet (in alle browsers) zomaar werkt.
+			<br>
+			<pre>
+<code>var svg=document.createElement("svg");
+document.body.appendChild(svg);
+var circle=document.createElement("circle");
+circle.setAttribute("cx","50");
+circle.setAttribute("cy","50");
+circle.setAttribute("r","50");
+svg.appendChild(circle);
+			</code>
+			</pre>
+			<div class="full-column">Bovenstaande code maakt in Chrome, bijvoorbeeld, keurig de gewenste code:</div>
+			<pre>
+<code>&lt;svg&gt;&lt;circle cx="50" cy="50" r="50"&gt;&lt;/circle&gt;&lt;/svg&gt;</code>
+			</pre>
+			</div>
+			<div class="full-column">Maar je ziet deze ALLEEN als je hem inspecteert.. Wat gebeurt hier?</div>
+			 </section>
+			 
+			<section>
+		<h2>Namespace to the rescue</h2>
+			<div class="full-column">Het komt, omdat een SVG een name-spaced domElement is.
+			Dit betekent, dat je als je een SVG maakt, moet aangeven, welke namespace gebruikt moet worden.
+			Anders kiest je browser een default (dat zou ff fijn zijn) of doen HELEMAAL NIKS.
+			<br>
+			Gelukkig hebben we naast <code>document.createElement()</code> ook  <code>document.createElementNS()</code> en NEE, dat heeft niks met Netscape te maken. NS staat voor NameSpace!
+			<br><br>
+			<a href="https://www.w3schools.com/xml/met_document_createelementns.asp">document.createElementNS()</a>
+			Deze documentatie geeft aan, dat we voor XML elementen de namespace moeten aangeven, alvorens we iets kunnen creeeren.
+			</div>
+			 </section>
+			 <section class="opdracht">
 				<h2>OPDRACHT</h2>
+				<div class="full-column">
+				Kijk naar het menu van deze site. In js/navigation.js maak ik een aantal elementen in SVG.<br>
+				Zoek uit hoe dit werkt en kaap de relevante code <small>(createNSNode())</small> om zelf ook makkelijk namespaced SVG objecten te maken.
+				<br><br>
+				Maak een script, dat het volgende doet:<br>
+				Zet 533 cirkels in een spiraal in een SVG. Je mag ze vergroten om het volgende te krijgen.<br>
+				<img src="img/circles.png"><br>
+				Lastig?<br>
+				<a href="https://mathematica.stackexchange.com/questions/6825/how-can-i-pack-circles-of-different-sizes-into-a-spiral">Mathematic discussie over cirkel spiralen</a>
+				</div>
 			 </section>
 			 <section class="show_lessons">
 			</section>

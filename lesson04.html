@@ -21,20 +21,21 @@
 			</section>
 
 			 <section>
- 			 <iframe width="560" height="315" src="https://www.youtube.com/embed/tkfBK3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   			 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/FeieYrW52Eg" frameborder="0" allow="accelerometer; autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
 
 			 <h1>Les 4</h1>
 			 <h3>Fills/Gradients, strokes/lineDashes</h3>
-					 </section>
+			</section>
 
 			 <section>
 			<h2>Strokes</h2>
 				<iframe width="100%" height="170" src="//jsfiddle.net/uwo8tdLc/1/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-  			<p>
+  			<div class="full-column">
     			  In SVG maak je een shape (een vorm), met een fill (de kleur) en/of een stroke (een outline).<br>
-    			De cirkels hierboven zitten in een <strong>&lt;g>&lt;/g></strong> of group-tag. We zetten de fill op none voor de hele groep.
+    			De cirkels hierboven zitten in een <strong>&lt;g&gt;&lt;/g&gt;</strong> of group-tag. We zetten de fill op none voor de hele groep.
     			Vervolgens kunnen we ons concentreren op de strokes. Per cirkel zet ik steeds andere properties, zoals:
-  			</p>
+  			</div>
     			<ul>
     			  <li>stroke, <small>de kleur van de lijn (default: zwart)</small></li>
     			  <li>stroke-width, <small>de breedte van de lijn (default: 1, mag van 0 tot oneindig, hoeft geen geheel getal te zijn)</small></li>
@@ -44,77 +45,81 @@
     			</ul>
     			<h2>LineJoin</h2>
     					<iframe width="100%" height="300" src="//jsfiddle.net/uwo8tdLc/3/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-              <p>Je kunt in SVG instellen hoe een lijn afgerond wordt, als er een knik in zit, dit kan rond, recht of hoekig</p>
+              <div class="full-column">Je kunt in SVG instellen hoe een lijn afgerond wordt, als er een knik in zit, dit kan rond, recht of hoekig</div>
     			<h2>LineCap</h2>
     					<iframe width="100%" height="200" src="//jsfiddle.net/uwo8tdLc/4/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-              <p>Je kunt in SVG instellen of een lijn een stomp uiteinde heeft, of een rond uiteinde, ik heb er een dun lichtgroen lijntje overheen gezet, om het goed te kunnen zien.</p>
+              <div class="full-column">Je kunt in SVG instellen of een lijn een stomp uiteinde heeft, of een rond uiteinde, ik heb er een dun lichtgroen lijntje overheen gezet, om het goed te kunnen zien.</div>
 			 </section>
 			  <section>
 				<h2>Andere eigenschappen voor lijnen</h2>
-				<div class="full-column">Het is misschien goed, dit te zien, voor de volledigheid, maar ik ga het nog niet uitleggen :) Het enige dat ik zeg is: kijk even naar de CSS en naar de HTML en lees of je het snapt..</div>
-				<iframe width="100%" height="200" src="//jsfiddle.net/g9kc0aLn/1/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+				<div class="full-column">Het is misschien goed, dit te zien, voor de volledigheid: Je kunt markers plaatsen aan het eind van een lijn, of op een knik. Ik ga het (nog) niet uitleggen.<br>
+				Het enige dat ik zeg is: kijk even naar de CSS en naar de HTML en lees of je het snapt..</div>
+				<iframe width="100%" height="200" src="//jsfiddle.net/g9kc0aLn/1/embedded/result,html,css/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 			 </section>
 			 <section>
 			<h2>Defs</h2>
-    			  <p><strong>&lt;defs>&lt;/defs></strong> is een tag, waarin je definities kwijt kan. Definitief van vormen, symbolen, maar ook van filters, gradients en patterns.
-    			  Wat er in de defs tag staat wordt niet getoond, tenzij je het toepast in een van de andere elementen.</P>
+    			  <div class="full-column"><strong>&lt;defs&gt;&lt;/defs&gt;</strong> is een tag, waarin je definities kwijt kan. Definitief van vormen, symbolen, maar ook van filters, gradients en patterns.
+    			  Wat er in de defs tag staat wordt niet getoond, tenzij je het toepast in een van de andere elementen.</div>
 <pre>
 <code>
-&lt;defs>
-	&lt;circle id="myCircle" cx="0" cy="0" r="5" />
+&lt;defs&gt;
+	&lt;circle id="myCircle" cx="0" cy="0" r="5" /&gt;
 
-	&lt;linearGradient id="myGradient" gradientTransform="rotate(90)">
-		&lt;stop offset="20%" stop-color="gold" />
-		&lt;stop offset="90%" stop-color="red" />
-	&lt;/linearGradient>
-&lt;/defs>			  
+	&lt;linearGradient id="myGradient" gradientTransform="rotate(90)"&gt;
+		&lt;stop offset="20%" stop-color="gold" /&gt;
+		&lt;stop offset="90%" stop-color="red" /&gt;
+	&lt;/linearGradient&gt;
+&lt;/defs&gt;			  
 </code>
 </pre>
-  			</p>
+
 			 </section>
 			 <section>
 			 <h2>Fills &amp; Gradients, Bitmap-fill</h2>
 			 <div class="full-column">Alle mogelijkheden op een rijtje. Linear gradient, Radial gradient, image, pattern, hexadecimaal, label, rgb, rgba, fill-opacity, hsl, none</div>
-  			<iframe width="100%" height="300" src="//jsfiddle.net/1vdrast2/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-    			<p>
+  			<iframe width="100%"  height="300" src="//jsfiddle.net/1vdrast2/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+    			<div class="full-column">
     			  Behalve vlakke kleuren kun je ook gradients en een pattern maken.
-    			  Hiervoor moet je eerst een gradient of pattern definieren, dit doe je in een <strong>&lt;defs>&lt;/defs></strong> tag.
+    			  Hiervoor moet je eerst een gradient of pattern definieren, dit doe je in een <strong>&lt;defs&gt;&lt;/defs&gt;</strong> tag.
     			  Wat er in de defs tag staat wordt niet getoond, tenzij je het toepast in een van de andere elementen.<br>
     			  Met <code>fill="url(#grad1)"</code> geef ik aan, dat ik een interne definitie wil gebruiken, die id "grad1" heeft.
     			  Je ziet misschien dat dit dezelfde manier van selecteren is als in <strong>CSS</strong> "#grad1" betekent een element met id "grad1"
-  			</p>
-			
+  			</div>
+						 </section>
+			 <section>
 			<h2>Gradients</h2>
-  			<p>Een <strong>gradient</strong> heeft color-stops, die aangeven op welk percentage van de fill een kleur wordt weergegeven, de color-stops kunnen weer alle CSS Legal Color Values hebben. Een stop kan ook een opacity hebben. Laat je deze weg, dan is het standaard 1 of niet doorzichtig.
-  			</p>
+  			<div class="full-column">Een <strong>gradient</strong> heeft color-stops, die aangeven op welk percentage van de fill een kleur wordt weergegeven, de color-stops kunnen weer alle CSS Legal Color Values hebben. Een stop kan ook een opacity hebben. Laat je deze weg, dan is het standaard 1 of niet doorzichtig.
+  			</div>
   			   <pre><code>
-&lt;linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-  &lt;stop offset="0%" style="stop-color:red;stop-opacity:1" />
-  &lt;stop offset="100%" style="stop-color:green;stop-opacity:1" />
-&lt;/linearGradient>
+&lt;linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%"&gt;
+  &lt;stop offset="0%" style="stop-color:red;stop-opacity:1" /&gt;
+  &lt;stop offset="100%" style="stop-color:green;stop-opacity:1" /&gt;
+&lt;/linearGradient&gt;
   			   </code></pre>
+			 </section>
+		    <section>
 			<h2>Pattern & Bitmap-fill</h2>
-  			<p>Een <strong>pattern</strong> is feitelijk een mini-svg, die je herhaalt met de fill. Je kunt een pattern dus ook gebruiken om te vullen met een image, door een image te plaatsen in het pattern.
-  		   			       			</p>
+  			<div class="full-column">Een <strong>pattern</strong> is feitelijk een mini-svg, die je herhaalt met de fill. Je kunt een pattern dus ook gebruiken om te vullen met een image, door een image te plaatsen in het pattern.
+  		   			       			</div>
   			      			   <pre><code>
 
-&lt;pattern id="star" viewBox="0,0,10,10" width="10%" height="10%">
-  &lt;rect x="0" y="0" width="10" height="10" fill="blue"/>
-  &lt;circle r="4" cx="5" cy="5" fill="white"/>
-&lt;/pattern>
+&lt;pattern id="star" viewBox="0,0,10,10" width="10%" height="10%"&gt;
+  &lt;rect x="0" y="0" width="10" height="10" fill="blue"/&gt;
+  &lt;circle r="4" cx="5" cy="5" fill="white"/&gt;
+&lt;/pattern&gt;
   			   </code></pre>
-  			<p><br>
-  			    Maakt een patroon met id "star" en een tile-grootte-van 10 bij 10. Met width="10%" of met width="0.1" geef je aan dat het patroon 10x in de breedte van het figuur moet worden herhaald.
+  			<div class="full-column">
+  			    Maak een patroon met id "star" en een tile-grootte-van 10 bij 10. Met width="10%" of met width="0.1" geef je aan dat het patroon 10x in de breedte van het figuur moet worden herhaald.
   			    Binnen het patroon zet ik een blauwe rechthoek op de achtergrond en een witte stip daarboven op.
-  		   			       			</p>
-  		   			       			<p>
+				<br>
   		   			       			  Width en Height van een patroon kunnen zich 'vreemd' gedragen, als de verhouding van het tekenobject niet hetzelfde is als de verhouding tussen width en height van de viewbox van de patroon-tegel.<br>
   		   			       			  Ter illustratie:<br>
-  		   			       			</p>
+  		   			       			  		   			       			</div>
+
   			      
   			    			<iframe width="100%" height="300" src="//jsfiddle.net/uwo8tdLc/9/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-					<p>Met <strong>patternContentUnits</strong>="userSpaceOnUse" v.s. <strong>patternContentUnits</strong>="objectBoundingBox" en/of <strong>patternUnits</strong>="userSpaceOnUse" v.s. <strong>patternUnits</strong>="objectBoundingBox" krijg je meer controle over HOE je patroon wordt weergegeven. Het blijft wat ongemakkelijk om dat via een texteditor te doen. Dit soort dingen doe ik altijd met een visuele editor.<br>
-					<br>Wat hier wel heel aardig getoond wordt, is dat je een patroon OOK op een stroke kan toepassen.</p>
+					<div class="full-column">Met <strong>patternContentUnits</strong>="userSpaceOnUse" v.s. <strong>patternContentUnits</strong>="objectBoundingBox" en/of <strong>patternUnits</strong>="userSpaceOnUse" v.s. <strong>patternUnits</strong>="objectBoundingBox" krijg je meer controle over HOE je patroon wordt weergegeven. Het blijft wat ongemakkelijk om dat via een texteditor te doen. Dit soort dingen doe ik altijd met een visuele editor.<br>
+					<br>Wat hier wel heel aardig getoond wordt, is dat je een patroon OOK op een stroke kan toepassen.</div>
 			 </section>
 
 			 <section class="opdracht">
@@ -125,14 +130,14 @@
 			 </section>
 				 <section class="opdracht">
 				<h2>OPDRACHT 2</h2>
-				<p>Tot nog toe hebben we gebruik gemaakt van interne links in de SVG, maar je kunt ook gebruik maken van externe links.
+				<div class="full-column">Tot nog toe hebben we gebruik gemaakt van interne links in de SVG, maar je kunt ook gebruik maken van externe links.
 				<br><br>
 				
 				Maak nu een HTML-file, genaamd "patroongebruiker.html" en maak hierin een inline-svg (dus zoals we het tot nog toe gedaan hebben)
 				en gebruik het patroon en de gradient uit de eerste SVG met
 				<code>fill="url(patroonhouder.svg#gradient)"</code><br>
 				<code>stroke="url(patroonhouder.svg#pattern)"</code><br>
-				Zet de svg patroongebruiker.svg en de HTML in dezelfde map en laat de HTML aan je leerkracht zien.</p>
+				Zet de svg patroongebruiker.svg en de HTML in dezelfde map en laat de HTML aan je leerkracht zien.</div>
 				
 			 </section>
 			 <section class="show_lessons">

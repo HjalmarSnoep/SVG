@@ -21,7 +21,7 @@
 			</section>
 
 			 <section>
- 			 <iframe width="560" height="315" src="https://www.youtube.com/embed/tkfBK3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   			 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/FeieYrW52Eg" frameborder="0" allow="accelerometer; autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
 			 <h1>Les 7</h1>
 			 <h3>SVG Plaatsen in HTML, preserveAspectRatio</h3>
@@ -95,18 +95,29 @@
 				<div class="full-column">Je hebt controle over de manier waarop SVG dit doet met het attribute <strong>preserveAspectRatio</strong>.<br><code>&lt;svg  preserveAspectRatio="xMidYMid meet">&lt;/svg></code></div>
 				<iframe width="100%" height="230" src="//jsfiddle.net/79jfbque/3/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 			</section>
-			 <section>
+			 <section class="opdracht">
 				<h2>OPDRACHT 1</h2>
-				<div class="full-column">Ga naar <a href="https://icomoon.io/app">Icon-moon app</a>, selecteer wat icons en genereer een SVG.
+				<div class="full-column">Ga naar <a href="https://icomoon.io/app">Icon-moon app</a>, selecteer wat icons en genereer een SVG. Plaats de "symbol-defs.svg" file ergens waar je hem kan vinden.
 				Nu kun je ze gebruiken met:</div>
-				<pre></code>&lt;svg class="icon icon-location"><use xlink:href="inspiration/symbol-defs.svg#icon-location"></use></svg></code></pre>
-				<style>.icon{width: 32px; height: 32px; padding: 1px; transition: fill,width,height, 0.5s;}.icon:hover{padding: 0px; width: 34px; height: 34px; fill: #f00;}</style>
+				<pre></code>&lt;svg class="icon"&gt;&lt;use xlink:href="inspiration/symbol-defs.svg#icon-location"&gt;&lt;/use&gt;&lt;/svg&gt;</code></pre>
+				<style>.icon{width: 32px; height: 32px; padding: 4px; fill: #cbae82; transition: fill,padding, 0.3s cubic-bezier(0.160, 1.650, 0.750, 0.855); }.icon:hover{padding: 0px; fill: #5f4339;}</style>
+				<div class="full-column">Zoals hieronder: <br>
 				<svg class="icon"><use xlink:href="inspiration/symbol-defs.svg#icon-forward"></use></svg>
 				<svg class="icon"><use xlink:href="inspiration/symbol-defs.svg#icon-key"></use></svg>
 				<svg class="icon"><use xlink:href="inspiration/symbol-defs.svg#icon-trophy"></use></svg>
 				<svg class="icon"><use xlink:href="inspiration/symbol-defs.svg#icon-user"></use></svg>
 				<svg class="icon"><use xlink:href="inspiration/symbol-defs.svg#icon-location"></use></svg>
 				<svg class="icon"><use xlink:href="inspiration/symbol-defs.svg#icon-inbox"></use></svg>
+				<br>
+				Je kunt ze verkleuren met:
+				</div>
+				<pre><code>&lt;style&gt;.icon{fill: #cbae82;}&lt;/style&gt;
+				</code></pre>
+				<div class="full-column">
+				
+				Je plaatst de svg alsof het een letter uit een font is. Door ze allemaal een class te geven, kun je ze gelijk maken van grootte.
+				De iconen worden keurige in de defs van symbol-defs.svg gezet, als <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol">symbol</a>. Deze tag is bedoeld voor precies deze functie: het hergebruik van vormen.
+				</div>
 				
 				
 			 </section>

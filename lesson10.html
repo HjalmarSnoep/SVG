@@ -9,7 +9,12 @@
       <link href="css/sidebar.css" rel="stylesheet" type="text/css">
       <link href="css/footer.css" rel="stylesheet" type="text/css">
       <link href="css/navigation.css" rel="stylesheet" type="text/css">
-	  	  <title>SVG - Les 10</title>
+    <link rel="stylesheet" href="js/third-party/highlight.dark.css">
+    <script src="js/third-party/highlight.min.js"></script>
+    <script src="js/code-example.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+		<title>SVG - LES 10</title>
+
    </head>
 
    <body>
@@ -21,11 +26,215 @@
 			</section>
 
 			 <section>
- 			 <iframe width="560" height="315" src="https://www.youtube.com/embed/tkfBK3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   			 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/FeieYrW52Eg" frameborder="0" allow="accelerometer; autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
 			 <h1>Les 10</h1>
-			 <h3>Timeline animation</h3>
-		
+			 <h3>Tijdlijnen (timelines)</h3>
+		  <h2>Hoe maak ik een timeline met anime.js</h2>
+		  <div class="full-column">Ik hier voor het gemak en voor het uitleggen van een aantal basis-principes gebruik van <strong>Anime.js</strong>.<br>
+		  Dit is een library voor het animeren van dom-elementenmet Javascript.</div>
+          <div class="example" data-open="JS">
+<svg width="100%" height="150" viewbox="0 0 400 150" preserveAspectRatio="xMidYMid meet">
+  <circle id="ball1" r="5" fill="red"></circle>
+</svg><script>
+(function()
+{
+	var myAnimation = anime({
+	  targets: '#ball1',
+	  cx: 200,
+	  cy: 50,
+	  scale: 2,
+	  duration: 2000,
+	  easing: 'linear',
+	  loop: true,
+	});
+
+})();</script>
+			</div>
+			<div class="full-column">
+			<a href="https://jsfiddle.net/s3manyzj/">Code op JSFiddle</a><br>
+			Hier zie je een bewegende stip. Initieel wordt deze stip op 0 0 gezet (niet gedefinieerd).
+			Ik zeg waar de stip (#ball1) heen moet (cx,cy en ik geef hem een scale), hoe snel dat moet in milliseconden. Vervolgens geef ik een easing aan (namelijk linear) en geef ik aan, dat de animatie opnieuw moet beginnen met loop.
+			</div>
+		  <h2>Easing</h2>
+          <div class="example" data-open="JS">
+<svg width="100%" height="150" viewbox="0 0 400 150" preserveAspectRatio="xMidYMid meet">
+  <circle id="ball2" r="5" fill="red"></circle>
+</svg><script>
+(function()
+{
+	var myAnimation = anime({
+	  targets: '#ball2',
+	  cx: 200,
+	  cy: 50,
+	  scale: 2,
+	  duration: 2000,
+	  easing: 'easeInOutElastic',
+	  loop: true,
+	});
+
+})();</script>
+			</div>
+			<div class="full-column">
+			<a href="https://jsfiddle.net/qLkfu30o/">Code op JSFiddle</a><br>
+			Nu zet ik een easing function, dit bepaalt hoeveel we VERSNELLEN terwijl we van de ene situatie gaan naar de andere.
+			Maar let op: er veranderd niks aan de timing. We komen op precies hetzelfde moment aan.
+			Dit lijkt some niet helemaal zo, maar als je de bovenstaande twee animaties vergelijkt, zie je, dat ze op hetzelfde moment eindigen en opnieuw beginnen.
+			<br>
+			Easing is enorm krachtig om bewegingen te krijgen die langzaam genoeg zijn om te zien, maar snel aanvoelen.
+			<br><br>
+			In dit geval zet ik "easeInOutElastic", maar er zijn vele andere mogelijkheden.<br>
+			<a href="https://animejs.com/documentation/#linearEasing">overzicht van de easing=functions in anime.js</a>
+			
+			</div>
+			
+			 </section>
+
+			 <section>
+			 <h2>Keyframes/Timeline Vanilla</h2>
+          <div class="example" data-open="JS">
+<svg width="100%" height="150" viewbox="0 0 400 150" preserveAspectRatio="xMidYMid meet">
+  <circle id="ball4" cx="0" cy="0" r="5" fill="red"></circle>
+</svg><script>
+(function()
+{
+	
+	var timeLine={target: "ball4", loop:true, keyframes:[
+	{
+	ms:  0, props:{cx: 5,cy: 5}   /* ms=tijd in milliseconden */
+	},
+  {
+  ms: 1000, props:{cx:95,cy: 5}    /* props is object met alle properties die ik wil animeren */
+  },
+  {
+  ms: 2000, props:{cx: 95,cy:95}    /* cx,cy is middelpunt van de cirkel */
+  },
+  {
+  ms: 3000, props:{cx: 5,cy:95}   
+  },
+  {
+  ms: 4000, props:{cx: 5,cy: 5}  
+  }
+ ]};
+	/* onze eigen functie om deze timeLine uit te voeren.*/
+	/* zet een startpunt voor de animatie.*/
+	var start=Date.now();
+	/* roep de functie animateTimeLine voor de eerste keer aan.*/
+	animatetimeLine();
+
+	function animatetimeLine()
+	{
+		/* krijg een link naar het domElement target */
+		var target=document.getElementById(timeLine.target);
+		 /* bereken de tijd vanaf het starten van de animatie */
+		var time=Date.now()-start;
+		 /* dit is alleen maar, omdat ik geen zin heb om timeLine.keyframes te typen */
+		var kf=timeLine.keyframes;
+		/* zoek de keyframes aan beide zijden van de tijd, dus het eerste keyframe voor time en het eerste NA time */
+		var key1=kf[0],key2=null;
+	  for(var i=0;i<kf.length;i++)
+	  {
+		if(kf[i].ms<time) key1=kf[i];
+		if(kf[i].ms>time) 
+		{
+			key2=kf[i];
+		  break; /* stop searching als je key2 hebt gevonden */
+		}
+	  }
+		if(key2==null)
+		{
+			/* Geen nieuwe key2 gevonden? End of timeLine! */
+			if(timeLine.loop)
+			{
+				start=Date.now(); /* Als ik loop, moet ik TOCH nog verder, zet ik wel de tijd op 0*/
+				window.requestAnimationFrame(animatetimeLine);
+			}
+		}else
+		{
+			/* Ik heb twee keys gevonden! */
+		    var t1=(time-key1.ms)/(key2.ms-key1.ms); /* tussen 0 en 1.*/
+			var t2=1-t1; /* t2 is inverse van t1, dus tussen 1 en 0 */
+			for(var all in key1.props)
+			{
+			   /* loop door alle properties die moeten worden geanimeerd */
+  			   /* bereken een nieuwe value, door een deel van beide properties te nemen en dat bij elkaar op te tellen. */
+			  /* het deel van property 2 wordt steeds groter, terwijl het deel van property 1 steeds kleiner wordt. */
+				var new_value=t2*key1.props[all]+t1*key2.props[all];
+			  /* set alle properties naar nieuwe berekende value. */
+				target.setAttribute(all,new_value);
+			}
+			window.requestAnimationFrame(animatetimeLine);
+		}
+	}
+	
+
+})();</script>
+			</div>
+			<div class="full-column">
+			<a href="https://jsfiddle.net/qLkfu30o/2/">Code op JSFiddle</a><br>
+			Ook al is deze manier van animeren erg krachtig, de code die het uitvoert hoeft niet ingewikkeld te zijn.
+			Hier maken we een timeline met lineare timing in 1,2 Kb (unminified). Anime.js is 14Kb (minified).
+			Als je dit soort code (zoals hierboven) snapt, is het vrij makkelijk om bytes uit te sparen en je site sneller te maken.
+			Laat je vooral niet afschrikken, ik heb commentaren toegevoegd, zodat een en ander makkelijker te lezen is.
+			</div>
+			 </section>
+
+			
+			 <section class="opdracht">
+				<h2>OPDRACHT 1 - easing toevoegen</h2>
+				<div class="full-column">
+				Misschien denk je dat het heel lastig is om easing toe te voegen in ons voorbeeld.
+				Op zich valt dat erg mee. Het enige dat een easing functie doet, is onze t1 (die we boven uitrekenen)
+				veranderen. t1 zit altijd tussen 0 en 1 en gaat linear van 0 naar 1 in precies de tijd die beschikbaar is tussen twee keys.
+				<br><br>
+				Als je t1 vlak nadat hij is uitgerekend zou kwadrateren, dus bijvoorbeeld: t1=t1*t1; Zou je een andere timingfunction krijgen.
+				Het begin en einde zijn hetzelfde, want <strong>0 x 0 = 0</strong> en <strong>1 x 1 = 1</strong>;
+				<br><br>
+				Maar...<br>
+				<strong>0.5 x 0.5 = 0.25</strong>  <small>( of &frac12; x &frac12; = &frac14;)</small>
+				<br><br>
+				Dus als de tijd halverwege is, doet hij stiekem alsof hij op 0.25 is.<br>
+				<svg viewBox="-70 -10 300 120" width="300" height="120"><path id="grid" stroke="#bbb"></path><path stroke="#800" fill="none" id="timeline"></path>
+				<text style="font-size: 12px;" x="110" y="5">1 x 1 = 1</text>
+				<text style="font-size: 12px;"x="60" y="80">0.5 x 0.5 = 0.25</text>
+				<text style="font-size: 12px;"x="-60" y="106">0 x 0 = 0</text>
+				<circle fill="#800" cx="00" cy="100" r="5"></circle>
+				<circle fill="#800" cx="100" cy="0" r="5"></circle>
+				<circle fill="#800" cx="50" cy="75" r="5"></circle>
+				</svg><br>
+				<script>
+					var str="";
+					for(var x=0;x<=100;x+=10)
+					{
+						str+="M "+x+" 0 L "+x+" 100 ";
+						str+="M 0 "+x+" L 100 "+x+" ";
+					}
+					document.getElementById("grid").setAttribute("d",str);
+					str="";
+					for(var x=0;x<=100;x+=2)
+					{
+						var y=100-(x/100*x/100)*100;
+						if(x==0)
+							str+="M "+x+" "+y+" ";
+						else
+							str+="L "+x+" "+y+" ";
+					}
+					document.getElementById("timeline").setAttribute("d",str);
+				</script>
+				Zo kun je vrij makkelijk een timing-functie maken voor ease-in.
+				Als je wat van wiskunde weet, kun je de cos makkelijk gebruiken voor een easein-out.
+				Maar dan zou je voor iedere ease een aparte wiskundige functie moeten maken.
+				<br><br>
+				Maar er is een algemenere manier om dit te doen, en dat is met een bezier curve.
+				De code voor een bezier-curve vind je <a href="https://stackoverflow.com/questions/785097/how-do-i-implement-a-b%C3%A9zier-curve-in-c">hier</a>.
+				En met <a href="https://cubic-bezier.com/#.16,.79,.96,.3">een grafische curve editor</a> kun je vrij makkelijk, vrijwel alle eases namaken.
+				<br><br>
+				Jouw opdracht is precies bovenstaande: pas de code voor de timeline aan, zodat je een bezier-curve implementeert.
+				Maak een eigen easing en laat zien, dat het werkt in Vanilla JS.
+				</div>
+				
+				
+				
 			 </section>
 			 <section class="show_lessons">
 			</section>

@@ -21,23 +21,22 @@
 			</section>
 
 			 <section>
- 			 <iframe width="560" height="315" src="https://www.youtube.com/embed/tkfBK3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   			 <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/FeieYrW52Eg" frameborder="0" allow="accelerometer; autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
 
 			 <h1>Les 9</h1>
 			 <h3>SVG Filters</h3>
 		
 			<p>Je kunt met SVG erg krachtige filters gebruiken.
 			    De filters zijn een aantal bewerkingen op PIXEL niveau.<br>
-			    <strong>PAS OP!</strong>, gebruik je een filter, dan gaat deze uit van de grootte in pixels van je SVG.
+			    <strong>PAS OP!</strong> Gebruik je een filter, dan gaat deze uit van de grootte in pixels van je SVG.
 			    Als je deze numeriek aangeeft en toch de SVG uitvergroot, kan een en ander de toch blokkerig worden.
-			</p>
-			<p>
-			  Filters worden net als gradients en patterns gedefinieerd in de defs-tag.<br>
+	
+<br><br>	Filters worden net als gradients en patterns gedefinieerd in de defs-tag.<br>
 			  Ze renderen met hardware ondersteuning erg snel, maar bij complexe filters en een grote SVG, kan het je
 			  performance bij updaten van de SVG (dus bij animatie) wel erg vetragen.<br>
-			  <br>
-  			Hieronder zie je een paar voorbeelden van Filters.
-			</p>
+			
+  						</p>
       <h2>Opbouw van een filter</h2>
 		 
 
@@ -48,10 +47,10 @@
 	Het filter attribuut wordt dan op een onderdeel van de SVG gezet (ongeveer zoals een class in HTML) 
 	Ieder filter element doet een enkele grafische basis-operatie (zoals een Gaussian blur of een belichtings effect of een convolutiebewerking). 
  Hierbij krijgt een filter element een of meer inputs (bitmaps) die geproduceerd kunnen zijn door andere filter elementen.
- Zo maak je een ketting van basis-bewerkingen, die kan leiden tot bijzondere resultaten.</p>
-<p>Bij een normale filter wordt de basis-input (de source) een aantal keer gebruikt en worden de resultaten van verschillende bewerkingen samengesteld door het Composite element<br>
+ Zo maak je een ketting van basis-bewerkingen, die kan leiden tot bijzondere resultaten.<br>
+Bij een normale filter wordt de basis-input (de source) een aantal keer gebruikt en worden de resultaten van verschillende bewerkingen samengesteld door het Composite element<br>
 </p>
-<<table class="wikitable"><tbody>
+<table><tbody>
 <tr>
 <th>Name </th> <th>Element </th> <th>SVG Basic </th>
 </tr>
@@ -68,12 +67,12 @@
 <code>feComponentTransfer</code> </td> <td class="table-yes">Yes </td>
 </tr>
 <tr>
-<th>Composite </th> <td>
+<th><a href="https://en.wikipedia.org/wiki/Compositing" target="_blank">Composite</a>  </th> <td>
 <code>feComposite</code> </td> <td class="table-yes">Yes </td>
 </tr>
 <tr>
 <th>
-<a href="/page/Convolution" title="" class="info_link" topic="Convolution" target="_blank" alt="">Convolve matrix</a> </th> <td>
+<a href="https://en.wikipedia.org/wiki/Convolution" target="_blank">Convolve matrix</a> </th> <td>
 <code>feConvolveMatrix</code> </td> <td class="table-no">No </td>
 </tr>
 <tr>
@@ -82,7 +81,7 @@
 </tr>
 <tr>
 <th>
-<a href="/page/Displacement-map" class="info_link" title="" topic="Displacement-map" target="_blank" alt="">Displacement map</a> </th> <td>
+<a href="https://en.wikipedia.org/wiki/Displacement_mapping" class="info_link" title="" topic="Displacement-map" target="_blank" alt="">Displacement map</a> </th> <td>
 <code>feDisplacementMap</code> </td> <td class="table-no">No </td>
 </tr>
 <tr>
@@ -91,7 +90,7 @@
 </tr>
 <tr>
 <th>
-<a href="/page/Gaussian-blur" title="" class="info_link" topic="Gaussian-blur" target="_blank" alt="">Gaussian blur</a> </th> <td>
+<a href="https://en.wikipedia.org/wiki/Gaussian_blur" title="" class="info_link" topic="Gaussian-blur" target="_blank" alt="">Gaussian blur</a> </th> <td>
 <code>feGaussianBlur</code> </td> <td class="table-yes">Yes </td>
 </tr>
 <tr>
@@ -127,65 +126,139 @@
 	  
 	  <p></p>
       <h2>Filter Gallery</h2>
-      <style> svg
-      .gallery>div {
-        display: inline-block;
-      }
-      .gallery>div>svg {
-        display: inline-block;
-       border: 1px solid #888;
-       vertical-align: top;
-      }
-      .gallery>div>div {
-        display: inline-block;
-       width: 200px;
-       height: 100px;
-       background: #eee;
-      }
-      </style>
-      <div class="gallery">
-            <div><svg width="100" height="100"></svg><div>Beschrijving</div></div>
-            <div><svg width="100" height="100"></svg><div>Beschrijving</div></div>
-            <div><svg width="100" height="100"></svg><div>Beschrijving</div></div>
-            <div><svg width="100" height="100"></svg><div>Beschrijving</div></div>
-            <div><svg width="100" height="100"></svg><div>Beschrijving</div></div>
-      </div>
+     
+	 <div class="card-container">
+				<div class="card">
+					<h5>Geen filter</h5>
+					<img src="img/filter-target.svg" width="150" height="150">
+				</div>
+				<div class="card">
+					<h5>Blueprint</h5>
+					<img src="img/filter-target-blueprint.svg" width="150" height="150">
+				</div>
+				<div class="card">
+					<h5>Blur-Double</h5>
+					<img src="img/filter-target-blur-double.svg" width="150" height="150">
+				</div>
+				<div class="card">
+					<h5>Cubes</h5>
+					<img src="img/filter-target-cubes.svg" width="150" height="150">
+				</div>
+				<div class="card">
+					<h5>Cracked Lava</h5>
+					<img src="img/filter-target-cracked-lava.svg" width="150" height="150">
+				</div>
+				<div class="card">
+					<h5>FilmGrain</h5>
+					<img src="img/filter-target-film-grain.svg" width="150" height="150">
+				</div>
+				<div class="card">
+					<h5>Dripping</h5>
+					<img src="img/filter-target-dripping.svg" width="150" height="150">
+				</div>
+				<div class="card">
+					<h5>Drop-shadow</h5>
+					<img src="img/filter-target-drop-shadow.svg" width="150" height="150">
+				</div>
+				<div class="card">
+					<h5>Embossed</h5>
+					<img src="img/filter-target-embossed.svg" width="150" height="150">
+				</div>
+				<div class="card">
+					<h5>Mother of Pearl</h5>
+					<img src="img/filter-target-mother-of-pearl.svg" width="150" height="150">
+				</div>
+				<div class="card">
+					<h5>Plastic</h5>
+					<img src="img/filter-target-plastic.svg" width="150" height="150">
+				</div>
+				<div class="card" title="Gebruikt: feMorphology feComposite feTurbulence feDisplacementMap">
+					<h5>Rough Dilate</h5>
+					<img src="img/filter-target-rough-dilate.svg" width="150" height="150">
+					
+				</div>
+				<div class="card">
+					<h5>Sharpen</h5>
+					<img src="img/filter-target-sharpen-more.svg" width="150" height="150">
+				</div>
+				<div class="card">
+					<h5>SnowCap</h5>
+					<img src="img/filter-target-snowcap.svg" width="150" height="150">
+				</div>
+				<div class="card">
+					<h5>Goache</h5>
+					<img src="img/filter-target-goache.svg" width="150" height="150">
+				</div>
+				<div class="card">
+					<h5>Duo-tone</h5>
+					<img src="img/filter-target-duochrome.svg" width="150" height="150">
+				</div>
+		</div>
+
 			 </section>
 			 <section>
         <h3>Toepassen op element</h3>
-        Voeg gewoon een filter="url(naam-van-de-filter)" toe als attribute.
-        Dus:
+        <div class="full-column">Voeg gewoon een filter="url(#naam-van-de-filter)" toe als attribute.
+        Dus:</div>
         <pre>
         <code>
-          <circle cx="5" cy="5" r="0" fill="black" filter="url(naam-van-de-filter)"></circle>
+          &lt;circle cx="5" cy="5" r="0" fill="black" filter="url(#naam-van-de-filter)"/&gt;
         </code>
         </pre>
         <h3>Toepassen op CSS</h3>
-        Je kunt SVG filters OOK toepassen op
+        <div class="full-column">Je kunt SVG filters OOK toepassen op html elementen.
+		Daarvoor moet je wel een (onzichtbare) SVG in de pagina plaatsen die de juiste filter in de defs heeft.<br>
+		<?xml version="1.0" encoding="UTF-8"?>
+		<svg version="1.1" width="0" height="0" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg">
+			<defs>
+			<filter id="goache" y="-.2" height="1.4" style="color-interpolation-filters:sRGB">
+			<feMorphology in="SourceGraphic" operator="dilate" radius="7" result="result8"/>
+			<feComposite in="SourceGraphic" in2="result8" k1="0.5" k3="0.5" operator="arithmetic" result="result10"/>
+			<feTurbulence baseFrequency="0.07" numOctaves="3" result="result11" type="fractalNoise"/>
+			<feDisplacementMap in="result10" in2="result11" result="result12" scale="10" xChannelSelector="R"/>
+			<feComposite in="SourceGraphic" in2="result12" k1="0.25" k2="0.25" k3="0.75" operator="arithmetic" result="result13"/>
+			</filter>
+			</defs>
+		</svg>
+		<h3 style="filter: url(#goache);">Dit is bovenstaande "Goauche" filter op een H3 tag.</h3>
+		<h3>Dit is een gewone H3 tag.</h3>
+
+		
+			
+		</div>
   			 </section>
 			 <section class="opdracht">
-				<h2>OPDRACHT</h2>
-				<p>Maak een eigen filter en voeg hier in (voeg ook een image toe):
-				</p>
+				<h2>OPDRACHT 1</h2>
+				<div class="full-column">Maak een eigen filter [...B...] (voeg ook een image [...A...] toe, waar je de filter op loslaat.) Gebruik deze code als vertrekpunt:
+				</div>
 				<pre>
 				<code>
 &lt;svg width="600" height="450" viewBox="0 0 600 450"&gt;
- &lt;filter id="myFilter"&gt;
+ &lt;filter id="[...B...]"&gt;
  &lt;!-- filter operations go here --&gt;
  &lt;/filter&gt;
- &lt;image xlink:href="..."
+ &lt;image xlink:href="[...A...]"
  width="100%" height="100%" x="0" y="0"
- filter="url(#myFilter)"&gt;&lt;/image&gt;
+ filter="url(#[...B...])"&gt;&lt;/image&gt;
 &lt;/svg&gt;
 				</code></pre>
-				<p>Gebruik <a href="https://webplatform.github.io/docs/svg/tutorials/smarter_svg_filters/">Deze resource</a> om je filter OOK in CSS toe te passen op een normaal HTML-element.</p>
-        <p>
-          	<a href="https://yoksel.github.io/svg-filters/#/">Yoksel</a>
-          	<a href="https://codepen.io/collection/ArxmyO/">Codepen collection</a>
-          	<a href="https://codepen.io/mullany/pens/popular/">Codepen voorbeelden Mullany</a>
-          	<a href="https://www.sarasoueidan.com/blog/svg-filters/">Crash Course</a>
+				<div class="full-column">
+				Combineer minimaal 3 filter-elementen (dus twee en composite):<br>
+				Deze links kunnen je helpen: <br>
+          	<a href="https://yoksel.github.io/svg-filters/#/">Yoksel filter-generator</a>
+          	<a href="https://codepen.io/collection/ArxmyO/">Codepen collection van filters</a>
+          	<a href="https://codepen.io/mullany/pens/popular/">Codepen voorbeelden filters van Mullany</a>
+          	<a href="https://www.sarasoueidan.com/blog/svg-filters/">Crash Course SVG filters</a>
           	<a href="https://kazzkiq.github.io/svg-color-filter/">Color filter playground</a>
-				</p>
+				</div>
+			 </section>
+			 <section class="opdracht">
+				<h2>OPDRACHT 2</h2>
+				<div class="full-column">
+					Gebruik <a href="https://webplatform.github.io/docs/svg/tutorials/smarter_svg_filters/">deze tutorial</a> om je filter OOK in CSS toe te passen op een normaal HTML-element.
+					<br> Of lees hierboven hoe het moet :)
+					
+    			</div>
 			 </section>
 			 <section class="show_lessons">
 			</section>
