@@ -5,13 +5,13 @@
 	padding: 0px;
 	margin-bottom: 15px;
 	border-bottom: 7px solid #bc5100;
-	background-position: center bottom; 
+	background-position: center bottom;
 	background-repeat: repeat-x;
 	border-radius: 25px 25px 7px 7px;
 	overflow: hidden;
 	text-align: left;
 }
-#content section 
+#content section
 {
 	min-height: 400px;
 }
@@ -19,31 +19,31 @@
 {
 	min-height: 0px;
 }
-#content section .double 
+#content section .double
 {
 	min-height: 800px;
 }
-#content section .triple 
+#content section .triple
 {
 	min-height: 1200px;
 }
-#content section .quadruple 
+#content section .quadruple
 {
 	min-height: 1600px;
 }
-#content section.heading 
+#content section.heading
 {
 	text-align: center;
 	min-height: 400px;
-	background-color: #fbc02d;
+	background-color: #ffffdd;
 	color:#bc5100;
 	border-bottom: 7px solid #ffa726;
 }
-#content section.opdracht 
+#content section.opdracht
 {
 	min-height: 400px;
-	background-color: #fbc02d;
-	color:#fff;
+	background-color: #ffe02d;
+	color:#bc5100;
 }
 #content section.opdracht p
 {
@@ -105,11 +105,15 @@
 	height: 60px;
 	margin: 0 0 1px 1px;
 	line-height: 60px;
-	background-color: #ffb04c;
-	color: #fff !important;
+	background-color: #e3e8ff;
+	color:#9dc0ff;
+}
+#content .lesson-button:hover{
+  color: #fff;
 }
 #content .lesson-button.active{
-	background-color: #bc5100 !important;
+	background-color: #bc5100;
+	color: #ffef20;
 }
 
 #content .lesson:nth-child(even){
@@ -126,6 +130,19 @@
   #content .lesson-excercise {
    width: calc(100% - 5px);
   }
+}
+pre{
+  padding: 5px 25px;
+  background-color: #444;
+  color: #aaa;
+  font-size: 12px;
+  line-height: 12px;
+  width: 100%;
+}
+code
+{
+  width: 100%;
+  overflow: scroll;
 }
 #content .demo
 {

@@ -4,9 +4,9 @@
 	height: 70px;
 }
 
-#nav-back{
+#nav-back {
 	position: absolute;
-	top:0px
+	top:0px;
 	left: 0px;
 }
 .menu {
@@ -18,7 +18,7 @@ text{
  	-webkit-transition: fill 3.5s ease;
  	-moz-transition: fill 3.5s ease;
  	-o-transition: fill 3.5s ease;
- 	transition: fill 3.5s ease;	 
+ 	transition: fill 3.5s ease;
 }
 
 
