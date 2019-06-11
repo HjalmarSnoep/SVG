@@ -28,33 +28,41 @@
 					 </section>
 
 			 <section>
-			<h1>SMIL, Web-Animation, CSS-Animation, javascript</h1>
+			<h2>SMIL, Web-Animation, CSS-Animation, javascript</h2>
 			<p>Tot nog toe hebben we dingen geanimeerd met javascript. Dit is ook handig als er interactie in je SVG is.</p>
-			<p>Voor animaties, zijn er echter een aantal alternatieve systemen, SMIL door applie, Web-Animation door Chrome en
-			CSS-Animation dat nooit bedoeld was om SVG mee te animeren, maar SVG is nu eenmaal te stylen met CSS en daar hoort dus ook CSS-animation bij.</p>
-			<p>Het grote probleem met deze standaarden, is dat niemand het over eens lijkt te kunnen worden. Chrome had SMIL op deprecated staan, maar heeft dat weer ingetrokken na veel druk uit de community die SMIL voorstaat. Web-Animation API wordt niet ondersteund door Edge etc etc.
-			Het is een elllende. <br>
-			Ook zijn niet alle eigenschappen te animeren.</p>
+			<p>Voor animaties, zijn er echter een aantal alternatieve systemen, <a href="">SMIL</a> door applle, <a href="">Web-Animations Api</a> door Chrome en
+			<a href="">CSS-Animation</a> dat nooit bedoeld was om SVG mee te animeren en daarom niet alle attributes kan animeren, maar SVG is nu eenmaal te stylen met CSS en daar hoort dus ook CSS-animation bij.</p>
+			<p>Het grote probleem met al deze standaarden, is dat niemand het er (nog) over eens lijkt te kunnen worden.
+			  Chrome had SMIL op deprecated staan, maar heeft dat weer ingetrokken na veel druk uit de community die SMIL voorstaat.
+			  <a href="">Web-Animations API</a> lijkt de standaard die het meest overeenkomt met het principe van "seperation of concerns", wordt (nog) niet ondersteund door Edge etc etc.<br>
+			Het is doffe elllende. <br></p>
 			<br>
-			<p>Daarom ga ik in deze tutorial uit van Javascript. Dit heeft een aantal voordelen.</p>
+			<h2>Waarom Vanilla Javascript?</h2>
+			<div class="full-column">Daarom ga ik in deze tutorial uit van (vanilla) Javascript. Dit heeft een aantal voordelen.</div>
 			<ul>
 			  <li>Javascript is zowel voor interactie als animatie geschikt</li>
-			  <li>Er zijn goede libraries als greensock en D3 beschikbaar om je te helpen met moeilijke dingen</li>
+			  <li>Javascript geeft meer controle over de animatie, je kunt stoppen op het moment dat je wilt, wijzigingen maken etc. Het is meer geschikt voor interactieve animaties, wat op het web mooi meegenomen is en voor Games onmisbaar.</li>
+			  <li>Er zijn goede libraries als greensock en D3 beschikbaar om je te helpen met moeilijke dingen, maar ik ben geen fan van automatisch animeren van libraries. Zodra de Browser-Wars zijn opgelost, zullen de meeste animatie-libraries hun bestaansrecht verliezen.</li>
 			  <li>Je hebt geen last van dit soort browser-strijd. Dit omdat Ecmascript (de makers van Javascript) als uitgangspunt hebben: "Don't break the web".
 			  Oude versies van javascript blijven het gewoon doen, ook al komt er functionaliteit bij.</li>
 			  </ul>
-			  Het enige nadeel is, dat Javascript bij echt simpele animaties wat groter uitpakt (meer Kb). Bij de meeste complexere animaties wint javascript weer.
+			  
+			  <div class="full-column">Het enige nadeel is, dat Javascript bij echt simpele animaties wat groter uitpakt (meer Kb). Bij de meeste complexere animaties wint je bij puur javascript weer Kb terug..</div>
 			 </section>
 
 			 <section>
-  Dezelfde animatie met SMIL, WEB-Animation, CSS-Animation EN Javascript.
+			   <h2>Hoe ziet animatie er in de praktijk uit?</h2>
+  <div class="full-column">Dezelfde animatie met SMIL, WEB-Animation, CSS-Animation EN Javascript.</div>
 	<iframe width="100%" height="300" src="//jsfiddle.net/uwo8tdLc/11/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 			 </section>
 
-			 <section>
+			 <section class="opdracht">
 				<h2>OPDRACHT 1</h2>
 			<iframe width="100%" height="300" src="//jsfiddle.net/uwo8tdLc/12/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-				Maak de bovenstaande animatie, maar nu met javascript, ZONDER de web-animation API, zodat het OOK werkt in EDGE!
+			  <div class="full-column">
+				  Maak de bovenstaande animatie, maar nu met javascript, ZONDER de web-animation API, zodat het OOK werkt in EDGE!
+				  Je houdt dus een eigen "time" of "framecounter" bij. Je maakt zelf een functie om deze time om te zetten in beweging.
+				</div>
 			 </section>
 			 <section class="show_lessons">
 			</section>

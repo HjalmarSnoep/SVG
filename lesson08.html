@@ -24,61 +24,60 @@
  			 <iframe width="560" height="315" src="https://www.youtube.com/embed/tkfBK3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 			 <h1>Les 8</h1>
-			 <h3>Paths</h3>
-		
-			<p>De meest krachtige vorm die je in SVG hebt is Path. Maar het is ook direct de moeilijkste.
-			 Je beschrijft een vorm met een reeks letters en cijfers (de 'data', d="..."). Iedere letter is een commando, ieder cijfer is een coordinaat.
-			</p>
+			 <h3>Paths</h1>
+			</section>
+      <section>
+        <h2>Anatomie van Path tag</h2>
 			<style>svg{border:1px solid #888;}</style>
-			<p>Het is het makkelijkste om te denken aan een pen, die je over het canvas beweegt.</p>
+			<p>De meest krachtige vorm die je in SVG hebt is Path. Maar het is ook direct de moeilijkste.<br>
+			 Je beschrijft een vorm met een reeks letters en cijfers (de 'data', d="..."). Iedere letter is een commando, ieder cijfer is een coordinaat.<br>
+		
+			Het is het makkelijkste om te denken aan een pen, die je over het canvas beweegt.</p>
 				<iframe width="100%" height="300" src="//jsfiddle.net/mohvxeL5/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-			<p>De pen wordt met M (move) op 5,5 gezet, daarna</p>
-			<p>trekken we een L (line) naar 40,30.</p>
+			<div class="full-column">De pen wordt met M (move) op 5,5 gezet, daarna</div>
+			<div class="full-column">trekken we een L (line) naar 40,30.</div>
 			<p>Dit is het makkelijkste voorbeeld. Het feit dat de letters HOOFDLETTERS zijn, betekent, dat de coordinaten (x en y) absoluut zijn.
 			Gebruik je een kleine letter, dan is het relatief ten opzichte van het vorige coordinaat. Goed gebruik hiervan geeft een kleinere string, maar
 			ik zou je aanraden om te beginnen met absoluut, dus hoofdletters, anders is het makkelijk om in de war te raken.
 			Verplaats maar eens het eerste punt in dit voorbeeld:</p>
 				<iframe width="100%" height="300" src="//jsfiddle.net/mohvxeL5/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-				<p>Zoals je ziet, kun je de date zo lang maken als je zelf wilt, je kunt dus in 1x meerdere strepen en vormen zetten. Wel hebben ze allemaal dezelfde kleur, stroke en laag (het is &eacute;&eacute;n vorm)</p>
+				<p>Zoals je ziet, kun je de data (d) zo lang maken als je zelf wilt, je kunt dus in 1x meerdere strepen en vormen zetten. Wel hebben ze allemaal dezelfde kleur, stroke en laag (het is &eacute;&eacute;n vorm)</p>
 			 </section>
 
 			 <section>
-			   <h3>Andere commando´s en interactieve voorbeelden</h3>
-M = moveto
-L = lineto
+			   <h2>Andere commando's en interactieve voorbeelden</h2>
+<h3>M = moveto<br> L = lineto</h3>
 <iframe width="100%" height="550" src="http://jxnblk.com/paths/?d=M8%2048%20L56%2046%20L20%2012%20Z"></iframe><br>
-H = horizontal lineto<br>
-V = vertical lineto<br>
+<h3>H = horizontal lineto<br>
+V = vertical lineto<br></h3>
 <p>Dit is het zelfde als L(line), maar met 1 coordinaat of in de x richting H(Horizontal) of y richting V(Vertical)</p>
 <iframe width="100%" height="550" src="http://jxnblk.com/paths/?d=M44%2014%20V40%20H14%20Z"></iframe><br>
-C = curveto<br>
-<p>Een (bezier) curve, deze heeft twee eindpunten en twee control points, die samen het verloop van de curve bepalen.
+<h3>C = curveto</h3>
+<p>C staat voor een (B&eacute;zier) curve. Deze soort curve heeft twee eindpunten en twee control points, die samen het verloop van de curve bepalen.
 Vertrekpunt van de curve is de plaats van de pen, de pen vertrekt in de richting van het eerste controlpoint en komt aan op het
 eindpunt vanuit de richting van het tweede controlpoint.</p>
 <iframe width="100%" height="550" src="http://jxnblk.com/paths/?d=M32%2048%20C36%2032%2052%2032%2032%2012"></iframe><br>
-S = smooth curveto
-<p>Een Smooth (bezier) curve, deze twee eindpunten en een control point, het eerste controlpoint wordt bepaald door het laatste controlpoint
+<h3>S = smooth curveto</h3>
+<p>Een Smooth (B&eacute;zier) curve, deze twee eindpunten en een control point, het eerste controlpoint wordt bepaald door het laatste controlpoint
 van de C (curve) ervoor. Daardoor is hij smooth, omdat de curve in dezelfde richting vertrekt, als hij aankomt (Deze kun je dus alleen gebruiken na een C)</p>
 <iframe width="100%" height="550" src="http://jxnblk.com/paths/?d=M32%2048%20C36%2036%2054%2034%2046%2028%20S60%2018%2032%2010"></iframe><br>
-Q = quadratic Bézier curve
-<p>Een Quadratic (bezier) curve, is een speciale variant van een bezier Curve (c), de twee controlpoints van de beziercurve vallen samen.
+<h3>Q = quadratic B&eacute;zier curve</h3>
+<p>Een Quadratic (B&eacute;zier) curve, is een speciale variant van een B&eacute;zier Curve (c), de twee controlpoints van de B&eacute;ziercurve vallen samen.
 Daarom heeft deze vorm van de curve maar 1 controlpoint.</p>
 <iframe width="100%" height="550" src="http://jxnblk.com/paths/?d=M32%2048%20Q56%2026%2026%208"></iframe><br>
-T = smooth quadratic Bézier curveto
-<p>Een Smooth Quadratic (bezier) curve, is een smooth versie van de Quadratic bezier curve. Het ene controlpoint wordt bepaald door het laatste controlpoint van de voorgaande curve. (Deze kun je dus alleen gebruiken na een Q).</p>
+<h3>T = smooth quadratic B&eacute;zier curveto</h3>
+<p>Een Smooth Quadratic (B&eacute;zier) curve, is een smooth versie van de Quadratic B&eacute;zier curve. Het ene controlpoint wordt bepaald door het laatste controlpoint van de voorgaande curve. (Deze kun je dus alleen gebruiken na een Q).</p>
 <iframe width="100%" height="550" src="http://jxnblk.com/paths/?d=M34%2048%20Q26%2056%2016%2036%20T32%2014"></iframe><br>
-Z = closepath
+<h3>Z = closepath</h3>
 				<iframe width="100%" height="300" src="//jsfiddle.net/9kvd5zL2/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-A = elliptical Arc
+<h3>A = elliptical Arc</h3>
 				<iframe width="100%" height="300" src="//jsfiddle.net/9kvd5zL2/1/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 			 </section>
-			 <section>
+			 <section class="opdracht">
 				<h2>OPDRACHT</h2>
-				<p>Maak de volgende symbool na als path.</p>
-        <p>
+				<div class="full-column">Maak de volgende symbool na als path.<br>
           	Hint: Je kunt het grid gebruiken om de control points af te lezen.
-				
-				</p>
+				</div>
 			 </section>
 			 <section class="show_lessons">
 			</section>

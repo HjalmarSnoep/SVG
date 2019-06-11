@@ -24,67 +24,74 @@
  			 <iframe width="560" height="315" src="https://www.youtube.com/embed/tkfBK3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 			 <h1>Les 6</h1>
-			 <h3>Viewbox verplaatsen en spriting door viewbox</h3>
-					 </section>
+			 <h3>Viewbox verplaatsen</h3>
+			</section>
 
 			 <section>
-			<h1>Viewbox</h1>
-			<p>Kijk naar de volgende SVG, inline gebruikt</p>
-			<p>De code: </p>
-			<textarea style="width: 100%" rows=10>
+			<h2>Vergroten/verkleinen</h2>
+			<div class="full-column">Kijk naar de volgende SVG, inline gebruikt<br>
+			De code: </div>
+			<pre><code>
+&lt;svg width="256" height="230">
+	&lt;path d="..." fill="#FBBC04"/>
+	&lt;path d="..." fill="#4285F4"/>
+	&lt;ellipse fill="#34A853" cx="42" cy="188" rx="42" ry="41"/>
+&lt;/svg>
+				</code></pre><br/>
+				<div class="full-column">Geeft ons:
 <svg width="256" height="230">
 	<path d="M5.888,166.405103 L90.88,20.9 C101.676138,27.2558621 156.115862,57.3844138 164.908138,63.1135172 L79.9161379,208.627448 C70.6206897,220.906621 -5.888,185.040138 5.888,166.396276 L5.888,166.405103 Z" fill="#FBBC04"></path>
 	<path d="M250.084224,166.401789 L165.092224,20.9055131 C153.210293,1.13172 127.619121,-6.05393517 106.600638,5.62496138 C85.582155,17.3038579 79.182155,42.4624786 91.0640861,63.1190303 L176.056086,208.632961 C187.938017,228.397927 213.52919,235.583582 234.547672,223.904686 C254.648086,212.225789 261.966155,186.175582 250.084224,166.419444 L250.084224,166.401789 Z" fill="#4285F4"></path>
 	<ellipse fill="#34A853" cx="42.6637241" cy="187.924414" rx="42.6637241" ry="41.6044138"></ellipse>
-</svg>
-				</textarea><br/>
-				Geeft ons:
-<svg width="256" height="230">
-	<path d="M5.888,166.405103 L90.88,20.9 C101.676138,27.2558621 156.115862,57.3844138 164.908138,63.1135172 L79.9161379,208.627448 C70.6206897,220.906621 -5.888,185.040138 5.888,166.396276 L5.888,166.405103 Z" fill="#FBBC04"></path>
-	<path d="M250.084224,166.401789 L165.092224,20.9055131 C153.210293,1.13172 127.619121,-6.05393517 106.600638,5.62496138 C85.582155,17.3038579 79.182155,42.4624786 91.0640861,63.1190303 L176.056086,208.632961 C187.938017,228.397927 213.52919,235.583582 234.547672,223.904686 C254.648086,212.225789 261.966155,186.175582 250.084224,166.419444 L250.084224,166.401789 Z" fill="#4285F4"></path>
-	<ellipse fill="#34A853" cx="42.6637241" cy="187.924414" rx="42.6637241" ry="41.6044138"></ellipse>
-</svg>, of het logo voor google Ads.
+</svg>, of het logo voor google Ads.</div>
 </section>
 <section>
-<p>Als we deze kleiner willen gebruiken gaat het mis, als we alleen width en height zetten:</p>
-	<textarea style="width: 100%" rows=10>
-<svg width="150" height="150">
+<div class="full-column">Als we deze kleiner willen gebruiken gaat het mis, als we alleen width en height zetten:</div>
+	<pre><code>
+&lt;svg width="150" height="150">
 ...
-</svg>
-				</textarea><br/>
-				Een breedte van 150 bij 150 pixels (bovenstaande code) geeft ons:
+&lt;/svg>
+				</code></pre> <br/>
+				<div class="full-column">Een breedte van 150 bij 150 pixels (bovenstaande code) geeft ons:
 <svg width="150" height="150">
 	<path d="M5.888,166.405103 L90.88,20.9 C101.676138,27.2558621 156.115862,57.3844138 164.908138,63.1135172 L79.9161379,208.627448 C70.6206897,220.906621 -5.888,185.040138 5.888,166.396276 L5.888,166.405103 Z" fill="#FBBC04"></path>
 	<path d="M250.084224,166.401789 L165.092224,20.9055131 C153.210293,1.13172 127.619121,-6.05393517 106.600638,5.62496138 C85.582155,17.3038579 79.182155,42.4624786 91.0640861,63.1190303 L176.056086,208.632961 C187.938017,228.397927 213.52919,235.583582 234.547672,223.904686 C254.648086,212.225789 261.966155,186.175582 250.084224,166.419444 L250.084224,166.401789 Z" fill="#4285F4"></path>
 	<ellipse fill="#34A853" cx="42.6637241" cy="187.924414" rx="42.6637241" ry="41.6044138"></ellipse>
-</svg>, het logo wordt slechts deels afgebeeld.</p>
+</svg>, het logo wordt slechts deels afgebeeld.</div>
 			 </section>
 			 <section>
-<p>Een oplossing hiervoor is de viewBox aan te geven.</p>
-	<textarea style="width: 100%" rows=10>
-<svg width="150" height="150" viewBox="0 0 256 230">
+<p>Een oplossing hiervoor is de viewBox aan te geven. Maar dat is vreemd, toch? SVG is scaleable!</p>
+	<pre><code>
+&lt;svg width="150" height="150" viewBox="0 0 256 230">
 ...
-</svg>
-				</textarea><br/>
+&lt;/svg>
+				</code></pre><br/>
+				<div class="full-column">
 				bovenstaande code geeft wat we willen:
 <svg width="150" height="150" viewBox="0 0 256 230">
 	<path d="M5.888,166.405103 L90.88,20.9 C101.676138,27.2558621 156.115862,57.3844138 164.908138,63.1135172 L79.9161379,208.627448 C70.6206897,220.906621 -5.888,185.040138 5.888,166.396276 L5.888,166.405103 Z" fill="#FBBC04"></path>
 	<path d="M250.084224,166.401789 L165.092224,20.9055131 C153.210293,1.13172 127.619121,-6.05393517 106.600638,5.62496138 C85.582155,17.3038579 79.182155,42.4624786 91.0640861,63.1190303 L176.056086,208.632961 C187.938017,228.397927 213.52919,235.583582 234.547672,223.904686 C254.648086,212.225789 261.966155,186.175582 250.084224,166.419444 L250.084224,166.401789 Z" fill="#4285F4"></path>
 	<ellipse fill="#34A853" cx="42.6637241" cy="187.924414" rx="42.6637241" ry="41.6044138"></ellipse>
-</svg>, het logo wordt kleiner maar geheel afgebeeld.</p>
-			<p>ViewBox is dus de grootte van het stuk wat wordt getoond, ongeacht, hoe groot het wordt getoond.</p>
+</svg>, het logo wordt kleiner maar geheel afgebeeld.</div>
+			<p>"ViewBox" slaat dus op de grootte van het stuk wat wordt getoond, ongeacht, hoe groot het wordt getoond. Ook bepaald het het <def title="verhouding tussen breedte en hoogte">aspect-ratio</def>
+			De eerste cijfers zijn een x en y, de tweede cijfers is de breedte en hoogte, gescheiden door spaties. Dus<br><code>viewBox="<strong>x</strong> <strong>y</strong> <strong>width</strong> <strong>height</strong>"</code></p>
 			 </section>
 
 			 <section>
-			<h1>De viewbox verschuiven</h1>
-			<p>De viewBox is het zichtbare gebied.. Kijk naar (het resultaat) van deze simpele SVG</p>
+			<h2>De viewbox verschuiven</h2>
+			<div class="full-column">De viewBox is het zichtbare gebied.. Kijk naar (het resultaat) van deze simpele SVG</div>
 			<iframe width="100%" height="400" src="//jsfiddle.net/3gvwqfL0/embedded/html,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-			<p>En dan naar deze<.../p>
+			<div class="full-column">En dan naar deze</div>
 			<iframe width="100%" height="400" src="//jsfiddle.net/3gvwqfL0/1/embedded/html,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-			<p>Het enige dat we hebben toegevoegd was <code>viewbox="0 0 250 150"</code></p>
-			<p>Deze viewbox hoeft ook niet bij 0,0 te beginnen. Dit werkt ook:</p>
+			<div class="full-column">
+			  
+			  			Het enige dat we hebben toegevoegd was<br> <code>viewbox="0 0 250 150"</code><br>
+			        Deze viewbox hoeft ook niet bij 0,0 te beginnen. Dit werkt ook:
+
+			  </div>
+
 			<iframe width="100%" height="400" src="//jsfiddle.net/3gvwqfL0/2/embedded/html,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-			<p>Het enige dat we verschoven was, de viewBox met de <code>viewbox="0 0 250 150"</code> als je deze code namelijk weglaat is het zichtbare gebied gelijk aan de hoogte en breedte van de SVG en begint het op 0,0</p>
+			<p>Het enige dat we verschoven was de viewBox met de code <code>viewbox="0 0 250 150"</code>. Als je deze code namelijk weglaat is het zichtbare gebied gelijk aan de hoogte en breedte van de SVG en begint het altijd op 0,0</p>
 			<style>
 			.box{
 				border: 1px solid #000;
@@ -102,37 +109,41 @@
 					<td></td><td class="darkbox">x </td><td class="darkbox">y </td><td class="darkbox">width </td><td class="darkbox">height</td><td></td>
 				</tr>
 			</table>
+			<div class="full-column">
 			TIP: let op de hoofdletter in view<strong>B</strong>ox
-			</p>
-			<p>Ik kan me voorstellen, dat het lastig is voor te stellen, dus heb ik deze animatie gemaakt, misschien maakt dat het duidelijker:</p>
-			<p>Links is het resultaat (iets kleiner dan eerder)</p>
-			<p>Rechts heb ik de viewBox getekend</p>
+			</div>
+			<div class="full-column">Het is voor veel mensen lastig voor te stellen wat viewBox precies doet,
+			dus heb ik deze animatie gemaakt, misschien maakt dat het duidelijker:<br>
+			Links is het resultaat (iets kleiner dan eerder)<br>
+			Rechts heb ik de viewBox getekend</div>
 			<iframe width="100%" height="400" src="//jsfiddle.net/3gvwqfL0/3/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+			 <div class="full-column">Zoals je misschien ziet, is het ook prima, als de viewbox negatief wordt, of een gebroken getal.</div>
 			 </section>
-			 <p>Zoals je misschien ziet, is het ook prima, als de viewbox negatief wordt, of een gebroken getal.</p>
 
 					
 
-			 <section>
+			 <section class="opdracht">
 				<h2>OPDRACHT 1</h2>
 			<iframe width="100%" height="300" src="//jsfiddle.net/3gvwqfL0/4/embedded/result,html/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-				Maak deze GIF-animatie <img src="img/viewbox.gif"> na met de SVG bovenstaande fiddle, door alleen maar de viewbox met een breedte en hoogte van 64x64 te verschuiven, achtereenvolgens naar:<br>
+				Maak deze GIF-animatie <img src="img/viewbox.gif"> na met de SVG uit bovenstaande fiddle, door alleen maar de viewbox met een breedte en hoogte van 64x64 te verschuiven, achtereenvolgens naar:<br>
 				<table width="400px"><tr><td>0,0</td><td>64,0</td><td>128,0</td></tr>
 				<tr><td>0,64</td><td>64,64</td><td>128,64</td></tr>
 				<tr><td>0,128</td><td>64,128</td><td>128,128</td></tr>
 				</table>
-				<p>Het makkelijkste is, als je de viewBox strings in een array stopt en met een animate functie de viewbox van de SVG aanpast.</p>
-				<p>Zoals je misschien zult zien, is je SVG animatie niet heel veel groter dan de gif animatie. Wel is deze veel flexibeler, je kunt hem stoppen, sneller en langzamer laten gaan, en zelfs roteren en flippen, zonder kwaliteitsverlies.</p>
+				<p>Het makkelijkste is, als je de viewBox strings in een array stopt en met een animate functie de viewbox van de SVG aanpast.
+				<br>
+				Zoals je misschien zult zien, is je SVG animatie niet heel veel groter dan de gif animatie. Wel is deze veel flexibeler, je kunt hem stoppen, sneller en langzamer laten gaan, en zelfs roteren en flippen, zonder kwaliteitsverlies.
+				</p>
 			 </section>
-			 <section>
+			 <section class="opdracht">
 				<h2>OPDRACHT 2</h2>
-				Gebruik een :hover pseudo-class in CSS om de animatie van kleur te laten veranderen, on mouse over. ZONDER DAT DE ANIMATIE STOPT!
+				<div class="full-column">Gebruik een :hover pseudo-class in CSS om de animatie van kleur te laten veranderen, on mouse over. ZONDER DAT DE ANIMATIE STOPT!</div>
 			 </section>
-			  <section>
+			  <section class="opdracht">
 				<h2>OPDRACHT 3</h2>
 			<iframe width="100%" height="300" src="//jsfiddle.net/3gvwqfL0/5/embedded/result,html,js,css/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-				Gebruik bovenstaand voorbeeld om de pijltjes-toetsen af te vangen en het mannetje te laten lopen, in plaats van het groene vlakje.<br>
-				<aside style="font-size: 12px; background: #89b6d8; padding: 15px;">Dit is getest in de laatste versie van Chrome.. Werkt het niet in jouw browser?? <br>Goed moment om wat te leren over gracefull-degradation:
+				<div class="full-column">Gebruik bovenstaand voorbeeld om de pijltjes-toetsen af te vangen en het mannetje te laten lopen, in plaats van het groene vlakje.</div>
+				<aside style="font-size: 12px; background: #89b6d8; color: #006; padding: 15px;">Dit is getest in de laatste versie van Chrome.. Werkt het niet in jouw browser?? <br>Goed moment om wat te leren over gracefull-degradation:
 				<a href="">https://medium.com/@uistephen/keyboardevent-key-for-cross-browser-key-press-check-61dbad0a067a</a></aside>
 			 </section>
 

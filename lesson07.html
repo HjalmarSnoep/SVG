@@ -28,8 +28,8 @@
 			</section>
 
 			 <section>
-			<h1>Plaatsen in HTML</h1>
-			<p>We hebben al een hoop manieren gezien om SVG te plaatsen.</p>
+			<h2>Plaatsen in HTML</h2>
+			<div class="full-column">We hebben al een hoop manieren gezien om SVG te plaatsen.</div>
 			<p>Inspecteer de volgende SVG's</p>
 			<div class="card-container">
 			
@@ -61,7 +61,7 @@
 					<svg width="150" height="150" viewBox="0 0 256 255"> <use xlink:href="inspiration/duckduckgo.svg#the_actual_icon" /></svg>
 				</div>
 			</div>
-			<p>Al deze manieren van plaatsen hebben zo hun voordelen en nadelen.</p>
+			<div class="full-column">Al deze manieren van plaatsen hebben zo hun voordelen en nadelen.</div>
 		  <table border="1">
 		    <thead>
 		      		    <tr><th>Manier</th><th>Stylen met CSS</th><th>Gebruik externe SVG voor caching</th><th>SVG Viewport Control</th><th>Fallback voor oude browsers</th></tr>
@@ -81,26 +81,25 @@
 			Zo heb je bij een img of een background img weer de beschikking over allerlei CSS styling, die moeilijker zijn bij standaard SVG, omdat deze zich standaard meer gedraagd als een img met object-fit eigenschappen.
 			Ook met oudere browsers heb je issues met de support van deze verschillende manieren, maar nieuwe browsers ondersteunen ze allemaal erg goed.
 			</p>
-			<p>Meer weten?</p>
-			<p><a href="https://css-tricks.com/using-svg/">https://css-tricks.com/using-svg/</a></p>
+			<div class="full-column">Meer weten?<br>
+			<a href="https://css-tricks.com/using-svg/">https://css-tricks.com/using-svg/</a></div>
 			</section>
 			 <section>
 				<h2>Viewport control</h2>
-				<p>Een van de slechts begrepen features van een SVG is de alignment property van de Viewport</p>
+				<div class="full-column">Een van de minst begrepen features van een SVG is de alignment property van de Viewport</div>
 				<iframe width="100%" height="150" src="//jsfiddle.net/79jfbque/4/embedded/result,html/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-				<p>Ik plaats hier vijf keer dezelfde SVG, zoals je ziet, probeert SVG standaard de ruimte te vullen met de viewBox.</p>
+				<p>Ik plaats hier vijf keer dezelfde SVG. Zoals je ziet, probeert SVG standaard de ruimte te vullen met de viewBox.</p>
 			</section>
 			<section>
 				<h2>preserveAspectRatio</h2>
-				<p>Je hebt controle over de manier waarop SVG dit doet met het attribute <strong>preserveAspectRatio</strong></p>
-				<p><code>&lt;svg  preserveAspectRatio="xMidYMid meet">&lt;/svg></p>
+				<div class="full-column">Je hebt controle over de manier waarop SVG dit doet met het attribute <strong>preserveAspectRatio</strong>.<br><code>&lt;svg  preserveAspectRatio="xMidYMid meet">&lt;/svg></code></div>
 				<iframe width="100%" height="230" src="//jsfiddle.net/79jfbque/3/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 			</section>
 			 <section>
 				<h2>OPDRACHT 1</h2>
-				Ga naar <a href="https://icomoon.io/app">Icon-moon app</a>, selecteer wat icons en genereer een SVG.
-				Nu kun je ze gebruiken met:
-				<textarea style="width: 100%"><svg class="icon icon-location"><use xlink:href="inspiration/symbol-defs.svg#icon-location"></use></svg></textarea>
+				<div class="full-column">Ga naar <a href="https://icomoon.io/app">Icon-moon app</a>, selecteer wat icons en genereer een SVG.
+				Nu kun je ze gebruiken met:</div>
+				<pre></code>&lt;svg class="icon icon-location"><use xlink:href="inspiration/symbol-defs.svg#icon-location"></use></svg></code></pre>
 				<style>.icon{width: 32px; height: 32px; padding: 1px; transition: fill,width,height, 0.5s;}.icon:hover{padding: 0px; width: 34px; height: 34px; fill: #f00;}</style>
 				<svg class="icon"><use xlink:href="inspiration/symbol-defs.svg#icon-forward"></use></svg>
 				<svg class="icon"><use xlink:href="inspiration/symbol-defs.svg#icon-key"></use></svg>
