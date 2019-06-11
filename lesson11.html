@@ -9,6 +9,7 @@
       <link href="css/sidebar.css" rel="stylesheet" type="text/css">
       <link href="css/footer.css" rel="stylesheet" type="text/css">
       <link href="css/navigation.css" rel="stylesheet" type="text/css">
+	  	  <title>SVG - Les 11</title>
    </head>
 
    <body>
@@ -24,8 +25,24 @@
 
 			 <h1>Les 11</h1>
 			 <h3>Page-scroll animations</h3>
-		
+				<iframe width="100%" height="450" src="//jsfiddle.net/nakx5nwu/4/embedded/result,html/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+				<p>Een interessante variant van een timeline animatie kan een scroll-animatie zijn.
+				Hierbij zet je van tevoren een aantal animatie 'op scherp'. Zodra de gebruiker de animatie in beeld scrollt, komt er iets binnen, veranderd er iets of wat dan ook.
+				Het effect is van een pagina, die opbouwt, terwijl je ermee bezig bent.</p>
+				<h2>De techniek</h2>
+				<div class="full-column">Als eerste zullen we moeten weten of een element in beeld is. Dit kunnen we heel makkelijk afvangen op HTML niveau.</div>
+				<iframe width="100%" height="450" src="//jsfiddle.net/ub083Lo9/2/embedded/result,html/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+			 <p>Het eerste element gebruikt de scrollbar als een timeline-scrubber. De tijd wordt berekend aan de hand van de y positie in beeld van het element dat moet worden geanimeerd.
+			 Het tweede element wordt alleen ingestart, als de gebruiker het element in beeld scrollt.</p>
 			 </section>
+			  <section class="opdracht">
+			  <h2>Opdracht</h2>
+			  <p>Gebruik bovenstaande voorbeeld om een animatie te maken, met:
+			  <ul>
+			  <li>een element dat een beweging doet zodra in beeld en deze blijft doen!</li>
+			  <li>een element dat een beweging doet zodra in beeld, maar als ik buiten beeld ben geweest, opnieuw start.</li>
+			</section>
+
 			 <section class="show_lessons">
 			</section>
 			<script src="js/lessons.js" type="text/javascript"></script>

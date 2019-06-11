@@ -9,6 +9,7 @@
       <link href="css/sidebar.css" rel="stylesheet" type="text/css">
       <link href="css/footer.css" rel="stylesheet" type="text/css">
       <link href="css/navigation.css" rel="stylesheet" type="text/css">
+	  	  <title>SVG - Les 12</title>
    </head>
 
    <body>
@@ -23,23 +24,51 @@
  			 <iframe width="560" height="315" src="https://www.youtube.com/embed/uDqjIdI4bF4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 			 <h1>Les 12</h1>
-			 <h3>Over animatie</h3>
+			 <h2>Over animatie</h2>
 			 <p>Disney heeft veel animatie"regels" opgesteld, die meestal gelden voor karakter animatie.
 			 Ik verwacht niet, dat jullie snel karakteranimatie zullen doen, maar sommige principes gelden ook voor
 			 animatie van interface-elementen of andere abstrace vormen.</p>
 			 </section>
 			 <section>
-			 <h3>Squash and stretch</h3>
-			 Volume blijft zelfde.
-			 <h3>Anticipatie</h3>
-			 Voor een (snelle) beweging komt een tegengestelde beweging. Dit geeft het oog een signaal, dat er iets gaat gebeuren.
-			 Hierdoor wordt zelfs een snelle beweging niet gemist. Het kan zelfs erg "snappy" aanvoelen.
-			 <h3>Follow through</h3>
-			 Een (snelle) beweging kan niet in 1 keer tot stilstand komen.
-			 <h3>Secondary action</h3>
+			 <h2>Squash and stretch</h2>
+			<iframe height="265" style="width: 100%;" scrolling="no" title="#1 Squash and stretch - Animation Principles for the Web" src="//codepen.io/donovanh/embed/wBRNqX/?height=265&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/donovanh/pen/wBRNqX/'>#1 Squash and stretch - Animation Principles for the Web</a> by Donovan Hutchinson
+  (<a href='https://codepen.io/donovanh'>@donovanh</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+<p>Volume blijft zelfde bij vervorming, dit leidt tot krimp in de breedte, bij uitrekken in de hoogte en andersom..</p>
+			 <h2>Anticipatie</h2>
+			 <img src="img/anticipation.gif" width="100%">
+			 <p>Het voorbeeld bij squash en stretch is ook een aardig voorbeeld voor Anticipatie.
+			 Voor een (snelle) beweging komt eerst een tegengestelde beweging. Dit geeft het oog een signaal, dat er iets gaat gebeuren.
+			 Hierdoor wordt zelfs een snelle beweging niet gemist. Het kan zelfs erg "snappy" aanvoelen. In het voorbeeld is de beweging zelf maar 1 frame of 1/25ste van een seconde. Toch zie je hem.</p>
+			 <h2>Follow through & overlapping action</h2>
+			 <iframe height="265" style="width: 100%;" scrolling="no" title="morphing" src="//codepen.io/SnoepGames/embed/NVQZrB/?height=265&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+			  See the Pen <a href='https://codepen.io/SnoepGames/pen/NVQZrB/'>morphing</a> by SnoepGames
+			  (<a href='https://codepen.io/SnoepGames'>@SnoepGames</a>) on <a href='https://codepen.io'>CodePen</a>.
+			</iframe>
+			 <p>Een (snelle) beweging kan niet in 1 keer tot stilstand komen en vaak veren dingen nog even na. Als je animatie niet dynamisch hoeft te zijn, kun je hiervoor timing-functions in CSS of SMIL gebruiken. Ik gebruik hier een physics gebaseerd model. (Vertex integration)
+			 Misschien valt het je op, dat tijdens overlapping action squash en stretch niet altijd opgaat.</p>
+			 
+			 <h2>Exaggeration</h2>
+			 <img src="img/exageration.gif" width="100%">
+			 <div class="full-column">Soms moet je iets overdrijven om het duidelijk te maken. Een beweging, die anders niet of nauwelijks opvalt, krijgt op deze manier extra aandacht.</div>
+			 
+			 <h2>Secondary action</h2>
+			 <img src="img/secondary-action.gif" width="100%">
+			 <p>
 			 Zelden gebeurd er maar 1 ding tegelijk. Bewegende onderdelen stoppen en starten niet op hetzelfde moment.
+			 Kies een hoofdbeweging en laat andere (kleinere acties) de aandacht daarop vestigen. De hoofdbeweging is hier: van links naar rechts.
+			 De andere elementen starten hun beweging iedere keer net iets later, zodat deze beweging over het scherm onderstreept wordt.</p>
 
 			 </section>
+			 			 <section class="opdracht">
+				<h2>OPDRACHT</h2>
+				<p>Maak een eigen animatie van twee blokjes die binnen komen op een pagina. 
+				Laat zoveel mogelijk zien, dat je het bovenstaande begrijpt.<br>
+				Een helpende gedachte kan zijn, wat voelt een blokje, wat probeert hij/zij uit te drukken. Is hij energiek, droevig of moe?<br>
+				Kortom: Hoe beweegt het? Hoe is de interactie? Wat wil ik vertellen? Wat MOET de kijker gezien hebben?
+				</p>
+			</section>
 			 <section class="show_lessons">
 			</section>
 			<script src="js/lessons.js" type="text/javascript"></script>

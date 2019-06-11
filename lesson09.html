@@ -9,6 +9,7 @@
       <link href="css/sidebar.css" rel="stylesheet" type="text/css">
       <link href="css/footer.css" rel="stylesheet" type="text/css">
       <link href="css/navigation.css" rel="stylesheet" type="text/css">
+	  	  <title>SVG - Les 9</title>
    </head>
 
    <body>
@@ -37,7 +38,95 @@
 			  <br>
   			Hieronder zie je een paar voorbeelden van Filters.
 			</p>
-      <h3>Filter Gallery</h3>
+      <h2>Opbouw van een filter</h2>
+		 
+
+	<p><strong>SVG filters</strong> zijn effecten die je toepast op delen van graphics van de SVG. 
+	Een <strong>filter effect</strong> bestaat uit een aantal grafisch operaties, die op de bron worden toegepast om hem aan te passen in bitmapformaat.
+	<br><BR>
+	Filter effects maak je met filter elementen je geeft een filter een id en zet hem in defs. 
+	Het filter attribuut wordt dan op een onderdeel van de SVG gezet (ongeveer zoals een class in HTML) 
+	Ieder filter element doet een enkele grafische basis-operatie (zoals een Gaussian blur of een belichtings effect of een convolutiebewerking). 
+ Hierbij krijgt een filter element een of meer inputs (bitmaps) die geproduceerd kunnen zijn door andere filter elementen.
+ Zo maak je een ketting van basis-bewerkingen, die kan leiden tot bijzondere resultaten.</p>
+<p>Bij een normale filter wordt de basis-input (de source) een aantal keer gebruikt en worden de resultaten van verschillende bewerkingen samengesteld door het Composite element<br>
+</p>
+<<table class="wikitable"><tbody>
+<tr>
+<th>Name </th> <th>Element </th> <th>SVG Basic </th>
+</tr>
+<tr>
+<th>Blend </th> <td>
+<code>feBlend</code> </td> <td class="table-yes">Yes </td>
+</tr>
+<tr>
+<th>Color matrix </th> <td>
+<code>feColorMatrix</code> </td> <td class="table-yes">Yes </td>
+</tr>
+<tr>
+<th>Component transfer </th> <td>
+<code>feComponentTransfer</code> </td> <td class="table-yes">Yes </td>
+</tr>
+<tr>
+<th>Composite </th> <td>
+<code>feComposite</code> </td> <td class="table-yes">Yes </td>
+</tr>
+<tr>
+<th>
+<a href="/page/Convolution" title="" class="info_link" topic="Convolution" target="_blank" alt="">Convolve matrix</a> </th> <td>
+<code>feConvolveMatrix</code> </td> <td class="table-no">No </td>
+</tr>
+<tr>
+<th>Diffuse lighting </th> <td>
+<code>feDiffuseLighting</code> </td> <td class="table-no">No </td>
+</tr>
+<tr>
+<th>
+<a href="/page/Displacement-map" class="info_link" title="" topic="Displacement-map" target="_blank" alt="">Displacement map</a> </th> <td>
+<code>feDisplacementMap</code> </td> <td class="table-no">No </td>
+</tr>
+<tr>
+<th>Flood </th> <td>
+<code>feFlood</code> </td> <td class="table-yes">Yes </td>
+</tr>
+<tr>
+<th>
+<a href="/page/Gaussian-blur" title="" class="info_link" topic="Gaussian-blur" target="_blank" alt="">Gaussian blur</a> </th> <td>
+<code>feGaussianBlur</code> </td> <td class="table-yes">Yes </td>
+</tr>
+<tr>
+<th>Image </th> <td>
+<code>feImage</code> </td> <td class="table-yes">Yes </td>
+</tr>
+<tr>
+<th>Merge </th> <td>
+<code>feMerge</code> </td> <td class="table-yes">Yes </td>
+</tr>
+<tr>
+<th>Morphology </th> <td>
+<code>feMorphology</code> </td> <td class="table-no">No </td>
+</tr>
+<tr>
+<th>Offset </th> <td>
+<code>feOffset</code> </td> <td class="table-yes">Yes </td>
+</tr>
+<tr>
+<th>Specular lighting </th> <td>
+<code>feSpecularLighting</code> </td> <td class="table-no">No </td>
+</tr>
+<tr>
+<th>Tile </th> <td>
+<code>feTile</code> </td> <td class="table-yes">Yes </td>
+</tr>
+<tr>
+<th>Turbulence </th> <td>
+<code>feTurbulence</code> </td> <td class="table-no">No </td>
+</tr>
+</tbody></table>
+
+	  
+	  <p></p>
+      <h2>Filter Gallery</h2>
       <style> svg
       .gallery>div {
         display: inline-block;
@@ -74,7 +163,7 @@
         <h3>Toepassen op CSS</h3>
         Je kunt SVG filters OOK toepassen op
   			 </section>
-			 <section>
+			 <section class="opdracht">
 				<h2>OPDRACHT</h2>
 				<p>Maak een eigen filter en voeg hier in (voeg ook een image toe):
 				</p>

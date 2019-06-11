@@ -9,10 +9,9 @@
       <link href="css/sidebar.css" rel="stylesheet" type="text/css">
       <link href="css/footer.css" rel="stylesheet" type="text/css">
       <link href="css/navigation.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet"
-      href="js/third-party/highlight.dark.css">
+    <link rel="stylesheet" href="js/third-party/highlight.dark.css">
     <script src="js/third-party/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="js/code-example.js"></script>
 
    </head>
 
@@ -34,10 +33,12 @@
         Het ondersteund tegenwoordig, out of the box animatie, fonts, grouping, intelligent reuse, filters en basis interactiviteit voor klikken en hoveren,
     maar we missen nog een paar dingen die erg interessant zijn voor 2D game-development.
 			</p>
+			<h2>Belangrijke functionaliteit</h2>
       <ul>
-        <li>Het volgen van paden</li>
+        <li>Het volgen van paden (via Physics)</li>
         <li>Point In Polygon ondersteuning voor complexe hittesten</li>
-        <li>Global to Local en Local to Global coordinaat ondersteuning voor intelligen grouperen en degrouperen.</li>
+        <li>Global to Local (G2L) en Local to Global (L2G) coordinaat ondersteuning voor intelligent grouperen en degrouperen. (en hittests)</li>
+        <li>Muis/pointer ondersteuning bij schalen/roteren svg (bijzondere implementatie van L2G en G2L).</li>
       </ul>
       <div class="full-column">
         Gelukkig is er <a href="https://developer.mozilla.org/en-US/docs/Web/API/SVGGeometryElement">SVGGeometryElement</a>.
@@ -46,35 +47,16 @@
         Dat is vervelend, maar betekent ook, dat we kans op een fallback hebben voor browsers die het NIET ondersteunen.
       </div>
 			 </section>
-			 <style>
-			   .example{
-			     border: 1px solid #ff0;
-			   }
-			   .example svg{
-			     border: 1px solid #888;
-			     width: 100%;
-			   }
-			   .example textarea{
-			     width: 100%;
-			     height: 300px;
-			     overflow-y: scroll;
-			     border: 1px solid #888;
-			   }
-			 </style>
 			 <section>
-				<h2>Belangrijke functionaliteit</h2>
-				  
-
   				<h2>getPointAtLength, pathLength, getTotalLength</h2>
           <p>Vijanden in een game zitten vaak op een path, als je dit wilt mengen met physics en ook als het path wat complexer wordt, is het
           handig hier wat ondersteuning bij te hebben. Ook bij complexe animaties, waarbij je de ene vorm in de andere "morpht" is het handig om
-          een willekeurig punt op een path the kunnen bepalen, zo kun je een vorm tijdelijk "flattenen" en de resulterende polyline is dan makkelijk te morphen ( je kunt ook snap.js gebruiken, natuurlijk, maar da's 80Kb aan je pagina toevoegen).</p>
+          een willekeurig punt op een path te kunnen bepalen, zo kun je een vorm tijdelijk "flattenen" en de resulterende polyline is dan makkelijk te morphen ( je kunt ook snap.js gebruiken, natuurlijk, maar da's 80Kb aan je pagina toevoegen).</p>
           <div class="example" id="folow-path-example">
-<svg id="follow_path" width="400">
+<svg id="follow_path" width="100%" height="150" viewbox="0 0 400 150" preserveAspectRatio="xMidYMid meet">
   <path id="follow" d="M10 10 L 100 100 C 150 150 400 200 390 0" stroke="#000" fill="none"></path>
   <circle id="follower" r="5" fill="red"></circle>
-</svg>
-              <script>
+</svg><script>
 (function(){
   var enemy={dom: document.getElementById("follower"),x:0,y:0,dx:0,dy:0};
   var path=document.getElementById("follow");
@@ -105,68 +87,164 @@
   	window.requestAnimationFrame(animate);
 }
 
-})();</script>
-              <pre><code class="svg" contenteditable="true"></code></pre>
-              <pre><code class="javascript" contenteditable="true"></code></pre>
-            </div>
-            <p>Omdat het soms lastig is te werken met de berekende getTotalPathLength (bijvoorbeeld bij responsive SVG´s)
-            Kun je ook in SVG een pathlenght zetten.<code><path d="M 0,20 h100" pathLength="90"/></code></p>
+})();</script></div>
+            <div class="full-column">Omdat het soms lastig is te werken met de berekende waarde van getTotalPathLength (bijvoorbeeld bij responsive SVGs)
+            kun je ook in SVG een attribute <strong>pathLength</strong> zetten met <code>&lt;path d="M 0,20 h100" pathLength="90"/></code>.</div>
 
   				<h2>createSVGPoint(), isPointInFill(), isPointInStroke()</h2>
   				<p>Stel je voor dat je een race game maakt. Als de auto OP de weg is, kan hij sneller.
   				De weg is een grillige vorm. Dan heb je wat we in de business noemen een PIP(Point in polygon) of hitTest nodig.
   				Een makkelijke manier om te testen of een punt in een vorm zit.</p>
+				
+				
+				
   				<div class="example" id="hero_weg_example">
-      				<svg id="svg" width="100%" viewbox="0 0 400 200"  height="200" preserveAspectRatio="xMidYMid meet">
-                <path id="weg" d="M 20 20 Q 200 0 280 20 Q 370 100 180 180 L 120 180 z" fill="none" stroke="#888" stroke-width="30"></path>
-                <path id="weg" d="M 20 20 Q 200 0 280 20 Q 370 100 180 180 L 120 180 z" fill="none" stroke="#fff" stroke-dasharray="15,15"></path>
-                <circle id="hero" cx="100" cy="100" r="5" fill="#000"></circle>
-              </svg>
-              <script>
-              (function(){
-                var interactive_example = document.getElementById("hero_weg_example");
-                var svg=interactive_example.getElementsByTagName("svg")[0];
-                var weg=document.getElementById("weg");
-                var hero={};
-                hero.dom=document.getElementById("hero");
-                hero.x=100;
-                hero.y=100;
-                hero.dx=1; /* direction of travel */
-                hero.dy=1;
-  
-                animate();
-                function animate()
-                {
-                   var testpoint=svg.createSVGPoint();
-                   testpoint.x=hero.x;
-                   testpoint.y=hero.y;
-                  if(weg.isPointInStroke(testpoint))
-                  {
-                  	hero.speed=3;
-                  }else
-                  {
-                  	hero.speed=1;
-                  }
-                	hero.x+=hero.dx*hero.speed;
-                	hero.y+=hero.dy*hero.speed;
-                  if(hero.x<0) hero.dx=Math.abs(hero.dx);
-                  if(hero.y<0) hero.dy=Math.abs(hero.dy);
-                  if(hero.x>400) hero.dx=-Math.abs(hero.dx);
-                  if(hero.y>200) hero.dy=-Math.abs(hero.dy);
-                  hero.dom.setAttribute("cx",hero.x);
-                  hero.dom.setAttribute("cy",hero.y);
-                  window.requestAnimationFrame(animate);
-                }
-              })();
-              </script>
-              <pre><code class="svg" contenteditable="true"></code></pre>
-              <pre><code class="javascript" contenteditable="true"></code></pre>
+					<svg id="svg" width="100%" height="200"  viewbox="0 0 400 200" preserveAspectRatio="xMidYMid meet">
+						<path id="weg" d="M 20 20 Q 200 0 280 20 Q 370 100 180 180 L 120 180 z" fill="none" stroke="#888" stroke-width="30"></path>
+						<path id="weg" d="M 20 20 Q 200 0 280 20 Q 370 100 180 180 L 120 180 z" fill="none" stroke="#fff" stroke-dasharray="15,15"></path>
+						<circle id="hero" cx="100" cy="100" r="5" fill="#000"></circle>
+					</svg>
+				<script>
+				  (function(){
+					var interactive_example = document.getElementById("hero_weg_example");
+					var svg=interactive_example.getElementsByTagName("svg")[0];
+					var weg=document.getElementById("weg");
+					var hero={};
+					hero.dom=document.getElementById("hero");
+					hero.x=100;
+					hero.y=100;
+					hero.dx=1; /* direction of travel */
+					hero.dy=1;
+	  
+					animate();
+					function animate()
+					{
+					   var testpoint=svg.createSVGPoint();
+					   testpoint.x=hero.x;
+					   testpoint.y=hero.y;
+					  if(weg.isPointInStroke(testpoint))
+					  {
+						hero.speed=3;
+					  }else
+					  {
+						hero.speed=1;
+					  }
+						hero.x+=hero.dx*hero.speed;
+						hero.y+=hero.dy*hero.speed;
+					  if(hero.x<0) hero.dx=Math.abs(hero.dx);
+					  if(hero.y<0) hero.dy=Math.abs(hero.dy);
+					  if(hero.x>400) hero.dx=-Math.abs(hero.dx);
+					  if(hero.y>200) hero.dy=-Math.abs(hero.dy);
+					  hero.dom.setAttribute("cx",hero.x);
+					  hero.dom.setAttribute("cy",hero.y);
+					  window.requestAnimationFrame(animate);
+					}
+				  })();
+				  </script>
             </div>
             <p>Om isPointinStroke of isPointInFill te kunnen gebruiken, moet je een punt meegeven, dit is een <a href="https://developer.mozilla.org/en-US/docs/Web/API/SVGPoint">SVGPoint</a></p>. Deze maak je met SVG.createSVGPoint() <code>var point = document.getElementById("SVG-ElementID").createSVGPoint();</code>. Vervolgens kun je de x en y van dit punt zetten.
+
+
+			 <section>
+  				<h2>SVGPoint.matrixTransform() (Local to Global on steroids!)</h2>
+          <p>In praktijk is het best lastig om te voorspellen hoe een element gebruikt wordt, soms wordt je SVG gescaled weergegeven.
+		  Dit probleem is er voor SVG en voor HTML elementen, maar voor SVG is het opgelost!
+		  Iedere 2D-transformatie, schalen, skewen, roteren, spiegelen kan worden weergegeven met een 2Dtransformation matrix.
+		  Via Javascript heb je toegang, tot de Matrix van de SVG zelf en van IEDER element in de SVG..
+		  </p>
+          <div class="example" id="rotating matrixtransform example.">
+		  <div style="text-align: center; width: 45%; display: inline-block;">
+<svg id="track_cursor" width="150" height="150" viewbox="0 0 150 150" preserveAspectRatio="xMidYMid meet">
+  <path id="show trails" d=""/>
+    <circle id="pointer-tracker" cx="20" cy="20" r="5" fill="red"></circle>
+ <text id="pointer-coord"></text>
+</svg>
+		</div>
+		<div style="text-align: center; width: 45%; display: inline-block;">
+		Beweeg met je muis IN deze met CSS-animatie roterende SVG!</div>
+<style>
+#track_cursor{
+width: 150px;
+ border: 1px solid #aaa;
+-webkit-animation:spin 15s linear infinite;
+    -moz-animation:spin 15s linear infinite;
+    animation:spin 15s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+</style>
+<script>
+(function(){
+ var trails=[];
+var svg = document.getElementById('track_cursor');
+
+// Create an SVGPoint for future math
+var pt = svg.createSVGPoint();
+
+// Get point in global SVG space
+function cursorPoint(evt)
+{
+  pt.x = evt.clientX; 
+  pt.y = evt.clientY;
+  return pt.matrixTransform(svg.getScreenCTM().inverse());
+}
+
+svg.addEventListener('mousemove',function(evt)
+{
+  var c=document.getElementById("pointer-tracker");
+  var coord=document.getElementById("pointer-coord");
+  var loc = cursorPoint(evt);
+  c.setAttribute("cx",loc.x);
+  c.setAttribute("cy",loc.y);
+  coord.setAttribute("x",loc.x);
+  coord.setAttribute("y",loc.y);
+ coord.innerHTML=Math.round(loc.x)+","+Math.round(loc.y);
+  
+  // Use loc.x and loc.y here
+},false);
+ 
+})();</script></div>
+            <div class="full-column">De rotatie in dit geval wordt gedaan met CSS animatie, maar het zou ook werken als dit met de WebAnimations Api werd gedaan, of
+			als we elementen IN de SVG zouden targeten. Dit is localToGlobal en GlobalToLocal, maar zelfs buiten het element.
+			Het enige wat NIET werkt, is als je 3D-transformaties op dit voorbeeld toepast.<br>
+			Gek genoeg, zou een HTML-voorbeeld voor deze demo vele malen ingewikkelder zijn!</div>
+
 			 </section>
 
 			 <section>
-				<h2>OPDRACHT</h2>
+				<h2>OPDRACHT 1 - algemene hitTest</h2>
+				<p>In games heb je vaker dan niet een hittest nodig op 2 grillige vormen.<br>
+				Nu heb je in principe alle tools om een cirkel te testen op het geraakt worden door een ster.<br>
+				Let op, ik heb het NIET over bounding box!</p><br>
+				<img src="img/hitboxing.svg" width="100%">
+				<p>Dit is een typisch voorbeeld van een probleem dat je in games heel vaak tegenkomt.
+				Als we kijken naar de radius of de hitbox, is het bepalen van een botsing niet te doen.
+				Wat moeten we dan wel? Als we een pad omtrekken met zogenaamde sentries (in rood). 
+				<img src="img/sentries.svg" width="100%">
+				We geven &eacute;&eacute;n van
+				beide vormen een X aantal punten op het hitPath. (Hierbij is het handig de vorm te kiezen, waarbij we zo weinig mogelijk punten nodig hebben, voor een zo accuraat mogelijke test).
+				Vervolgens checken we voor elk van deze punten of hij
+				zich in de fill van het hitPath van de ANDERE VORM bevindt.
+				Het zou handig zijn voor de VOLGENDE opdracht als je hiervoor een algemene functie maakt voor twee paden.</p>
+				
+				<h2>OPDRACHT 2 - Bullet Hell of Flappy Bird?</h2>
+				<p>Maak een klein ontwijk-spelletje in SVG. 
+				Je zou een willekeurige tutorial voor een 2D spel kunnen gebruiken en dit toepassen op SVG.
+				Weet je niet wat voor spelletje, pak dan <a href="https://www.w3schools.com/graphics/game_intro.asp">Dit spel</a>.<br>
+				Of gebruik een bullet-hell a la underTale of maak een Flappy-Bird in Wonderland, waarbij je wat interessantere vormen dan rectangles moet ontwijken..<br>
+				Als je dat wilt, mag je de graphics uit deze SVG <img src="img/assets.svg"> gebruiken. Ze hebben al de id's "hero" en "star". Wil je je eigen graphics maken? dat is natuurlijk ook goed!
+
+				<br></p>
+				<h2>OPDRACHT 2 - TIP: geluid</h2>
+				<iframe width="100%" height="300" src="//jsfiddle.net/k9h7pjea/3/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+				<p>
+				Geluid wordt vaak vergeten in webgames... Maar wellicht helpt dit kleine voorbeeldje je om iets van geluid in je game te zetten?<br> 
+				LET OP : in Chrome heb je een eerste klik nodig om geluid af te kunnen spelen, start dus in een game een geluid altijd op een user-klik.
+				Gebruik hiervoor een voorscherm. Lukt geluid niet? Maak je niet druk, het is niet het doel van deze les.</p>
+				
+				
+				
 			 </section>
 			 <section class="show_lessons">
 			</section>
@@ -174,39 +252,6 @@
 		  
 		  </div>
 	  </div>
-<script>
-	    var examples=document.getElementsByClassName("example");
-	    for(var e=0;e<examples.length;e++)
-	    {
-          // copy stuff with highlighter script
-          var interactive_example=examples[e];
-    	    console.log("example found: "+interactive_example);
-          var svg_code=interactive_example.getElementsByClassName("svg")[0];
-          var js_code=interactive_example.getElementsByClassName("javascript")[0];
-          var svg=interactive_example.getElementsByTagName("svg")[0].outerHTML;
-          var js=interactive_example.getElementsByTagName("script")[0].innerHTML;
-          js=js.split("(function(){").join("");
-          js=js.split("})();").join("");
-          svg_code.innerText=svg;
-          js_code.innerText=js
-                
-
-          hljs.highlightBlock(svg_code);
-          hljs.highlightBlock(js_code);
-	    }
-	    </script>
-              <style>
-                pre{
-                  background-color: #333;
-                  color: #fff;
-                  font-size: 10px;
-                  line-height: 10px;
-                  width: 100%;
-                  max-height: 200px;
-                  overflow: scroll;
-                }
-              </style>
-
       <script src="js/navigation.js" type="text/javascript"></script>
    </body>
 </html>
