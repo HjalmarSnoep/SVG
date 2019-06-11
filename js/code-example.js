@@ -97,6 +97,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     {
         // copy stuff with highlighter script
         var interactive_example=examples[e];
+		var open=interactive_example.getAttribute("data-open");
    	    console.log("example found: "+interactive_example.id);
 		var svgs=interactive_example.getElementsByTagName("svg");
    	    console.log("svgs foundin example: "+svgs.length);
@@ -117,7 +118,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			var pre=document.createElement("pre");
 			
 			pre.appendChild(code);
-			pre.style.maxHeight="0px";
+			if(open!=null && open.indexOf("SVG")!=-1)
+			{
+				toggle.innerHTML="Hide SVG code";
+				toggle.className="toggle";
+			}else{
+				pre.style.maxHeight="0px";
+			}
 //			pre.style.display="none";
 			pre.id="code-for-"+id;
 			interactive_example.appendChild(pre);
@@ -137,8 +144,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			toggle.innerHTML="Show Javascript code";
 			toggle.id=id;
 			toggle.addEventListener("click",toggleCodeVisibility);
-			interactive_example.appendChild(toggle);
+			
 
+			
+			interactive_example.appendChild(toggle);
 			var js=scripts[s].innerHTML;
 			js=js.split("(function(){").join("");
 			js=js.split("})();").join("");
@@ -146,7 +155,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			var code=document.createElement("code");
 			
 			pre.appendChild(code);
-			pre.style.maxHeight="0px";
+			if(open!=null && open.indexOf("JS")!=-1)
+			{
+				toggle.innerHTML="Hide Javascript code";
+				toggle.className="toggle";
+			}else{
+				pre.style.maxHeight="0px";
+			}
+
 			pre.id="code-for-"+id;
 			interactive_example.appendChild(pre);
 			

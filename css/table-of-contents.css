@@ -16,7 +16,7 @@
 	 position: relative;
 }
 #table-of-contents h2{
-	background-color: #f57f17;
+	background-color: #43a047;
 	color: #fff;
 	padding: 10px 25px;
 	font-family: 'Montserrat', sans-serif;
@@ -41,6 +41,7 @@
     height: 44px;
     padding: 0 30px;
 	text-decoration: none;
+	color: #1b5e20 !important;
 }
 #table-of-contents li>a {
     color: rgba(0,0,0,0.87);
@@ -55,10 +56,10 @@
 	line-height: 12px;
 }
 .TOC-button:hover{
-	color: #bc5100;
+	color: #1b5e20;
 }
 .TOC-indicator{
-	background-color: #bc5100;
+	background-color: #00701a;
 	width: 5px;
 	height: 10px;
 	left: 15px;

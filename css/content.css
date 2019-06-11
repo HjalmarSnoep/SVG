@@ -1,7 +1,7 @@
 /* --------- content ---------*/
 
 #content section{
-	background-color: #fff;
+	background-color: #fff3e0;
 	padding: 0px;
 	margin-bottom: 15px;
 	border-bottom: 7px solid #bc5100;
@@ -35,19 +35,30 @@
 {
 	text-align: center;
 	min-height: 400px;
-	background-color: #ffffdd;
+	background-color: #f9fbe7;
 	color:#bc5100;
 	border-bottom: 7px solid #ffa726;
 }
 #content section.opdracht
 {
 	min-height: 400px;
-	background-color: #ffe02d;
-	color:#bc5100;
+	background-color: #fff9c4;
+	border-bottom: 7px solid #cbc693;
+	
+	color:#725b53;
+}
+#content section.opdracht h2
+{
+	background-color: #cbc693;
+	color: #5f4339;
 }
 #content section.opdracht p
 {
-	color: #bc5100;
+	color: #725b53;
+}
+#content section.opdracht a
+{
+	color: #3e2723;
 }
 
 #content .align-right{
@@ -105,17 +116,22 @@
 	height: 60px;
 	margin: 0 0 1px 1px;
 	line-height: 60px;
-	background-color: #e3e8ff;
-	color:#9dc0ff;
+	background-color: #64b5f6;
+	color:#bbdefb;
 }
 #content .lesson-button:hover{
   color: #fff;
 }
 #content .lesson-button.active{
-	background-color: #bc5100;
-	color: #ffef20;
+	background-color: #0277bd;
+	color: #bbdefb;
 }
-
+.video
+{
+	text-align: center;
+	background-color: #37474f;
+	padding: 0;
+}
 #content .lesson:nth-child(even){
 	background-color: #eee;
 }
@@ -131,18 +147,18 @@
    width: calc(100% - 5px);
   }
 }
-pre{
+
+pre {
+  overflow: auto;
+  border: 1px solid #898989;
   padding: 5px 25px;
   background-color: #444;
   color: #aaa;
   font-size: 12px;
   line-height: 12px;
-  width: 100%;
 }
 code
 {
-  width: 100%;
-  overflow: scroll;
 }
 #content .demo
 {
