@@ -2,7 +2,7 @@
 - Everything you always wanted to know about SVG, but were afraid to ask - 
 
 Ik heb deze repo gemaakt met twee redenen:
- - Ik ben erg blij me SVG, gebruik het vaak..
+ - Ik ben erg blij met SVG, gebruik het vaak, zeker sinds deze cursus..
  - Ik heb gemerkt dat er erg veel oude informatie is, die vaak misleidend is. (bijvoorbeeld over animatie met SMIL, gebruik met JQuery etc etc.
  - Er is nauwelijks informatie in het Nederlands (en we willen onze kennis-economie wel stimuleren.. :)
  - Ik heb vaag het idee, dat ik vaker dit soort cursussen zou willen maken.
