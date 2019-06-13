@@ -17,9 +17,9 @@ window.onload=function()
 
 	var items = [];
 	items.push({ label: "SVG", url: "index.html", help: "Over SVG - inhoud" });
+	items.push({ label: "Lessen", url: "lesson01.html", help: "Wat je moet weten om goed met SVG te kunnen werken" });
 	items.push({ label: "Voorbeelden", url: "uses.html", help: "Wat zijn de voordelen van het gebruik van SVG en hoe wordt het vaak gebruikt?" });
 	items.push({ label: "Maken/Vinden", url: "creating.html", help: "Waar vind ik SVGs? en als ik het niet kan vinden, hoe maak ik ze?" });
-	items.push({ label: "Lessen", url: "lesson01.html", help: "Wat je moet weten om goed met SVG te kunnen werken" });
 	items.push({ label: "Libraries", url: "libraries.html", help: "Libraries voor SVG die je kunnen helpen" });
 
 	function createNSNode(n, v) {
@@ -209,7 +209,25 @@ window.onload=function()
 		}
 		window.requestAnimationFrame(animate);
 	}
-
+	// fill the sidebar for github recognition.
+	var sidebar=document.createElement("div");
+	sidebar.id="sidebar";
+	var forkme=document.createElement("div");
+	forkme.innerHTML='<a href="https://github.com/HjalmarSnoep/SVG"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_red_aa0000.png?resize=149%2C149" alt="Fork me on GitHub"></a>';
+	forkme.style.position="fixed";
+	forkme.style.right="0";
+	forkme.style.top="0";
+	sidebar.appendChild(forkme);
+	
+	var wiki=document.createElement("div");
+	wiki.innerHTML='<a href="https://github.com/HjalmarSnoep/SVG/Wiki"><img width="149" height="149" src="https://upload.wikimedia.org/wikipedia/commons/0/07/Wikipedia_logo_%28svg%29.svg" alt="Klets mee op de Wiki"><br>Iets te melden?</a>';
+	wiki.style.position="fixed";
+	wiki.style.textAlign="center";
+	wiki.style.right="0";
+	wiki.style.top="149px";
+	sidebar.appendChild(wiki);
+	
+	document.getElementById("page").appendChild(sidebar);
 	
 	// now create the table of contents dynamically :)
 	var toc=document.createElement("div");
