@@ -213,7 +213,7 @@ window.onload=function()
 	var sidebar=document.createElement("div");
 	sidebar.id="sidebar";
 	var forkme=document.createElement("div");
-	forkme.innerHTML='<a href="https://github.com/HjalmarSnoep/SVG"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_red_aa0000.png?resize=149%2C149" alt="Fork me on GitHub"></a>';
+	forkme.innerHTML='<a href="https://github.com/HjalmarSnoep/SVG"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_white_ffffff.png?resize=149%2C149" alt="Fork me on GitHub"></a>';
 	forkme.style.position="fixed";
 	forkme.style.right="0";
 	forkme.style.top="0";
