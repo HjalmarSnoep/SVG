@@ -17,7 +17,7 @@ Ik heb het allemaal op github Pages gezet, dus je kunt ook https://hjalmarsnoep.
 Iedere les heeft een video voor ieder voorbeeld. (deze ben ik nog aan het maken, vanaf les 4)
 Ook hoort bij ieder voorbeeld een oefening.
 
-Verder staat er nog wat geschreven informatie, met een video, waarik er doorheenloop.
+Verder staat er nog wat geschreven informatie, met een video, waar ik er doorheenloop.
 Maar sommige mensen lezen liever.
 
 ## Iets niet duidelijk of FOUT?
