@@ -9,6 +9,7 @@
 	function ShowPath(dom)
 	{
 		this.str=dom.innerHTML;
+		this.nolabels=dom.hasAttribute("nolabels");
 		this.dragging=false;
 		this.unique_id=unique_id_counter++;
 //		console.log("body after: "+document.body.innerHTML);
@@ -98,7 +99,17 @@
 			last_command=this.commands[i].c;
 		}
 		this.path.setAttribute("d",path);
+		
 		this.showpath.innerHTML='&lt;path d="'+string+'"/&gt;';
+		if(path.length>250)
+		{
+			this.showpath.style.fontSize="13px";
+			this.showpath.style.lineHeight="13px";
+		}else
+		{
+			this.showpath.style.fontSize="";
+			this.showpath.style.lineHeight="";
+		}
 	};
 	ShowPath.prototype.rebuildControls=function()
 	{
@@ -340,6 +351,7 @@
 	ShowPath.prototype.createControlPoint=function(i,label,x,y)
 	{
 		var str="translate("+x*6+","+y*6+")";
+		if(this.nolabels) label="";
 		var p=createNSNode("g",{transform: str});
 		p.id="con|"+this.unique_id+"_"+i;
 		var c=createNSNode("circle",{class: "controlPoint",r:15,cx:0,cy:0});
