@@ -112,6 +112,7 @@
 			this.showpath.style.fontSize="";
 			this.showpath.style.lineHeight="";
 		}
+		this.showpath.style.padding="0 25px";
 	};
 	ShowPath.prototype.rebuildControls=function()
 	{
