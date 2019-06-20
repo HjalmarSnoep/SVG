@@ -31,66 +31,173 @@
 			</section>
       <section>
         <h2>Anatomie van Path tag</h2>
-			<style>svg{border:1px solid #888;}</style>
+			
 			<p>De meest krachtige vorm die je in SVG hebt is Path. Maar het is ook direct de moeilijkste.<br>
 			 Je beschrijft een vorm met een reeks letters en cijfers (de 'data', d="..."). Iedere letter is een commando, ieder cijfer is een coordinaat.<br>
 		
 			Het is het makkelijkste om te denken aan een pen, die je over het canvas beweegt.</p>
 				
-			<div class="example" data-open="SVG" id="folow-path-example">
-			<svg width="100%" height"100">
-			<path d="M 5 5 L 400 100" stroke="black"/>
-			</svg>
-			</div>
+			<div class="show_path">M 5 5 L 60 60</div>
 				
 				
 			<div class="full-column">De pen wordt met M (move) op 5,5 gezet, daarna</div>
 			<div class="full-column">trekken we een L (line) naar 400,100.</div>
-			<p>Dit is het makkelijkste voorbeeld. Het feit dat de letters HOOFDLETTERS zijn, betekent, dat de coordinaten (x en y) absoluut zijn.
-			Gebruik je een kleine letter, dan is het relatief ten opzichte van het vorige coordinaat. Goed gebruik hiervan geeft een kleinere string, maar
-			ik zou je aanraden om te beginnen met absoluut, dus hoofdletters, anders is het makkelijk om in de war te raken.
-			Verplaats maar eens het eerste punt in dit voorbeeld:</p>
-				<iframe width="100%" height="300" src="//jsfiddle.net/mohvxeL5/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-				<p>Zoals je ziet, kun je de data (d) zo lang maken als je zelf wilt, je kunt dus in 1x meerdere strepen en vormen zetten. Wel hebben ze allemaal dezelfde kleur, stroke en laag (het is &eacute;&eacute;n vorm)</p>
+			<div class="full-column">Een lijn is natuurlijk een dom voorbeeld, dan hadden we beter <code>&lt;line&gt;</code> kunnen gebruiken ipv  <code>&lt;path&gt;</code>. Het is maar een voorbeeld, zodat je ziet, hoe het werkt..  
+			Verplaats maar eens wat punten in dit complexere voorbeeld, de letter "Ja" in Times New Roman:</div>
+			<style>
+			.controlPoint{
+			fill: rgba(255,255,255,0.1);
+			}
+			.SVGCommand select
+			{
+			 border: none;
+			  display: inline;
+			  font-family: inherit;
+			  font-size: inherit;
+			  padding: none;
+			  width: 50px;
+			  background: none;
+			}
+			.SVGCommand input{
+			 border: none;
+			  background: none;
+			  display: inline;
+			  width: 50px;
+			  font-family: inherit;
+			  font-size: inherit;
+			  padding: none;
+			}
+			.SVGactive{
+			background-color: rgba(255,255,255,0.5);
+			stroke:  rgba(255,255,255,0.5);
+			stroke-width: 2px;
+			}
+			</style>
+			<div class="show_path" nolabels>M 54.6 24.5
+Q 51.6 22.95 46.95 22.95 
+Q 40.9 22.95 37.55 25.7 
+Q 34.2 28.4 34.2 31.7 
+Q 34.2 33.4 35.15 34.4 
+Q 36 35.4 37.4 35.4 
+Q 38.85 35.4 39.75 34.45 
+Q 40.65 33.5 40.65 31.75
+L 40.55 29.5
+Q 40.55 27.85 42 26.55 
+Q 43.45 25.25 45.85 25.25 
+Q 49 25.25 50.65 27.2 
+Q 52.3 29.15 52.3 34.35
+L 52.3 35.75
+Q 43.3 39 39.45 41.3 
+Q 35.6 43.6 34 46.15 
+Q 32.9 48.05 32.9 50.6 
+Q 32.9 54.6 35.25 57.1 
+Q 37.55 59.55 41.2 59.55 
+Q 43.5 59.55 45.55 58.6 
+Q 46.95 57.95 52.3 53.8 
+Q 52.35 56.95 53.45 58.25 
+Q 54.55 59.55 56.4 59.55 
+Q 60.3 59.55 64.55 53.8
+L 64.55 51.7
+Q 62.3 54 61.5 54.45 
+Q 61.05 54.75 60.4 54.75 
+Q 59.85 54.75 59.45 54.35 
+Q 58.95 54 58.8 52.85 
+Q 58.6 51.75 58.6 46.75
+L 58.6 34.9
+Q 58.6 29.85 57.9 28.2 
+Q 56.85 25.7 54.6 24.5
+M 40.55 44.8
+Q 41.85 42.95 44.9 41.3 
+Q 46.55 40.35 52.3 38.05
+L 52.3 51.35
+Q 47.6 55.15 44.7 55.15 
+Q 42.55 55.15 40.9 53.35 
+Q 39.3 51.55 39.3 48.8 
+Q 39.3 46.6 40.55 44.8
+M 29.65 8.6
+L 29.65 7.2 
+L 7.5 7.2 
+L 7.5 8.6 
+L 9.4 8.6
+Q 11.2 8.6 12.85 9.55 
+Q 14.05 10.2 14.45 11.15 
+Q 14.95 12.4 14.95 16.35
+L 14.95 51.6
+Q 14.95 54.8 14.05 56.05 
+Q 13.15 57.35 12.15 57.35 
+Q 10.75 57.35 9.9 55.25 
+Q 8.4 51.8 7.45 51 
+Q 6.45 50.2 5.25 50.2 
+Q 3.55 50.2 2.3 51.4 
+Q 1.35 52.35 1.35 54.2 
+Q 1.35 56.5 3.4 58.3 
+Q 5.45 60.05 9.05 60.05 
+Q 13.45 60.05 16.6 57.35 
+Q 19.7 54.65 21 51.05 
+Q 22.25 47.4 22.25 41.6
+L 22.25 16.35
+Q 22.25 11.7 23.15 10.5 
+Q 24.6 8.6 27.8 8.6
+L 29.65 8.6 Z</div>
+
+<p>Zoals je ziet, kun je de data (d) zo lang maken als je zelf wilt, je kunt dus in 1x meerdere strepen en curven zetten, de pen verplaatsen en nog een vorm tekenen. Wel hebben ze allemaal dezelfde kleur, stroke en laag (het is &eacute;&eacute;n vorm). Het valt je misschien ook op, dat je decimalen kunt gebruiken. In SVG is 0.5 een half. (Dus niet 0,5!)</p>
 			 </section>
 
 			 <section>
-			   <h2>Andere commando's en interactieve voorbeelden</h2>
+			   <h2>Basis commando's</h2>
 <h3>M = moveto<br> L = lineto</h3>
-<iframe width="100%" height="550" src="paths/paths.html?d=M8%2048%20L56%2046%20L20%2012%20Z"></iframe><br>
-<h3>H = horizontal lineto<br>
-V = vertical lineto<br></h3>
-<p>Dit is het zelfde als L(line), maar met 1 coordinaat of in de x richting H(Horizontal) of y richting V(Vertical)</p>
-<iframe width="100%" height="550" src="paths/paths.html?d=M44%2014%20V40%20H14%20Z"></iframe><br>
+<div class="show_path">M19 46 L56 46 M15 13 L53 14 M33 19 L35 43</div>
 <h3>C = curveto</h3>
-<p>C staat voor een (B&eacute;zier) curve. Deze soort curve heeft twee eindpunten en twee control points, die samen het verloop van de curve bepalen.
+<p>C staat voor een (B&eacute;zier) curve. Deze soort curve heeft een beginpunt (de pen positie in dit geval M0) een eindpunt (C1) en twee control points (C1-c1,C1-c2), die samen het verloop van de curve bepalen.
 Vertrekpunt van de curve is de plaats van de pen, de pen vertrekt in de richting van het eerste controlpoint en komt aan op het
 eindpunt vanuit de richting van het tweede controlpoint.</p>
-<iframe width="100%" height="550" src="paths/paths.html?d=M32%2048%20C36%2032%2052%2032%2032%2012"></iframe><br>
-<h3>S = smooth curveto</h3>
-<p>Een Smooth (B&eacute;zier) curve, deze twee eindpunten en een control point, het eerste controlpoint wordt bepaald door het laatste controlpoint
-van de C (curve) ervoor. Daardoor is hij smooth, omdat de curve in dezelfde richting vertrekt, als hij aankomt (Deze kun je dus alleen gebruiken na een C)</p>
-<iframe width="100%" height="550" src="paths/paths.html?d=M32%2048%20C36%2036%2054%2034%2046%2028%20S60%2018%2032%2010"></iframe><br>
+<div class="show_path">M9 48 C13 10 21 52 7 34 M57 59 C48 33 52 15 59 13 M27 59 C42 49 26 12 39 15</div>
+<div class="full-column">
+Als je de control-points tegengesteld plaatst, kun je de curve in een S bocht wringen of zelfs een krul laten maken, complexer dan dat kan een enkele bezier niet worden.
+Maar je kunt wel meerdere beziers aan elkaar plaatsen.
+</div>
+<div class="show_path">M13 58 C24 43 3 25 18 20 C 39 9 31 50 54 14 C 53 47 2 35 58 58</div>
+
 <h3>Q = quadratic B&eacute;zier curve</h3>
 <p>Een Quadratic (B&eacute;zier) curve, is een speciale variant van een B&eacute;zier Curve (c), de twee controlpoints van de B&eacute;ziercurve vallen samen.
 Daarom heeft deze vorm van de curve maar 1 controlpoint.</p>
-<iframe width="100%" height="550" src="paths/paths.html?d=M32%2048%20Q56%2026%2026%208"></iframe><br>
+<div class="show_path">M32 48 Q56 26 26 8 </div>
+<h3>A = elliptical Arc</h3>
+<div class="show_path">M13 18 L50 10 A1 1 0 0 1 57 32 L33 46 A10 8 15 0 1 13 18</div>
+			 </section>
+			 <section>
+			 <h2>Optimalisatie commando's</h2>
+			 <h3>H = horizontal lineto<br>
+V = vertical lineto<br></h3>
+<p>Dit is het zelfde als L(line), maar met 1 coordinaat of in de x richting H(Horizontal) of y richting V(Vertical)</p>
+<div class="show_path">M44 14 V40 H14 Z</div>
+<h3>S = smooth curveto</h3>
+<p>Een Smooth (B&eacute;zier) curve, deze twee eindpunten en een control point, het eerste controlpoint wordt bepaald door het laatste controlpoint
+van de C (curve) ervoor. Daardoor is hij smooth, omdat de curve in dezelfde richting vertrekt, als hij aankomt (Deze kun je dus alleen gebruiken na een C)</p>
+<div class="show_path">M32 48 C36 36 54 34 46 28 S60 18 32 10</div>
+<br>
 <h3>T = smooth quadratic B&eacute;zier curveto</h3>
 <p>Een Smooth Quadratic (B&eacute;zier) curve, is een smooth versie van de Quadratic B&eacute;zier curve. Het ene controlpoint wordt bepaald door het laatste controlpoint van de voorgaande curve. (Deze kun je dus alleen gebruiken na een Q).</p>
-<iframe width="100%" height="550" src="paths/paths.html?d=M34%2048%20Q26%2056%2016%2036%20T32%2014"></iframe><br>
+<div class="show_path">M34 48 Q26 56 16 36 T32 14</div>
 <h3>Z = closepath</h3>
-				<iframe width="100%" height="300" src="//jsfiddle.net/9kvd5zL2/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-<h3>A = elliptical Arc</h3>
-				<iframe width="100%" height="300" src="//jsfiddle.net/9kvd5zL2/1/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+<div class="show_path">M34 48 L26 56 L 16 36 M24 28 L32 14 L39 31 Z</div>
+
+
 			 </section>
 			 <section class="opdracht">
-				<h2>OPDRACHT</h2>
+				<h2>OPDRACHT 1</h2>
 				<div class="full-column">Maak de volgende symbool na als path.<br>
 				<img src="img/symbol.png"><br>
 				Hint: Je kunt het grid gebruiken om de control points af te lezen. De grotere hokken zijn in 8x8 kleinere hokjes verdeelt.
 				25,7 zijn de coordinaten van het punt rechts boven.
 				</div>
 			 </section>
+			  <section class="opdracht">
+				<h2>OPDRACHT 2</h2>
+				<div class="full-column">Optimaliseer het pad dat je maakte in opdracht 1. Je mag online tools gebruiken.<br>
+				</div>
+			 </section>
+			<script src="js/paths.js" type="text/javascript"></script>
 			 <section class="show_lessons">
 			</section>
 			<script src="js/lessons.js" type="text/javascript"></script>
