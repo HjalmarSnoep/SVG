@@ -57,27 +57,27 @@
 			 <section>
 			   <h2>Andere commando's en interactieve voorbeelden</h2>
 <h3>M = moveto<br> L = lineto</h3>
-<iframe width="100%" height="550" src="http://jxnblk.com/paths/?d=M8%2048%20L56%2046%20L20%2012%20Z"></iframe><br>
+<iframe width="100%" height="550" src="paths/paths.html?d=M8%2048%20L56%2046%20L20%2012%20Z"></iframe><br>
 <h3>H = horizontal lineto<br>
 V = vertical lineto<br></h3>
 <p>Dit is het zelfde als L(line), maar met 1 coordinaat of in de x richting H(Horizontal) of y richting V(Vertical)</p>
-<iframe width="100%" height="550" src="http://jxnblk.com/paths/?d=M44%2014%20V40%20H14%20Z"></iframe><br>
+<iframe width="100%" height="550" src="paths/paths.html?d=M44%2014%20V40%20H14%20Z"></iframe><br>
 <h3>C = curveto</h3>
 <p>C staat voor een (B&eacute;zier) curve. Deze soort curve heeft twee eindpunten en twee control points, die samen het verloop van de curve bepalen.
 Vertrekpunt van de curve is de plaats van de pen, de pen vertrekt in de richting van het eerste controlpoint en komt aan op het
 eindpunt vanuit de richting van het tweede controlpoint.</p>
-<iframe width="100%" height="550" src="http://jxnblk.com/paths/?d=M32%2048%20C36%2032%2052%2032%2032%2012"></iframe><br>
+<iframe width="100%" height="550" src="paths/paths.html?d=M32%2048%20C36%2032%2052%2032%2032%2012"></iframe><br>
 <h3>S = smooth curveto</h3>
 <p>Een Smooth (B&eacute;zier) curve, deze twee eindpunten en een control point, het eerste controlpoint wordt bepaald door het laatste controlpoint
 van de C (curve) ervoor. Daardoor is hij smooth, omdat de curve in dezelfde richting vertrekt, als hij aankomt (Deze kun je dus alleen gebruiken na een C)</p>
-<iframe width="100%" height="550" src="http://jxnblk.com/paths/?d=M32%2048%20C36%2036%2054%2034%2046%2028%20S60%2018%2032%2010"></iframe><br>
+<iframe width="100%" height="550" src="paths/paths.html?d=M32%2048%20C36%2036%2054%2034%2046%2028%20S60%2018%2032%2010"></iframe><br>
 <h3>Q = quadratic B&eacute;zier curve</h3>
 <p>Een Quadratic (B&eacute;zier) curve, is een speciale variant van een B&eacute;zier Curve (c), de twee controlpoints van de B&eacute;ziercurve vallen samen.
 Daarom heeft deze vorm van de curve maar 1 controlpoint.</p>
-<iframe width="100%" height="550" src="http://jxnblk.com/paths/?d=M32%2048%20Q56%2026%2026%208"></iframe><br>
+<iframe width="100%" height="550" src="paths/paths.html?d=M32%2048%20Q56%2026%2026%208"></iframe><br>
 <h3>T = smooth quadratic B&eacute;zier curveto</h3>
 <p>Een Smooth Quadratic (B&eacute;zier) curve, is een smooth versie van de Quadratic B&eacute;zier curve. Het ene controlpoint wordt bepaald door het laatste controlpoint van de voorgaande curve. (Deze kun je dus alleen gebruiken na een Q).</p>
-<iframe width="100%" height="550" src="http://jxnblk.com/paths/?d=M34%2048%20Q26%2056%2016%2036%20T32%2014"></iframe><br>
+<iframe width="100%" height="550" src="paths/paths.html?d=M34%2048%20Q26%2056%2016%2036%20T32%2014"></iframe><br>
 <h3>Z = closepath</h3>
 				<iframe width="100%" height="300" src="//jsfiddle.net/9kvd5zL2/embedded/result,html,js/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 <h3>A = elliptical Arc</h3>
