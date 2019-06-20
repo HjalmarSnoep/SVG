@@ -9,6 +9,8 @@
 	function ShowPath(dom)
 	{
 		this.str=dom.innerHTML;
+		this.str=this.str.split("-").join(" -");
+		this.str=this.str.split("  ").join(" ");
 		this.nolabels=dom.hasAttribute("nolabels");
 		this.dragging=false;
 		this.unique_id=unique_id_counter++;
@@ -57,7 +59,7 @@
 		dom.appendChild(this.showpath);
 		// analyse the path..
 	//	console.log("analyse the path "+this.str);
-		var command_strings=this.str.split(/(?=[A-Za-z])/)
+		var command_strings=this.str.split(/(?=[A-Za-z])/);
 //		console.log(command_strings);
 		this.commands=[];
 		this.list.innerHTML="";
@@ -519,7 +521,7 @@
 	// helper functions
 	function fillSelect(select,selected)
 	{
-		var commands="MLZHVCQSTA";
+		var commands="MLZHVCQSTAmlzhvcqsta";
 		var command_labels=["moveTo","lineTo","closePath","HorizontalLineTo","VerticalLineTo","BezierCurveTo","QuadraticCurveTo","SmoothBezierTo","SmoothQuadraticTo","Arc"];
 		for(var i=0;i<commands.length;i++)
 		{
