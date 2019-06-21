@@ -50,8 +50,7 @@
 			 <section>
   				<h2>getPointAtLength, pathLength, getTotalLength</h2>
           <p>Vijanden in een game zitten vaak op een path, als je dit wilt mengen met physics en ook als het path wat complexer wordt, is het
-          handig hier wat ondersteuning bij te hebben. Ook bij complexe animaties, waarbij je de ene vorm in de andere "morpht" is het handig om
-          een willekeurig punt op een path te kunnen bepalen, zo kun je een vorm tijdelijk "flattenen" en de resulterende polyline is dan makkelijk te morphen ( je kunt ook snap.js gebruiken, natuurlijk, maar da's 80Kb aan je pagina toevoegen).</p>
+          handig hier wat ondersteuning bij te hebben.</p>
           <div class="example" id="folow-path-example">
 <svg id="follow_path" width="100%" height="150" viewbox="0 0 400 150" preserveAspectRatio="xMidYMid meet">
   <path id="follow" d="M10 10 L 100 100 C 150 150 400 200 390 0" stroke="#000" fill="none"></path>
@@ -86,6 +85,102 @@
     enemy.dom.setAttribute("cy",enemy.y);
   	window.requestAnimationFrame(animate);
 }
+
+})();</script></div>
+   <div class="full-column">Ook voor animaties, waarbij je de ene vorm in de andere "morpht" is het handig om
+          een willekeurig punt op een path te kunnen bepalen, zo kun je een vorm tijdelijk "flattenen" en de resulterende polyline is dan makkelijk te morphen ( Je kunt ook een library als snap.js gebruiken, natuurlijk, maar dan voeg je 80Kb aan je pagina toe, onderstaande scriptje is misschien net 1 Kb. Hetzelfde effect, maar 80x zo klein.).</div>
+		  
+		   <div class="example" style="width: 800px" id="morph-example">
+<svg id="morph-example" width="100%" height="150" viewbox="0 0 200 150" preserveAspectRatio="xMidYMid meet">
+  <path  id="path2" transform="translate(-200,80)" fill="#ff0000" stroke="none" d="
+M 44.6 -37.4
+Q 46.6 -40.6 52.2 -40.6
+L 55.4 -40.6 55.4 -43 31 -43 0.2 24.2 -31 -43 -55.4 -43 -55.4 -40.6
+Q -50.2 -40.6 -47.8 -39.4 -45.4 -38.2 -44.6 -36.2 -43.4 -33.8 -43.4 -28.2
+L -43.4 28.2
+Q -43.4 35.4 -44.6 37.4 -47 40.6 -52.2 40.6
+L -55.4 40.6 -55.4 43 -25.4 43 -25.4 40.6 -28.6 40.6
+Q -33.4 40.6 -35.8 38.2 -37.8 36.2 -37.8 28.2
+L -37.8 -29.4 -4.2 43 -2.2 43 31 -29.4 31 28.2
+Q 31 35.4 29.4 37.4 27.4 40.6 21.8 40.6
+L 18.6 40.6 18.6 43 55.4 43 55.4 40.6 52.2 40.6
+Q 47.4 40.6 45 38.2 43 36.2 43 28.2
+L 43 -28.2
+Q 43 -35.4 44.6 -37.4 Z"/>
+<path id="path1" transform="translate(200,80)" fill="#00ff00" stroke="none" d="
+M 31.4 -45
+L 29.4 -45
+Q 29 -41.8 28.2 -40.6 27.4 -39.4 26.2 -39.4 25 -39.4 21.4 -41 14.2 -43.4 10.6 -44.2 6.6 -45 1.8 -45 -11 -45 -20.2 -39.4 -31.8 -33 -38.2 -20.6 -43.8 -10.2 -43.8 1.4 -43.8 17 -33.8 29 -21 45 3.8 45 12.6 45 19.8 43 27 41.4 34.2 37.4
+L 34.2 11
+Q 34.2 4.2 35.4 1.8 37.4 -1.4 42.2 -1.4
+L 43.8 -1.4 43.8 -3.8 10.6 -3.8 10.6 -1.4
+Q 15.8 -1.4 17.8 -0.6 19.8 0.6 21 2.6 21.8 4.6 21.8 11
+L 21.8 35.8
+Q 17.8 38.2 13.4 39.4 9 40.6 4.2 40.6 -4.2 40.6 -11.8 35.8 -19.4 31 -24.2 21 -29 11 -29 -1.4 -29 -16.6 -21.8 -27.4 -13.4 -40.6 3 -40.6 15.4 -40.6 23 -33 28.2 -28.2 31.4 -17.8
+L 33.8 -17.8 31.4 -45 Z"/>
+
+  <path id="path-morph" d="" stroke="black"></path>
+  <text id="precision" x="-100" y="50" >precision</text>
+</svg><script>
+(function(){
+
+  var path1=document.getElementById("path1");
+  var path2=document.getElementById("path2");
+  var morph=document.getElementById("path-morph");
+  var precision=0,p1,p2;
+  
+  function initAnimation()
+  {
+		p1=[];
+	 p2=[];
+	  precision+=10;
+	  if(precision>80) precision=5;
+	  document.getElementById("precision").innerHTML="flattened to "+precision+" points";
+	  for(var i=0;i<precision;i++)
+	  {
+		var total_length=path1.getTotalLength();;
+		var place_on_path=i/precision*total_length;
+		var p=path1.getPointAtLength(place_on_path);
+		p1.push(p);
+		var total_length=path2.getTotalLength();;
+		var place_on_path=i/precision*total_length;
+		var p=path2.getPointAtLength(place_on_path);
+		p2.push(p);
+	  }
+  }
+  var time=0;
+  initAnimation();
+  animate();
+  function animate()
+  {
+  	time++;
+	var fract_time=(time%200)/200;
+	/* maak een ease in en ease out met een cosinus. */
+	fract_time=1-(Math.cos(fract_time*Math.PI)+1)/2;
+	var f1=fract_time;
+	var f2=1-f1;
+	var str="";
+	for(var i=0;i<precision;i++)
+	{
+	 var x=p1[i].x*f1+f2*p2[i].x;
+	 var y=p1[i].y*f1+f2*p2[i].y;
+	 if(i==0) str+="M";
+	 else str+="L";
+	 str+=x+" "+y;
+	}
+	str+="z";
+	if(time>200)
+	{
+		time=0;
+		initAnimation();
+	}
+	morph.setAttribute("d",str);
+	morph.setAttribute("transform","translate("+(-200+fract_time*400)+", 80)");
+	morph.setAttribute("fill","rgb("+(255-fract_time*255)+","+fract_time*255+",0)");
+  	window.requestAnimationFrame(animate);
+}
+
+  
 
 })();</script></div>
             <div class="full-column">Omdat het soms lastig is te werken met de berekende waarde van getTotalPathLength (bijvoorbeeld bij responsive SVGs)
@@ -142,7 +237,7 @@
 				  })();
 				  </script>
             </div>
-            <p>Om isPointinStroke of isPointInFill te kunnen gebruiken, moet je een punt meegeven, dit is een <a href="https://developer.mozilla.org/en-US/docs/Web/API/SVGPoint">SVGPoint</a></p>. Deze maak je met SVG.createSVGPoint() <code>var point = document.getElementById("SVG-ElementID").createSVGPoint();</code>. Vervolgens kun je de x en y van dit punt zetten.
+            <div class="full-column">Om isPointinStroke of isPointInFill te kunnen gebruiken, moet je een punt meegeven, dit is een <a href="https://developer.mozilla.org/en-US/docs/Web/API/SVGPoint">SVGPoint</a>. Deze maak je met SVG.createSVGPoint() <br><br><code>var point = document.getElementById("SVG-ElementID").createSVGPoint();</code><br><br> Vervolgens kun je de x en y van dit punt zetten.</div>
 
 
 			 <section>
@@ -208,7 +303,7 @@ svg.addEventListener('mousemove',function(evt)
             <div class="full-column">De rotatie in dit geval wordt gedaan met CSS animatie, maar het zou ook werken als dit met de WebAnimations Api werd gedaan, of
 			als we elementen IN de SVG zouden targeten. Dit is localToGlobal en GlobalToLocal, maar zelfs buiten het element.
 			Het enige wat NIET werkt, is als je 3D-transformaties op dit voorbeeld toepast.<br>
-			Gek genoeg, zou een HTML-voorbeeld voor deze demo vele malen ingewikkelder zijn!</div>
+			Ditzelfde demootje in HTML zou vele malen ingewikkelder zijn, omdat deze functie in HTML ontbreekt.</div>
 
 			 </section>
 
@@ -216,19 +311,20 @@ svg.addEventListener('mousemove',function(evt)
 				<h2>OPDRACHT 1 - algemene hitTest</h2>
 				<p>In games heb je vaker dan niet een hittest nodig op 2 grillige vormen.<br>
 				Nu heb je in principe alle tools om een cirkel te testen op het geraakt worden door een ster.<br>
-				Let op, ik heb het NIET over bounding box!</p><br>
+				Let op, ik heb het NIET over bounding box!<br>
 				<img src="img/hitboxing.svg" width="100%">
-				<p>Dit is een typisch voorbeeld van een probleem dat je in games heel vaak tegenkomt.
+				Dit is een typisch voorbeeld van een probleem dat je in games heel vaak tegenkomt.
 				Als we kijken naar de radius of de hitbox, is het bepalen van een botsing niet te doen.
 				Wat moeten we dan wel? Als we een pad omtrekken met zogenaamde sentries (in rood). 
-				<img src="img/sentries.svg" width="100%">
+				<br>
 				We geven &eacute;&eacute;n van
 				beide vormen een X aantal punten op het hitPath. (Hierbij is het handig de vorm te kiezen, waarbij we zo weinig mogelijk punten nodig hebben, voor een zo accuraat mogelijke test).
 				Vervolgens checken we voor elk van deze punten of hij
 				zich in de fill van het hitPath van de ANDERE VORM bevindt.
 				Het zou handig zijn voor de VOLGENDE opdracht als je hiervoor een algemene functie maakt voor twee paden.</p>
+				<div class="full-column"><img style="float: left;" src="img/sentries.svg" width="100%"></div>
 				
-				<h2>OPDRACHT 2 - Bullet Hell of Flappy Bird?</h2>
+				<h2 style="clear: both;">OPDRACHT 2 - Bullet Hell, Flappy Bird of dr Bibber?</h2>
 				<p>Maak een klein ontwijk-spelletje in SVG. 
 				Je zou een willekeurige tutorial voor een 2D spel kunnen gebruiken en dit toepassen op SVG.
 				Weet je niet wat voor spelletje, pak dan <a href="https://www.w3schools.com/graphics/game_intro.asp">Dit spel</a>.<br>
